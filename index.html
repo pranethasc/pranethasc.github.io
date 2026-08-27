@@ -3,13 +3,13 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Pranetha S.C. | Finance and Accounting Portfolio</title>
-  <meta name="description" content="Portfolio of Pranetha S.C. - B.Com student at KCLAS with interest in Finance and Accounting." />
+  <title>Pranetha S.C. | Finance & Accounting Portfolio | Innovation Trainee</title>
+  <meta name="description" content="Portfolio of Pranetha S.C. - B.Com Student at KCLAS, CMA Foundation (Distinction), Dept Rank 1, Mahatma Gandhi Merit Scholar, and Innovation Professional Trainee at PRICE Protosem." />
   
   <!-- Google Fonts: Plus Jakarta Sans & Outfit -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
   
   <!-- Tailwind CDN -->
   <script src="https://cdn.tailwindcss.com"></script>
@@ -85,10 +85,10 @@
     }
     
     .glass-panel:hover {
-      background: rgba(255, 255, 255, 0.055);
-      border-color: rgba(249, 115, 22, 0.3);
+      background: rgba(255, 255, 255, 0.06);
+      border-color: rgba(249, 115, 22, 0.35);
       transform: translateY(-3px);
-      box-shadow: 0 20px 40px -15px rgba(249, 115, 22, 0.12);
+      box-shadow: 0 20px 40px -15px rgba(249, 115, 22, 0.15);
     }
 
     .glass-nav {
@@ -108,6 +108,21 @@
       filter: blur(80px);
       opacity: 0.45;
       mix-blend-mode: screen;
+    }
+
+    /* Week Card Styling */
+    .week-card {
+      background: rgba(255, 255, 255, 0.025);
+      border: 1px solid rgba(255, 255, 255, 0.07);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      transition: all 0.25s ease-in-out;
+    }
+    .week-card:hover {
+      background: rgba(249, 115, 22, 0.08);
+      border-color: rgba(249, 115, 22, 0.4);
+      transform: translateY(-4px) scale(1.02);
+      box-shadow: 0 10px 25px -5px rgba(249, 115, 22, 0.2);
     }
 
     /* Custom Scrollbar */
@@ -152,14 +167,16 @@
         </div>
         <div class="flex flex-col">
           <span class="font-heading font-bold tracking-tight text-white group-hover:text-orange-400 transition-colors">Pranetha S.C.</span>
-          <span class="text-[11px] font-medium text-slate-400 tracking-wider uppercase">B.Com • Finance & Accounting</span>
+          <span class="text-[11px] font-medium text-slate-400 tracking-wider uppercase">B.Com • Dept Rank 1 • Protosem</span>
         </div>
       </a>
 
       <!-- Desktop Navigation Links -->
       <nav class="hidden md:flex items-center space-x-1 lg:space-x-2">
         <a href="#about" class="px-3.5 py-2 text-sm font-medium text-slate-300 hover:text-orange-400 rounded-lg hover:bg-white/[0.03] transition-all">About</a>
-        <a href="#focus" class="px-3.5 py-2 text-sm font-medium text-slate-300 hover:text-orange-400 rounded-lg hover:bg-white/[0.03] transition-all">Finance & Accounting</a>
+        <a href="#achievements" class="px-3.5 py-2 text-sm font-medium text-slate-300 hover:text-orange-400 rounded-lg hover:bg-white/[0.03] transition-all">Achievements</a>
+        <a href="#experience" class="px-3.5 py-2 text-sm font-medium text-slate-300 hover:text-orange-400 rounded-lg hover:bg-white/[0.03] transition-all">Protosem</a>
+        <a href="#certifications" class="px-3.5 py-2 text-sm font-medium text-slate-300 hover:text-orange-400 rounded-lg hover:bg-white/[0.03] transition-all">Certifications</a>
         <a href="#education" class="px-3.5 py-2 text-sm font-medium text-slate-300 hover:text-orange-400 rounded-lg hover:bg-white/[0.03] transition-all">Education</a>
       </nav>
 
@@ -185,7 +202,7 @@
       <!-- Top Pill Tag -->
       <div data-aos="fade-down" data-aos-duration="800" class="inline-flex items-center space-x-2 px-4 py-1.5 rounded-full bg-white/[0.04] border border-orange-500/30 backdrop-blur-md mb-8">
         <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
-        <span class="text-xs font-medium tracking-wide text-orange-200">Commerce Student • KCLAS</span>
+        <span class="text-xs font-medium tracking-wide text-orange-200">Mahatma Gandhi Merit Scholar • Dept Rank 1 • KCLAS</span>
       </div>
 
       <!-- Main Profile Avatar with Real Image Failsafe -->
@@ -202,7 +219,7 @@
         </div>
         <!-- Floating Badge -->
         <div class="absolute -bottom-2 -right-2 bg-gradient-to-br from-amber-500 to-orange-600 p-2 rounded-full border-2 border-[#080b12] text-white shadow-lg animate-float">
-          <i data-lucide="pie-chart" class="w-4 h-4"></i>
+          <i data-lucide="award" class="w-4 h-4"></i>
         </div>
       </div>
 
@@ -213,40 +230,44 @@
 
       <div data-aos="fade-up" data-aos-delay="350" class="h-10 sm:h-12 flex items-center justify-center mt-3">
         <span class="text-xl sm:text-2xl md:text-3xl font-medium text-slate-300">
-          Interested in <span id="typed-text" class="text-orange-400 font-semibold underline decoration-rose-500/50 decoration-2 underline-offset-4"></span>
+          <span id="typed-text" class="text-orange-400 font-semibold underline decoration-rose-500/50 decoration-2 underline-offset-4"></span>
         </span>
       </div>
 
       <!-- Hero Subtitle -->
       <p data-aos="fade-up" data-aos-delay="500" class="mt-6 text-base sm:text-lg md:text-xl text-slate-300 max-w-2xl font-light leading-relaxed">
-        Commerce student pursuing <strong>B.Com at KCLAS</strong> with a primary interest in <strong>Finance and Accounting</strong>.
+        B.Com Scholar at <strong>KCLAS</strong> | <strong>CMA Foundation (Distinction)</strong> | Innovation Professional Trainee at <strong>PRICE Protosem</strong> with a core focus on Finance and Accounting.
       </p>
 
       <!-- Hero CTA Buttons -->
       <div data-aos="fade-up" data-aos-delay="650" class="mt-10 flex flex-wrap items-center justify-center gap-4">
-        <a href="#focus" class="inline-flex items-center space-x-2.5 px-7 py-3.5 text-sm font-semibold text-white bg-gradient-to-r from-amber-500 via-orange-500 to-rose-600 rounded-xl shadow-lg shadow-orange-500/25 hover:shadow-orange-500/40 hover:scale-105 transition-all">
-          <i data-lucide="trending-up" class="w-4 h-4"></i>
-          <span>Explore Finance & Accounting</span>
+        <a href="#achievements" class="inline-flex items-center space-x-2.5 px-7 py-3.5 text-sm font-semibold text-white bg-gradient-to-r from-amber-500 via-orange-500 to-rose-600 rounded-xl shadow-lg shadow-orange-500/25 hover:shadow-orange-500/40 hover:scale-105 transition-all">
+          <i data-lucide="trophy" class="w-4 h-4"></i>
+          <span>View Key Achievements</span>
         </a>
-        <a href="resume.html" target="_blank" class="inline-flex items-center space-x-2 px-6 py-3.5 text-sm font-semibold text-slate-200 bg-white/[0.04] hover:bg-white/[0.08] border border-white/10 hover:border-orange-400/40 rounded-xl transition-all">
-          <i data-lucide="download" class="w-4 h-4 text-orange-400"></i>
-          <span>View ATS Resume</span>
+        <a href="#experience" class="inline-flex items-center space-x-2 px-6 py-3.5 text-sm font-semibold text-slate-200 bg-white/[0.04] hover:bg-white/[0.08] border border-white/10 hover:border-orange-400/40 rounded-xl transition-all">
+          <i data-lucide="briefcase" class="w-4 h-4 text-orange-400"></i>
+          <span>PRICE Protosem</span>
         </a>
       </div>
 
       <!-- Quick Metrics Ribbon -->
-      <div data-aos="fade-up" data-aos-delay="800" class="mt-16 w-full max-w-3xl grid grid-cols-1 sm:grid-cols-3 gap-4 text-center">
+      <div data-aos="fade-up" data-aos-delay="800" class="mt-16 w-full max-w-5xl grid grid-cols-2 md:grid-cols-4 gap-4 text-center">
         <div class="glass-panel p-4 rounded-2xl">
-          <div class="text-2xl sm:text-3xl font-bold font-heading gradient-text">B.Com</div>
-          <div class="text-xs text-slate-400 mt-1 uppercase tracking-wider">KCLAS Degree</div>
+          <div class="text-2xl sm:text-3xl font-bold font-heading gradient-text">Rank 1</div>
+          <div class="text-xs text-slate-400 mt-1 uppercase tracking-wider">Dept Rank (2 Sems)</div>
         </div>
         <div class="glass-panel p-4 rounded-2xl">
-          <div class="text-2xl sm:text-3xl font-bold font-heading text-amber-400">Finance & Accounting</div>
-          <div class="text-xs text-slate-400 mt-1 uppercase tracking-wider">Primary Interest</div>
+          <div class="text-2xl sm:text-3xl font-bold font-heading text-amber-400">308 / 400</div>
+          <div class="text-xs text-slate-400 mt-1 uppercase tracking-wider">CMA Foundation Distinction</div>
         </div>
         <div class="glass-panel p-4 rounded-2xl">
-          <div class="text-2xl sm:text-3xl font-bold font-heading text-emerald-400">100%</div>
-          <div class="text-xs text-slate-400 mt-1 uppercase tracking-wider">Commitment to Learning</div>
+          <div class="text-2xl sm:text-3xl font-bold font-heading text-rose-400">Scholar</div>
+          <div class="text-xs text-slate-400 mt-1 uppercase tracking-wider">Mahatma Gandhi Merit</div>
+        </div>
+        <div class="glass-panel p-4 rounded-2xl">
+          <div class="text-2xl sm:text-3xl font-bold font-heading text-emerald-400">93.4%</div>
+          <div class="text-xs text-slate-400 mt-1 uppercase tracking-wider">12th Board Score</div>
         </div>
       </div>
     </section>
@@ -255,7 +276,7 @@
     <section id="about" class="py-20 relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="text-center max-w-3xl mx-auto mb-16" data-aos="fade-up">
         <span class="text-xs font-semibold uppercase tracking-widest text-orange-400 bg-orange-500/10 px-3.5 py-1.5 rounded-full border border-orange-500/20">About Me</span>
-        <h2 class="text-3xl sm:text-4xl font-heading font-bold text-white mt-4">Academic Journey & Background</h2>
+        <h2 class="text-3xl sm:text-4xl font-heading font-bold text-white mt-4">Academic Excellence & Professional Drive</h2>
       </div>
 
       <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-stretch">
@@ -265,35 +286,38 @@
           <div>
             <div class="flex items-center space-x-3 mb-6">
               <div class="p-2.5 rounded-xl bg-orange-500/10 border border-orange-500/20 text-orange-400">
-                <i data-lucide="book-open" class="w-6 h-6"></i>
+                <i data-lucide="sparkles" class="w-6 h-6"></i>
               </div>
-              <h3 class="text-xl font-heading font-bold text-white">B.Com at KCLAS</h3>
+              <h3 class="text-xl font-heading font-bold text-white">B.Com at KCLAS & CMA Aspirant</h3>
             </div>
             
             <p class="text-slate-300 leading-relaxed mb-4 text-base">
-              I am pursuing my <strong>Bachelor of Commerce (B.Com)</strong> at <strong>Kumaraguru College of Liberal Arts and Science (KCLAS)</strong>. My primary area of interest is <strong>Finance and Accounting</strong>.
+              I am a Bachelor of Commerce (B.Com) student at <strong>Kumaraguru College of Liberal Arts and Science (KCLAS)</strong>, holding <strong>Department Rank 1</strong> for two consecutive semesters and awarded the prestigious <strong>Mahatma Gandhi Merit Scholarship</strong>.
+            </p>
+            <p class="text-slate-300 leading-relaxed mb-4 text-base">
+              Having cleared the <strong>CMA Foundation examination with Distinction (308/400)</strong>, I have developed strong analytical acumen in Finance and Accounting.
             </p>
             <p class="text-slate-300 leading-relaxed text-base">
-              I am dedicated to developing a strong understanding of financial principles, accounting practices, and financial analysis to support organizational decision-making.
+              Currently, I am also undergoing professional training as an <strong>Innovation Professional Trainee at PRICE Protosem</strong>, cultivating hands-on problem-solving and innovation methodologies.
             </p>
           </div>
 
           <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-6 border-t border-white/5">
             <div class="flex items-start space-x-3">
-              <i data-lucide="check" class="w-5 h-5 text-amber-400 mt-0.5 shrink-0"></i>
-              <span class="text-sm text-slate-300">Financial Accounting & Reporting</span>
+              <i data-lucide="check-circle-2" class="w-5 h-5 text-amber-400 mt-0.5 shrink-0"></i>
+              <span class="text-sm text-slate-300">Consistent Top Academic Performer (Dept Rank 1)</span>
             </div>
             <div class="flex items-start space-x-3">
-              <i data-lucide="check" class="w-5 h-5 text-rose-400 mt-0.5 shrink-0"></i>
-              <span class="text-sm text-slate-300">Corporate Finance Fundamentals</span>
+              <i data-lucide="check-circle-2" class="w-5 h-5 text-rose-400 mt-0.5 shrink-0"></i>
+              <span class="text-sm text-slate-300">Cleared CMA Foundation with Distinction (308/400)</span>
             </div>
             <div class="flex items-start space-x-3">
-              <i data-lucide="check" class="w-5 h-5 text-orange-400 mt-0.5 shrink-0"></i>
-              <span class="text-sm text-slate-300">Cost & Management Accounting</span>
+              <i data-lucide="check-circle-2" class="w-5 h-5 text-orange-400 mt-0.5 shrink-0"></i>
+              <span class="text-sm text-slate-300">PRICE Protosem Innovation Professional Trainee</span>
             </div>
             <div class="flex items-start space-x-3">
-              <i data-lucide="check" class="w-5 h-5 text-emerald-400 mt-0.5 shrink-0"></i>
-              <span class="text-sm text-slate-300">Budgeting & Business Finance</span>
+              <i data-lucide="check-circle-2" class="w-5 h-5 text-emerald-400 mt-0.5 shrink-0"></i>
+              <span class="text-sm text-slate-300">NPTEL Elite & Multi-Certified Professional</span>
             </div>
           </div>
         </div>
@@ -305,93 +329,292 @@
           <div class="glass-panel p-6 rounded-3xl flex-1 flex flex-col justify-center">
             <div class="flex items-center space-x-3 mb-3">
               <div class="p-2 rounded-lg bg-amber-500/10 text-amber-400">
-                <i data-lucide="building-2" class="w-5 h-5"></i>
+                <i data-lucide="medal" class="w-5 h-5"></i>
               </div>
-              <h4 class="font-heading font-semibold text-white">Institution</h4>
+              <h4 class="font-heading font-semibold text-white">Honor & Scholarship</h4>
             </div>
-            <p class="text-sm text-slate-300">Kumaraguru College of Liberal Arts and Science (KCLAS)</p>
+            <p class="text-sm text-slate-300">Mahatma Gandhi Merit Scholarship awardee & Department Rank 1 for two consecutive semesters at KCLAS.</p>
           </div>
 
           <!-- Card 2 -->
           <div class="glass-panel p-6 rounded-3xl flex-1 flex flex-col justify-center">
             <div class="flex items-center space-x-3 mb-3">
-              <div class="p-2 rounded-lg bg-orange-500/10 text-orange-400">
-                <i data-lucide="calculator" class="w-5 h-5"></i>
+              <div class="p-2 rounded-lg bg-rose-500/10 text-rose-400">
+                <i data-lucide="graduation-cap" class="w-5 h-5"></i>
               </div>
-              <h4 class="font-heading font-semibold text-white">Field of Interest</h4>
+              <h4 class="font-heading font-semibold text-white">Professional Qualification</h4>
             </div>
-            <p class="text-sm text-slate-300">Finance and Accounting</p>
+            <p class="text-sm text-slate-300">CMA Foundation cleared with Distinction (Score: 308/400).</p>
+          </div>
+
+          <!-- Card 3 -->
+          <div class="glass-panel p-6 rounded-3xl flex-1 flex flex-col justify-center">
+            <div class="flex items-center space-x-3 mb-3">
+              <div class="p-2 rounded-lg bg-orange-500/10 text-orange-400">
+                <i data-lucide="zap" class="w-5 h-5"></i>
+              </div>
+              <h4 class="font-heading font-semibold text-white">Industry Immersion</h4>
+            </div>
+            <p class="text-sm text-slate-300">Innovation Professional Trainee at PRICE Protosem.</p>
           </div>
 
         </div>
       </div>
     </section>
 
-    <!-- ==================== INTERACTIVE FINANCE & ACCOUNTING SIMULATOR ==================== -->
-    <section id="focus" class="py-20 relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <!-- ==================== ACHIEVEMENTS SECTION ==================== -->
+    <section id="achievements" class="py-20 relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="text-center max-w-3xl mx-auto mb-16" data-aos="fade-up">
-        <span class="text-xs font-semibold uppercase tracking-widest text-rose-400 bg-rose-500/10 px-3.5 py-1.5 rounded-full border border-rose-500/20">Finance & Accounting</span>
-        <h2 class="text-3xl sm:text-4xl font-heading font-bold text-white mt-4">Break-Even & Cost Analysis Model</h2>
-        <p class="text-slate-400 mt-3">An interactive financial model demonstrating Cost-Volume-Profit (CVP) analysis.</p>
+        <span class="text-xs font-semibold uppercase tracking-widest text-amber-400 bg-amber-500/10 px-3.5 py-1.5 rounded-full border border-amber-500/20">Honors & Milestones</span>
+        <h2 class="text-3xl sm:text-4xl font-heading font-bold text-white mt-4">Key Achievements</h2>
+        <p class="text-slate-400 mt-3">A record of consistent academic excellence, competitive merit, and professional credentials.</p>
       </div>
 
-      <div data-aos="zoom-in-up" data-aos-duration="900" class="glass-panel p-8 sm:p-10 rounded-3xl border border-orange-500/30 max-w-4xl mx-auto">
-        <div class="flex flex-col md:flex-row items-center justify-between border-b border-white/10 pb-6 mb-8 gap-4">
-          <div>
-            <h3 class="text-xl font-heading font-bold text-white flex items-center gap-2">
-              <i data-lucide="sliders" class="w-5 h-5 text-orange-400"></i>
-              CVP Cost & Profit Model
-            </h3>
-            <p class="text-xs text-slate-400 mt-1">Adjust the figures to compute Contribution, Profit/Volume (P/V) Ratio, and Break-Even Point (BEP).</p>
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        
+        <!-- Achievement 1: Merit Scholarship -->
+        <div data-aos="fade-up" data-aos-delay="100" class="glass-panel p-7 rounded-3xl relative overflow-hidden group">
+          <div class="w-12 h-12 rounded-2xl bg-amber-500/10 text-amber-400 flex items-center justify-center mb-5 group-hover:scale-110 transition-transform">
+            <i data-lucide="award" class="w-6 h-6"></i>
           </div>
-          <span class="px-3 py-1 bg-orange-500/10 text-orange-400 text-xs font-semibold rounded-full border border-orange-500/20">
-            Financial Model
+          <span class="text-xs font-semibold text-amber-400 uppercase tracking-wider">Institutional Honor</span>
+          <h3 class="text-xl font-heading font-bold text-white mt-2 mb-2">Mahatma Gandhi Merit Scholarship</h3>
+          <p class="text-sm text-slate-300 leading-relaxed">
+            Awarded for demonstrated academic distinction, discipline, and exemplary performance at KCLAS.
+          </p>
+        </div>
+
+        <!-- Achievement 2: Dept Rank 1 -->
+        <div data-aos="fade-up" data-aos-delay="200" class="glass-panel p-7 rounded-3xl relative overflow-hidden group">
+          <div class="w-12 h-12 rounded-2xl bg-orange-500/10 text-orange-400 flex items-center justify-center mb-5 group-hover:scale-110 transition-transform">
+            <i data-lucide="crown" class="w-6 h-6"></i>
+          </div>
+          <span class="text-xs font-semibold text-orange-400 uppercase tracking-wider">Academic Standing</span>
+          <h3 class="text-xl font-heading font-bold text-white mt-2 mb-2">Department Rank 1</h3>
+          <p class="text-sm text-slate-300 leading-relaxed">
+            Secured 1st Rank in the Department for two consecutive semesters in the B.Com program at KCLAS.
+          </p>
+        </div>
+
+        <!-- Achievement 3: CMA Foundation -->
+        <div data-aos="fade-up" data-aos-delay="300" class="glass-panel p-7 rounded-3xl relative overflow-hidden group">
+          <div class="w-12 h-12 rounded-2xl bg-rose-500/10 text-rose-400 flex items-center justify-center mb-5 group-hover:scale-110 transition-transform">
+            <i data-lucide="check-check" class="w-6 h-6"></i>
+          </div>
+          <span class="text-xs font-semibold text-rose-400 uppercase tracking-wider">Professional Exam</span>
+          <h3 class="text-xl font-heading font-bold text-white mt-2 mb-2">CMA Foundation (Distinction)</h3>
+          <p class="text-sm text-slate-300 leading-relaxed">
+            Cleared the CMA Foundation examination with Distinction, securing a high score of <strong>308 / 400</strong>.
+          </p>
+        </div>
+
+        <!-- Achievement 4: 12th Boards -->
+        <div data-aos="fade-up" data-aos-delay="400" class="glass-panel p-7 rounded-3xl relative overflow-hidden group">
+          <div class="w-12 h-12 rounded-2xl bg-emerald-500/10 text-emerald-400 flex items-center justify-center mb-5 group-hover:scale-110 transition-transform">
+            <i data-lucide="trending-up" class="w-6 h-6"></i>
+          </div>
+          <span class="text-xs font-semibold text-emerald-400 uppercase tracking-wider">Higher Secondary</span>
+          <h3 class="text-xl font-heading font-bold text-white mt-2 mb-2">93.4% in 12th Board</h3>
+          <p class="text-sm text-slate-300 leading-relaxed">
+            Graduated with top academic standing and distinction in Commerce & Accounting subjects.
+          </p>
+        </div>
+
+        <!-- Achievement 5: 10th Boards -->
+        <div data-aos="fade-up" data-aos-delay="500" class="glass-panel p-7 rounded-3xl relative overflow-hidden group">
+          <div class="w-12 h-12 rounded-2xl bg-cyan-500/10 text-cyan-400 flex items-center justify-center mb-5 group-hover:scale-110 transition-transform">
+            <i data-lucide="star" class="w-6 h-6"></i>
+          </div>
+          <span class="text-xs font-semibold text-cyan-400 uppercase tracking-wider">Secondary School</span>
+          <h3 class="text-xl font-heading font-bold text-white mt-2 mb-2">92% in 10th Board</h3>
+          <p class="text-sm text-slate-300 leading-relaxed">
+            Consistent foundational excellence across quantitative and analytical curricula.
+          </p>
+        </div>
+
+        <!-- Achievement 6: Protosem Role -->
+        <div data-aos="fade-up" data-aos-delay="600" class="glass-panel p-7 rounded-3xl relative overflow-hidden group">
+          <div class="w-12 h-12 rounded-2xl bg-purple-500/10 text-purple-400 flex items-center justify-center mb-5 group-hover:scale-110 transition-transform">
+            <i data-lucide="rocket" class="w-6 h-6"></i>
+          </div>
+          <span class="text-xs font-semibold text-purple-400 uppercase tracking-wider">Industry Innovation</span>
+          <h3 class="text-xl font-heading font-bold text-white mt-2 mb-2">PRICE Protosem Trainee</h3>
+          <p class="text-sm text-slate-300 leading-relaxed">
+            Selected as an Innovation Professional Trainee undergoing comprehensive 20-week industry immersion.
+          </p>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ==================== WORK EXPERIENCE: PRICE PROTOSEM ==================== -->
+    <section id="experience" class="py-20 relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center max-w-3xl mx-auto mb-16" data-aos="fade-up">
+        <span class="text-xs font-semibold uppercase tracking-widest text-orange-400 bg-orange-500/10 px-3.5 py-1.5 rounded-full border border-orange-500/20">Work Experience</span>
+        <h2 class="text-3xl sm:text-4xl font-heading font-bold text-white mt-4">PRICE Protosem</h2>
+        <p class="text-lg font-medium text-orange-400 mt-2">Role: Innovation Professional Trainee</p>
+      </div>
+
+      <!-- 20 Weekly Placeholder Cards (Week 1 to Week 20) with no other text -->
+      <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4">
+        
+        <div data-aos="zoom-in" data-aos-delay="50" class="week-card p-6 rounded-2xl text-center flex items-center justify-center cursor-default">
+          <span class="font-heading font-bold text-base text-white tracking-wide">Week 1</span>
+        </div>
+        <div data-aos="zoom-in" data-aos-delay="75" class="week-card p-6 rounded-2xl text-center flex items-center justify-center cursor-default">
+          <span class="font-heading font-bold text-base text-white tracking-wide">Week 2</span>
+        </div>
+        <div data-aos="zoom-in" data-aos-delay="100" class="week-card p-6 rounded-2xl text-center flex items-center justify-center cursor-default">
+          <span class="font-heading font-bold text-base text-white tracking-wide">Week 3</span>
+        </div>
+        <div data-aos="zoom-in" data-aos-delay="125" class="week-card p-6 rounded-2xl text-center flex items-center justify-center cursor-default">
+          <span class="font-heading font-bold text-base text-white tracking-wide">Week 4</span>
+        </div>
+        <div data-aos="zoom-in" data-aos-delay="150" class="week-card p-6 rounded-2xl text-center flex items-center justify-center cursor-default">
+          <span class="font-heading font-bold text-base text-white tracking-wide">Week 5</span>
+        </div>
+
+        <div data-aos="zoom-in" data-aos-delay="175" class="week-card p-6 rounded-2xl text-center flex items-center justify-center cursor-default">
+          <span class="font-heading font-bold text-base text-white tracking-wide">Week 6</span>
+        </div>
+        <div data-aos="zoom-in" data-aos-delay="200" class="week-card p-6 rounded-2xl text-center flex items-center justify-center cursor-default">
+          <span class="font-heading font-bold text-base text-white tracking-wide">Week 7</span>
+        </div>
+        <div data-aos="zoom-in" data-aos-delay="225" class="week-card p-6 rounded-2xl text-center flex items-center justify-center cursor-default">
+          <span class="font-heading font-bold text-base text-white tracking-wide">Week 8</span>
+        </div>
+        <div data-aos="zoom-in" data-aos-delay="250" class="week-card p-6 rounded-2xl text-center flex items-center justify-center cursor-default">
+          <span class="font-heading font-bold text-base text-white tracking-wide">Week 9</span>
+        </div>
+        <div data-aos="zoom-in" data-aos-delay="275" class="week-card p-6 rounded-2xl text-center flex items-center justify-center cursor-default">
+          <span class="font-heading font-bold text-base text-white tracking-wide">Week 10</span>
+        </div>
+
+        <div data-aos="zoom-in" data-aos-delay="300" class="week-card p-6 rounded-2xl text-center flex items-center justify-center cursor-default">
+          <span class="font-heading font-bold text-base text-white tracking-wide">Week 11</span>
+        </div>
+        <div data-aos="zoom-in" data-aos-delay="325" class="week-card p-6 rounded-2xl text-center flex items-center justify-center cursor-default">
+          <span class="font-heading font-bold text-base text-white tracking-wide">Week 12</span>
+        </div>
+        <div data-aos="zoom-in" data-aos-delay="350" class="week-card p-6 rounded-2xl text-center flex items-center justify-center cursor-default">
+          <span class="font-heading font-bold text-base text-white tracking-wide">Week 13</span>
+        </div>
+        <div data-aos="zoom-in" data-aos-delay="375" class="week-card p-6 rounded-2xl text-center flex items-center justify-center cursor-default">
+          <span class="font-heading font-bold text-base text-white tracking-wide">Week 14</span>
+        </div>
+        <div data-aos="zoom-in" data-aos-delay="400" class="week-card p-6 rounded-2xl text-center flex items-center justify-center cursor-default">
+          <span class="font-heading font-bold text-base text-white tracking-wide">Week 15</span>
+        </div>
+
+        <div data-aos="zoom-in" data-aos-delay="425" class="week-card p-6 rounded-2xl text-center flex items-center justify-center cursor-default">
+          <span class="font-heading font-bold text-base text-white tracking-wide">Week 16</span>
+        </div>
+        <div data-aos="zoom-in" data-aos-delay="450" class="week-card p-6 rounded-2xl text-center flex items-center justify-center cursor-default">
+          <span class="font-heading font-bold text-base text-white tracking-wide">Week 17</span>
+        </div>
+        <div data-aos="zoom-in" data-aos-delay="475" class="week-card p-6 rounded-2xl text-center flex items-center justify-center cursor-default">
+          <span class="font-heading font-bold text-base text-white tracking-wide">Week 18</span>
+        </div>
+        <div data-aos="zoom-in" data-aos-delay="500" class="week-card p-6 rounded-2xl text-center flex items-center justify-center cursor-default">
+          <span class="font-heading font-bold text-base text-white tracking-wide">Week 19</span>
+        </div>
+        <div data-aos="zoom-in" data-aos-delay="525" class="week-card p-6 rounded-2xl text-center flex items-center justify-center cursor-default">
+          <span class="font-heading font-bold text-base text-white tracking-wide">Week 20</span>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ==================== CERTIFICATIONS & WORKSHOPS SECTION ==================== -->
+    <section id="certifications" class="py-20 relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center max-w-3xl mx-auto mb-16" data-aos="fade-up">
+        <span class="text-xs font-semibold uppercase tracking-widest text-rose-400 bg-rose-500/10 px-3.5 py-1.5 rounded-full border border-rose-500/20">Continuous Learning</span>
+        <h2 class="text-3xl sm:text-4xl font-heading font-bold text-white mt-4">Certifications & Workshops</h2>
+        <p class="text-slate-400 mt-3">Professional training programs and accredited development courses.</p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        
+        <!-- Cert 1: NPTEL -->
+        <div data-aos="fade-up" data-aos-delay="100" class="glass-panel p-6 rounded-3xl">
+          <div class="flex items-center space-x-3 mb-4">
+            <div class="p-2.5 rounded-xl bg-orange-500/10 text-orange-400">
+              <i data-lucide="award" class="w-5 h-5"></i>
+            </div>
+            <div>
+              <span class="text-[11px] font-semibold text-orange-400 uppercase tracking-wider">NPTEL</span>
+              <h3 class="text-base font-heading font-bold text-white">Soft Skill Development</h3>
+            </div>
+          </div>
+          <span class="inline-flex items-center px-2.5 py-1 rounded-md text-xs font-semibold bg-emerald-500/10 text-emerald-300 border border-emerald-500/20">
+            Elite Certification
           </span>
         </div>
 
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
-          <!-- Input 1: Fixed Cost -->
-          <div class="bg-white/[0.02] p-4 rounded-2xl border border-white/5">
-            <label class="block text-xs font-medium text-slate-400 mb-1">Fixed Overhead Costs (₹)</label>
-            <input type="number" id="fixed-cost" value="50000" step="5000" class="w-full bg-[#0d121f] text-white font-mono text-base px-3 py-2 rounded-xl border border-white/10 focus:border-orange-500 focus:outline-none transition" />
-            <span class="text-[10px] text-slate-500">Rent, salaries, fixed costs</span>
+        <!-- Cert 2: HP Life Leadership -->
+        <div data-aos="fade-up" data-aos-delay="200" class="glass-panel p-6 rounded-3xl">
+          <div class="flex items-center space-x-3 mb-4">
+            <div class="p-2.5 rounded-xl bg-amber-500/10 text-amber-400">
+              <i data-lucide="users" class="w-5 h-5"></i>
+            </div>
+            <div>
+              <span class="text-[11px] font-semibold text-amber-400 uppercase tracking-wider">HP LIFE</span>
+              <h3 class="text-base font-heading font-bold text-white">Effective Leadership</h3>
+            </div>
           </div>
-
-          <!-- Input 2: Selling Price per Unit -->
-          <div class="bg-white/[0.02] p-4 rounded-2xl border border-white/5">
-            <label class="block text-xs font-medium text-slate-400 mb-1">Selling Price / Unit (₹)</label>
-            <input type="number" id="selling-price" value="250" step="10" class="w-full bg-[#0d121f] text-white font-mono text-base px-3 py-2 rounded-xl border border-white/10 focus:border-orange-500 focus:outline-none transition" />
-            <span class="text-[10px] text-slate-500">Selling price</span>
-          </div>
-
-          <!-- Input 3: Variable Cost per Unit -->
-          <div class="bg-white/[0.02] p-4 rounded-2xl border border-white/5">
-            <label class="block text-xs font-medium text-slate-400 mb-1">Variable Cost / Unit (₹)</label>
-            <input type="number" id="variable-cost" value="150" step="10" class="w-full bg-[#0d121f] text-white font-mono text-base px-3 py-2 rounded-xl border border-white/10 focus:border-orange-500 focus:outline-none transition" />
-            <span class="text-[10px] text-slate-500">Direct material & variable costs</span>
-          </div>
+          <span class="inline-flex items-center px-2.5 py-1 rounded-md text-xs font-semibold bg-white/5 text-slate-300 border border-white/10">
+            Leadership & Management
+          </span>
         </div>
 
-        <!-- Calculated Live Metrics -->
-        <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 pt-6 border-t border-white/10">
-          <div class="p-4 rounded-2xl bg-orange-500/10 border border-orange-500/20 text-center">
-            <div class="text-xs text-orange-200 font-medium">Contribution / Unit</div>
-            <div id="result-cpu" class="text-2xl font-bold font-heading text-white mt-1">₹100</div>
-            <div class="text-[10px] text-orange-300/70 mt-1">(Selling Price - Variable Cost)</div>
+        <!-- Cert 3: HP Life Presentations -->
+        <div data-aos="fade-up" data-aos-delay="300" class="glass-panel p-6 rounded-3xl">
+          <div class="flex items-center space-x-3 mb-4">
+            <div class="p-2.5 rounded-xl bg-rose-500/10 text-rose-400">
+              <i data-lucide="presentation" class="w-5 h-5"></i>
+            </div>
+            <div>
+              <span class="text-[11px] font-semibold text-rose-400 uppercase tracking-wider">HP LIFE</span>
+              <h3 class="text-base font-heading font-bold text-white">Effective Presentations</h3>
+            </div>
           </div>
-
-          <div class="p-4 rounded-2xl bg-rose-500/10 border border-rose-500/20 text-center">
-            <div class="text-xs text-rose-200 font-medium">P/V Ratio</div>
-            <div id="result-pv" class="text-2xl font-bold font-heading text-white mt-1">40.0%</div>
-            <div class="text-[10px] text-rose-300/70 mt-1">(Contribution ÷ Sales × 100)</div>
-          </div>
-
-          <div class="p-4 rounded-2xl bg-amber-500/10 border border-amber-500/20 text-center">
-            <div class="text-xs text-amber-200 font-medium">Break-Even Units</div>
-            <div id="result-bep" class="text-2xl font-bold font-heading text-white mt-1">500 Units</div>
-            <div class="text-[10px] text-amber-300/70 mt-1">₹1,25,000 Break-Even Sales</div>
-          </div>
+          <span class="inline-flex items-center px-2.5 py-1 rounded-md text-xs font-semibold bg-white/5 text-slate-300 border border-white/10">
+            Business Communication
+          </span>
         </div>
+
+        <!-- Cert 4: TCS iON -->
+        <div data-aos="fade-up" data-aos-delay="400" class="glass-panel p-6 rounded-3xl">
+          <div class="flex items-center space-x-3 mb-4">
+            <div class="p-2.5 rounded-xl bg-cyan-500/10 text-cyan-400">
+              <i data-lucide="file-check-2" class="w-5 h-5"></i>
+            </div>
+            <div>
+              <span class="text-[11px] font-semibold text-cyan-400 uppercase tracking-wider">TCS iON</span>
+              <h3 class="text-base font-heading font-bold text-white">Contract Management for Beginners</h3>
+            </div>
+          </div>
+          <span class="inline-flex items-center px-2.5 py-1 rounded-md text-xs font-semibold bg-white/5 text-slate-300 border border-white/10">
+            Corporate Compliance
+          </span>
+        </div>
+
+        <!-- Cert 5: Amypo Technologies -->
+        <div data-aos="fade-up" data-aos-delay="500" class="glass-panel p-6 rounded-3xl">
+          <div class="flex items-center space-x-3 mb-4">
+            <div class="p-2.5 rounded-xl bg-emerald-500/10 text-emerald-400">
+              <i data-lucide="table" class="w-5 h-5"></i>
+            </div>
+            <div>
+              <span class="text-[11px] font-semibold text-emerald-400 uppercase tracking-wider">Amypo Technologies</span>
+              <h3 class="text-base font-heading font-bold text-white">Basic Excel Micro Credential Course</h3>
+            </div>
+          </div>
+          <span class="inline-flex items-center px-2.5 py-1 rounded-md text-xs font-semibold bg-emerald-500/10 text-emerald-300 border border-emerald-500/20">
+            Workshop & Credential
+          </span>
+        </div>
+
       </div>
     </section>
 
@@ -402,9 +625,9 @@
         <h2 class="text-3xl sm:text-4xl font-heading font-bold text-white mt-4">Education</h2>
       </div>
 
-      <div class="max-w-3xl mx-auto relative pl-8 border-l border-white/10">
+      <div class="max-w-3xl mx-auto relative pl-8 border-l border-white/10 space-y-10">
         
-        <!-- Timeline Item -->
+        <!-- College -->
         <div data-aos="fade-left" data-aos-duration="800" class="relative">
           <div class="absolute -left-[41px] top-1 w-6 h-6 rounded-full bg-gradient-to-r from-amber-500 to-orange-500 border-4 border-[#080b12] shadow-lg shadow-orange-500/30"></div>
           <div class="glass-panel p-6 sm:p-8 rounded-3xl">
@@ -415,13 +638,32 @@
               Kumaraguru College of Liberal Arts and Science (KCLAS)
             </div>
             <p class="text-slate-300 text-sm mt-3 leading-relaxed">
-              Curriculum focused on Financial Accounting, Corporate Finance, Cost & Management Accounting, Company Law, Taxation, and Auditing.
+              Achieved <strong>Department Rank 1</strong> for two consecutive semesters. Awarded the <strong>Mahatma Gandhi Merit Scholarship</strong>. Specializing in Finance and Accounting.
             </p>
-            <div class="mt-4 flex flex-wrap gap-2">
-              <span class="text-xs px-2.5 py-1 rounded-md bg-orange-500/10 text-orange-300 border border-orange-500/20">Finance</span>
-              <span class="text-xs px-2.5 py-1 rounded-md bg-amber-500/10 text-amber-300 border border-amber-500/20">Financial Accounting</span>
-              <span class="text-xs px-2.5 py-1 rounded-md bg-rose-500/10 text-rose-300 border border-rose-500/20">Cost Accounting</span>
-            </div>
+          </div>
+        </div>
+
+        <!-- 12th -->
+        <div data-aos="fade-left" data-aos-duration="800" data-aos-delay="150" class="relative">
+          <div class="absolute -left-[41px] top-1 w-6 h-6 rounded-full bg-gradient-to-r from-orange-500 to-rose-500 border-4 border-[#080b12] shadow-lg shadow-rose-500/30"></div>
+          <div class="glass-panel p-6 sm:p-8 rounded-3xl">
+            <span class="text-xs font-bold text-rose-400 uppercase tracking-wider">Higher Secondary Certificate (12th)</span>
+            <h3 class="text-xl font-heading font-bold text-white mt-1">Score: 93.4%</h3>
+            <p class="text-slate-300 text-sm mt-2 leading-relaxed">
+              Strong distinction across commerce, accountancy, and quantitative curriculum.
+            </p>
+          </div>
+        </div>
+
+        <!-- 10th -->
+        <div data-aos="fade-left" data-aos-duration="800" data-aos-delay="300" class="relative">
+          <div class="absolute -left-[41px] top-1 w-6 h-6 rounded-full bg-gradient-to-r from-rose-500 to-amber-500 border-4 border-[#080b12] shadow-lg shadow-amber-500/30"></div>
+          <div class="glass-panel p-6 sm:p-8 rounded-3xl">
+            <span class="text-xs font-bold text-amber-400 uppercase tracking-wider">Secondary School Leaving Certificate (10th)</span>
+            <h3 class="text-xl font-heading font-bold text-white mt-1">Score: 92%</h3>
+            <p class="text-slate-300 text-sm mt-2 leading-relaxed">
+              Consistently high scholastic performance across foundational subjects.
+            </p>
           </div>
         </div>
 
@@ -472,7 +714,7 @@
         <div class="text-center pt-6 border-t border-white/5">
           <a href="resume.html" target="_blank" class="inline-flex items-center space-x-2 px-8 py-3.5 text-sm font-semibold text-white bg-gradient-to-r from-orange-500 via-rose-500 to-amber-500 rounded-xl shadow-lg shadow-orange-500/30 hover:scale-105 transition-all">
             <i data-lucide="file-check" class="w-4 h-4"></i>
-            <span>View ATS Resume</span>
+            <span>View & Print Official ATS Resume</span>
           </a>
         </div>
 
@@ -514,40 +756,19 @@
     // Dynamic Typed.js
     new Typed('#typed-text', {
       strings: [
-        'Finance and Accounting',
-        'Financial Analysis',
-        'Cost Analysis',
-        'B.Com Studies at KCLAS'
+        'Dept Rank 1 Scholar (2 Sems)',
+        'CMA Foundation Distinction (308/400)',
+        'Mahatma Gandhi Merit Scholar',
+        'PRICE Protosem Trainee'
       ],
-      typeSpeed: 55,
-      backSpeed: 35,
+      typeSpeed: 50,
+      backSpeed: 30,
       backDelay: 1800,
       loop: true
     });
 
     // Dynamic Year
     document.getElementById('year').textContent = new Date().getFullYear();
-
-    // CVP Simulator Calculation Logic
-    function updateCVP() {
-      const fc = parseFloat(document.getElementById('fixed-cost').value) || 0;
-      const sp = parseFloat(document.getElementById('selling-price').value) || 0;
-      const vc = parseFloat(document.getElementById('variable-cost').value) || 0;
-
-      const cpu = sp - vc;
-      const pvRatio = sp > 0 ? (cpu / sp) * 100 : 0;
-      const bepUnits = cpu > 0 ? fc / cpu : 0;
-      const bepSales = bepUnits * sp;
-
-      document.getElementById('result-cpu').textContent = '₹' + cpu.toLocaleString('en-IN', { maximumFractionDigits: 2 });
-      document.getElementById('result-pv').textContent = pvRatio.toFixed(1) + '%';
-      document.getElementById('result-bep').innerHTML = Math.ceil(bepUnits).toLocaleString('en-IN') + ' Units <div class="text-xs text-amber-300/70 font-normal mt-0.5">₹' + Math.ceil(bepSales).toLocaleString('en-IN') + ' Sales</div>';
-    }
-
-    document.getElementById('fixed-cost').addEventListener('input', updateCVP);
-    document.getElementById('selling-price').addEventListener('input', updateCVP);
-    document.getElementById('variable-cost').addEventListener('input', updateCVP);
-    updateCVP();
   </script>
 </body>
 </html>
