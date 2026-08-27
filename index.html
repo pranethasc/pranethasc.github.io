@@ -369,75 +369,147 @@
       <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
         
         <!-- Achievement 1: Merit Scholarship in College -->
-        <div data-aos="fade-up" data-aos-delay="100" class="glass-panel p-7 rounded-3xl relative overflow-hidden group">
-          <div class="w-12 h-12 rounded-2xl bg-amber-500/10 text-amber-400 flex items-center justify-center mb-5 group-hover:scale-110 transition-transform">
-            <i data-lucide="award" class="w-6 h-6"></i>
+        <div data-aos="fade-up" data-aos-delay="100" class="glass-panel p-7 rounded-3xl relative overflow-hidden group flex flex-col justify-between">
+          <div>
+            <div class="w-12 h-12 rounded-2xl bg-amber-500/10 text-amber-400 flex items-center justify-center mb-5 group-hover:scale-110 transition-transform">
+              <i data-lucide="award" class="w-6 h-6"></i>
+            </div>
+            <span class="text-xs font-semibold text-amber-400 uppercase tracking-wider">College Merit Honor</span>
+            <h3 class="text-xl font-heading font-bold text-white mt-2 mb-2">Mahatma Gandhi Merit Scholarship</h3>
+            <p class="text-sm text-slate-300 leading-relaxed">
+              Awarded in college at KCLAS for demonstrated academic distinction, discipline, and exemplary scholastic performance.
+            </p>
           </div>
-          <span class="text-xs font-semibold text-amber-400 uppercase tracking-wider">College Merit Honor</span>
-          <h3 class="text-xl font-heading font-bold text-white mt-2 mb-2">Mahatma Gandhi Merit Scholarship</h3>
-          <p class="text-sm text-slate-300 leading-relaxed">
-            Awarded in college at KCLAS for demonstrated academic distinction, discipline, and exemplary scholastic performance.
-          </p>
+          <div class="mt-5 pt-4 border-t border-white/5 flex items-center justify-between">
+            <a href="#" target="_blank" data-credential-id="mg-merit-scholarship" data-title="Mahatma Gandhi Merit Scholarship" onclick="handleCredentialClick(event, this)" class="inline-flex items-center space-x-1.5 text-xs font-semibold text-orange-400 hover:text-orange-300 transition-colors group/link">
+              <i data-lucide="external-link" class="w-3.5 h-3.5 group-hover/link:translate-x-0.5 group-hover/link:-translate-y-0.5 transition-transform"></i>
+              <span class="cred-label">Verify Credential</span>
+            </a>
+            <button onclick="openLinkModal('mg-merit-scholarship', 'Mahatma Gandhi Merit Scholarship')" title="Upload / Edit verification link" class="px-2.5 py-1 rounded-lg text-[11px] font-medium bg-white/[0.04] hover:bg-orange-500/20 text-slate-400 hover:text-orange-300 border border-white/10 hover:border-orange-500/30 transition-all flex items-center gap-1">
+              <i data-lucide="link" class="w-3 h-3"></i>
+              <span>Attach Link</span>
+            </button>
+          </div>
         </div>
 
         <!-- Achievement 2: Dept Rank 1 -->
-        <div data-aos="fade-up" data-aos-delay="200" class="glass-panel p-7 rounded-3xl relative overflow-hidden group">
-          <div class="w-12 h-12 rounded-2xl bg-orange-500/10 text-orange-400 flex items-center justify-center mb-5 group-hover:scale-110 transition-transform">
-            <i data-lucide="crown" class="w-6 h-6"></i>
+        <div data-aos="fade-up" data-aos-delay="200" class="glass-panel p-7 rounded-3xl relative overflow-hidden group flex flex-col justify-between">
+          <div>
+            <div class="w-12 h-12 rounded-2xl bg-orange-500/10 text-orange-400 flex items-center justify-center mb-5 group-hover:scale-110 transition-transform">
+              <i data-lucide="crown" class="w-6 h-6"></i>
+            </div>
+            <span class="text-xs font-semibold text-orange-400 uppercase tracking-wider">College Academic Standing</span>
+            <h3 class="text-xl font-heading font-bold text-white mt-2 mb-2">Department Rank 1</h3>
+            <p class="text-sm text-slate-300 leading-relaxed">
+              Secured 1st Rank in the Department for two consecutive semesters in the B.Com program at KCLAS.
+            </p>
           </div>
-          <span class="text-xs font-semibold text-orange-400 uppercase tracking-wider">College Academic Standing</span>
-          <h3 class="text-xl font-heading font-bold text-white mt-2 mb-2">Department Rank 1</h3>
-          <p class="text-sm text-slate-300 leading-relaxed">
-            Secured 1st Rank in the Department for two consecutive semesters in the B.Com program at KCLAS.
-          </p>
+          <div class="mt-5 pt-4 border-t border-white/5 flex items-center justify-between">
+            <a href="#" target="_blank" data-credential-id="dept-rank-1" data-title="Department Rank 1" onclick="handleCredentialClick(event, this)" class="inline-flex items-center space-x-1.5 text-xs font-semibold text-orange-400 hover:text-orange-300 transition-colors group/link">
+              <i data-lucide="external-link" class="w-3.5 h-3.5 group-hover/link:translate-x-0.5 group-hover/link:-translate-y-0.5 transition-transform"></i>
+              <span class="cred-label">Verify Credential</span>
+            </a>
+            <button onclick="openLinkModal('dept-rank-1', 'Department Rank 1 (KCLAS)')" title="Upload / Edit verification link" class="px-2.5 py-1 rounded-lg text-[11px] font-medium bg-white/[0.04] hover:bg-orange-500/20 text-slate-400 hover:text-orange-300 border border-white/10 hover:border-orange-500/30 transition-all flex items-center gap-1">
+              <i data-lucide="link" class="w-3 h-3"></i>
+              <span>Attach Link</span>
+            </button>
+          </div>
         </div>
 
         <!-- Achievement 3: CMA Foundation -->
-        <div data-aos="fade-up" data-aos-delay="300" class="glass-panel p-7 rounded-3xl relative overflow-hidden group">
-          <div class="w-12 h-12 rounded-2xl bg-rose-500/10 text-rose-400 flex items-center justify-center mb-5 group-hover:scale-110 transition-transform">
-            <i data-lucide="check-check" class="w-6 h-6"></i>
+        <div data-aos="fade-up" data-aos-delay="300" class="glass-panel p-7 rounded-3xl relative overflow-hidden group flex flex-col justify-between">
+          <div>
+            <div class="w-12 h-12 rounded-2xl bg-rose-500/10 text-rose-400 flex items-center justify-center mb-5 group-hover:scale-110 transition-transform">
+              <i data-lucide="check-check" class="w-6 h-6"></i>
+            </div>
+            <span class="text-xs font-semibold text-rose-400 uppercase tracking-wider">Professional Exam</span>
+            <h3 class="text-xl font-heading font-bold text-white mt-2 mb-2">CMA Foundation (Distinction)</h3>
+            <p class="text-sm text-slate-300 leading-relaxed">
+              Cleared the CMA Foundation examination with Distinction, securing a high score of <strong>308 / 400</strong>.
+            </p>
           </div>
-          <span class="text-xs font-semibold text-rose-400 uppercase tracking-wider">Professional Exam</span>
-          <h3 class="text-xl font-heading font-bold text-white mt-2 mb-2">CMA Foundation (Distinction)</h3>
-          <p class="text-sm text-slate-300 leading-relaxed">
-            Cleared the CMA Foundation examination with Distinction, securing a high score of <strong>308 / 400</strong>.
-          </p>
+          <div class="mt-5 pt-4 border-t border-white/5 flex items-center justify-between">
+            <a href="#" target="_blank" data-credential-id="cma-foundation" data-title="CMA Foundation (Distinction)" onclick="handleCredentialClick(event, this)" class="inline-flex items-center space-x-1.5 text-xs font-semibold text-orange-400 hover:text-orange-300 transition-colors group/link">
+              <i data-lucide="external-link" class="w-3.5 h-3.5 group-hover/link:translate-x-0.5 group-hover/link:-translate-y-0.5 transition-transform"></i>
+              <span class="cred-label">Verify Credential</span>
+            </a>
+            <button onclick="openLinkModal('cma-foundation', 'CMA Foundation Certificate')" title="Upload / Edit verification link" class="px-2.5 py-1 rounded-lg text-[11px] font-medium bg-white/[0.04] hover:bg-orange-500/20 text-slate-400 hover:text-orange-300 border border-white/10 hover:border-orange-500/30 transition-all flex items-center gap-1">
+              <i data-lucide="link" class="w-3 h-3"></i>
+              <span>Attach Link</span>
+            </button>
+          </div>
         </div>
 
         <!-- Achievement 4: 12th Boards -->
-        <div data-aos="fade-up" data-aos-delay="400" class="glass-panel p-7 rounded-3xl relative overflow-hidden group">
-          <div class="w-12 h-12 rounded-2xl bg-emerald-500/10 text-emerald-400 flex items-center justify-center mb-5 group-hover:scale-110 transition-transform">
-            <i data-lucide="trending-up" class="w-6 h-6"></i>
+        <div data-aos="fade-up" data-aos-delay="400" class="glass-panel p-7 rounded-3xl relative overflow-hidden group flex flex-col justify-between">
+          <div>
+            <div class="w-12 h-12 rounded-2xl bg-emerald-500/10 text-emerald-400 flex items-center justify-center mb-5 group-hover:scale-110 transition-transform">
+              <i data-lucide="trending-up" class="w-6 h-6"></i>
+            </div>
+            <span class="text-xs font-semibold text-emerald-400 uppercase tracking-wider">Higher Secondary</span>
+            <h3 class="text-xl font-heading font-bold text-white mt-2 mb-2">93.4% in 12th Board</h3>
+            <p class="text-sm text-slate-300 leading-relaxed">
+              Graduated with top academic standing and distinction in Commerce & Accounting subjects.
+            </p>
           </div>
-          <span class="text-xs font-semibold text-emerald-400 uppercase tracking-wider">Higher Secondary</span>
-          <h3 class="text-xl font-heading font-bold text-white mt-2 mb-2">93.4% in 12th Board</h3>
-          <p class="text-sm text-slate-300 leading-relaxed">
-            Graduated with top academic standing and distinction in Commerce & Accounting subjects.
-          </p>
+          <div class="mt-5 pt-4 border-t border-white/5 flex items-center justify-between">
+            <a href="#" target="_blank" data-credential-id="12th-board" data-title="12th Board Marks (93.4%)" onclick="handleCredentialClick(event, this)" class="inline-flex items-center space-x-1.5 text-xs font-semibold text-orange-400 hover:text-orange-300 transition-colors group/link">
+              <i data-lucide="external-link" class="w-3.5 h-3.5 group-hover/link:translate-x-0.5 group-hover/link:-translate-y-0.5 transition-transform"></i>
+              <span class="cred-label">Verify Marks</span>
+            </a>
+            <button onclick="openLinkModal('12th-board', '12th Grade Marksheet / Certificate')" title="Upload / Edit verification link" class="px-2.5 py-1 rounded-lg text-[11px] font-medium bg-white/[0.04] hover:bg-orange-500/20 text-slate-400 hover:text-orange-300 border border-white/10 hover:border-orange-500/30 transition-all flex items-center gap-1">
+              <i data-lucide="link" class="w-3 h-3"></i>
+              <span>Attach Link</span>
+            </button>
+          </div>
         </div>
 
         <!-- Achievement 5: 10th Boards -->
-        <div data-aos="fade-up" data-aos-delay="500" class="glass-panel p-7 rounded-3xl relative overflow-hidden group">
-          <div class="w-12 h-12 rounded-2xl bg-cyan-500/10 text-cyan-400 flex items-center justify-center mb-5 group-hover:scale-110 transition-transform">
-            <i data-lucide="star" class="w-6 h-6"></i>
+        <div data-aos="fade-up" data-aos-delay="500" class="glass-panel p-7 rounded-3xl relative overflow-hidden group flex flex-col justify-between">
+          <div>
+            <div class="w-12 h-12 rounded-2xl bg-cyan-500/10 text-cyan-400 flex items-center justify-center mb-5 group-hover:scale-110 transition-transform">
+              <i data-lucide="star" class="w-6 h-6"></i>
+            </div>
+            <span class="text-xs font-semibold text-cyan-400 uppercase tracking-wider">Secondary School</span>
+            <h3 class="text-xl font-heading font-bold text-white mt-2 mb-2">92% in 10th Board</h3>
+            <p class="text-sm text-slate-300 leading-relaxed">
+              Consistent foundational excellence across quantitative and analytical curricula.
+            </p>
           </div>
-          <span class="text-xs font-semibold text-cyan-400 uppercase tracking-wider">Secondary School</span>
-          <h3 class="text-xl font-heading font-bold text-white mt-2 mb-2">92% in 10th Board</h3>
-          <p class="text-sm text-slate-300 leading-relaxed">
-            Consistent foundational excellence across quantitative and analytical curricula.
-          </p>
+          <div class="mt-5 pt-4 border-t border-white/5 flex items-center justify-between">
+            <a href="#" target="_blank" data-credential-id="10th-board" data-title="10th Board Marks (92%)" onclick="handleCredentialClick(event, this)" class="inline-flex items-center space-x-1.5 text-xs font-semibold text-orange-400 hover:text-orange-300 transition-colors group/link">
+              <i data-lucide="external-link" class="w-3.5 h-3.5 group-hover/link:translate-x-0.5 group-hover/link:-translate-y-0.5 transition-transform"></i>
+              <span class="cred-label">Verify Marks</span>
+            </a>
+            <button onclick="openLinkModal('10th-board', '10th Grade Marksheet / Certificate')" title="Upload / Edit verification link" class="px-2.5 py-1 rounded-lg text-[11px] font-medium bg-white/[0.04] hover:bg-orange-500/20 text-slate-400 hover:text-orange-300 border border-white/10 hover:border-orange-500/30 transition-all flex items-center gap-1">
+              <i data-lucide="link" class="w-3 h-3"></i>
+              <span>Attach Link</span>
+            </button>
+          </div>
         </div>
 
         <!-- Achievement 6: Protosem Role -->
-        <div data-aos="fade-up" data-aos-delay="600" class="glass-panel p-7 rounded-3xl relative overflow-hidden group">
-          <div class="w-12 h-12 rounded-2xl bg-purple-500/10 text-purple-400 flex items-center justify-center mb-5 group-hover:scale-110 transition-transform">
-            <i data-lucide="rocket" class="w-6 h-6"></i>
+        <div data-aos="fade-up" data-aos-delay="600" class="glass-panel p-7 rounded-3xl relative overflow-hidden group flex flex-col justify-between">
+          <div>
+            <div class="w-12 h-12 rounded-2xl bg-purple-500/10 text-purple-400 flex items-center justify-center mb-5 group-hover:scale-110 transition-transform">
+              <i data-lucide="rocket" class="w-6 h-6"></i>
+            </div>
+            <span class="text-xs font-semibold text-purple-400 uppercase tracking-wider">Industry Innovation</span>
+            <h3 class="text-xl font-heading font-bold text-white mt-2 mb-2">PRICE Protosem Trainee</h3>
+            <p class="text-sm text-slate-300 leading-relaxed">
+              Selected as an Innovation Professional Trainee undergoing comprehensive 20-week industry immersion.
+            </p>
           </div>
-          <span class="text-xs font-semibold text-purple-400 uppercase tracking-wider">Industry Innovation</span>
-          <h3 class="text-xl font-heading font-bold text-white mt-2 mb-2">PRICE Protosem Trainee</h3>
-          <p class="text-sm text-slate-300 leading-relaxed">
-            Selected as an Innovation Professional Trainee undergoing comprehensive 20-week industry immersion.
-          </p>
+          <div class="mt-5 pt-4 border-t border-white/5 flex items-center justify-between">
+            <a href="#" target="_blank" data-credential-id="protosem-trainee" data-title="PRICE Protosem Trainee" onclick="handleCredentialClick(event, this)" class="inline-flex items-center space-x-1.5 text-xs font-semibold text-orange-400 hover:text-orange-300 transition-colors group/link">
+              <i data-lucide="external-link" class="w-3.5 h-3.5 group-hover/link:translate-x-0.5 group-hover/link:-translate-y-0.5 transition-transform"></i>
+              <span class="cred-label">Verify Offer / Role</span>
+            </a>
+            <button onclick="openLinkModal('protosem-trainee', 'PRICE Protosem Trainee Offer / Proof')" title="Upload / Edit verification link" class="px-2.5 py-1 rounded-lg text-[11px] font-medium bg-white/[0.04] hover:bg-orange-500/20 text-slate-400 hover:text-orange-300 border border-white/10 hover:border-orange-500/30 transition-all flex items-center gap-1">
+              <i data-lucide="link" class="w-3 h-3"></i>
+              <span>Attach Link</span>
+            </button>
+          </div>
         </div>
 
       </div>
@@ -735,6 +807,55 @@
     </div>
   </footer>
 
+  <!-- ==================== VERIFICATION LINK MODAL ==================== -->
+  <div id="link-modal" class="fixed inset-0 z-50 bg-black/70 backdrop-blur-md hidden flex items-center justify-center p-4">
+    <div class="glass-panel p-6 sm:p-8 rounded-3xl max-w-lg w-full border border-orange-500/30 relative shadow-2xl animate-blob">
+      <!-- Close Button -->
+      <button onclick="closeLinkModal()" class="absolute top-4 right-4 text-slate-400 hover:text-white p-2 rounded-xl hover:bg-white/5 transition">
+        <i data-lucide="x" class="w-5 h-5"></i>
+      </button>
+
+      <div class="flex items-center space-x-3 mb-4">
+        <div class="p-2.5 rounded-xl bg-orange-500/10 text-orange-400">
+          <i data-lucide="link" class="w-6 h-6"></i>
+        </div>
+        <div>
+          <h3 class="text-lg font-heading font-bold text-white">Attach Verification Link</h3>
+          <p id="modal-target-title" class="text-xs text-orange-300">Credential / Certificate</p>
+        </div>
+      </div>
+
+      <p class="text-xs text-slate-300 mb-4 leading-relaxed">
+        Paste a public Google Drive link, DigiLocker link, or online verification URL for this achievement:
+      </p>
+
+      <div class="mb-5">
+        <label class="block text-[11px] font-semibold text-slate-400 uppercase tracking-wider mb-1.5">Verification URL</label>
+        <input 
+          type="url" 
+          id="modal-url-input" 
+          placeholder="https://drive.google.com/file/d/..." 
+          class="w-full bg-[#0d121f] text-white font-mono text-sm px-4 py-3 rounded-xl border border-white/10 focus:border-orange-500 focus:outline-none transition"
+        />
+        <span class="text-[10px] text-slate-500 mt-1 block">Ensure sharing is set to "Anyone with the link can view".</span>
+      </div>
+
+      <div class="flex flex-wrap items-center justify-between gap-2 pt-4 border-t border-white/10">
+        <button onclick="clearCredentialLink()" class="px-3 py-2 text-xs font-semibold text-rose-400 hover:text-rose-300 hover:bg-rose-500/10 rounded-xl transition">
+          Clear Link
+        </button>
+        <div class="flex items-center space-x-2">
+          <button onclick="closeLinkModal()" class="px-4 py-2 text-xs font-semibold text-slate-300 hover:text-white bg-white/5 hover:bg-white/10 rounded-xl transition">
+            Cancel
+          </button>
+          <button onclick="saveCredentialLink()" class="px-5 py-2 text-xs font-bold uppercase tracking-wider text-white bg-gradient-to-r from-orange-500 to-rose-600 hover:from-orange-600 hover:to-rose-700 rounded-xl shadow-lg transition hover:scale-105">
+            Save Link
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
   <!-- AOS Script -->
   <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
   <script>
@@ -765,6 +886,73 @@
 
     // Dynamic Year
     document.getElementById('year').textContent = new Date().getFullYear();
+
+    // ==================== CREDENTIAL / VERIFICATION LINK SYSTEM ====================
+    let activeCredentialId = null;
+
+    function initCredentialLinks() {
+      document.querySelectorAll('[data-credential-id]').forEach(link => {
+        const id = link.getAttribute('data-credential-id');
+        const savedUrl = localStorage.getItem('cred_link_' + id);
+        if (savedUrl && savedUrl.trim() !== '') {
+          link.href = savedUrl;
+          const label = link.querySelector('.cred-label');
+          if (label) label.textContent = 'View Attached Link ↗';
+        }
+      });
+    }
+
+    function handleCredentialClick(event, element) {
+      const id = element.getAttribute('data-credential-id');
+      const title = element.getAttribute('data-title') || 'Achievement';
+      const savedUrl = localStorage.getItem('cred_link_' + id);
+      
+      if (!savedUrl || savedUrl.trim() === '' || element.getAttribute('href') === '#') {
+        event.preventDefault();
+        openLinkModal(id, title);
+      }
+    }
+
+    function openLinkModal(id, title) {
+      activeCredentialId = id;
+      document.getElementById('modal-target-title').textContent = title;
+      const savedUrl = localStorage.getItem('cred_link_' + id) || '';
+      document.getElementById('modal-url-input').value = savedUrl;
+      document.getElementById('link-modal').classList.remove('hidden');
+      document.getElementById('modal-url-input').focus();
+    }
+
+    function closeLinkModal() {
+      document.getElementById('link-modal').classList.add('hidden');
+      activeCredentialId = null;
+    }
+
+    function saveCredentialLink() {
+      if (!activeCredentialId) return;
+      const url = document.getElementById('modal-url-input').value.trim();
+      if (url) {
+        localStorage.setItem('cred_link_' + activeCredentialId, url);
+      } else {
+        localStorage.removeItem('cred_link_' + activeCredentialId);
+      }
+      initCredentialLinks();
+      closeLinkModal();
+    }
+
+    function clearCredentialLink() {
+      if (!activeCredentialId) return;
+      localStorage.removeItem('cred_link_' + activeCredentialId);
+      const link = document.querySelector(`[data-credential-id="${activeCredentialId}"]`);
+      if (link) {
+        link.href = '#';
+        const label = link.querySelector('.cred-label');
+        if (label) label.textContent = 'Verify Credential';
+      }
+      closeLinkModal();
+    }
+
+    // Initialize links on load
+    initCredentialLinks();
   </script>
 </body>
 </html>
