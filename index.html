@@ -619,7 +619,7 @@
     </section>
 
     <!-- ==================== WEEK DETAIL MODAL ==================== -->
-    <div id="week-modal" class="fixed inset-0 z-50 bg-black/70 backdrop-blur-md hidden flex items-center justify-center p-4">
+    <div id="week-modal" class="fixed inset-0 z-50 bg-black/70 backdrop-blur-md items-center justify-center p-4" style="display:none">
       <div class="glass-panel p-6 sm:p-8 rounded-3xl max-w-xl w-full border border-orange-500/30 relative shadow-2xl">
         <!-- Close -->
         <button onclick="closeWeekModal()" class="absolute top-4 right-4 text-slate-400 hover:text-white p-2 rounded-xl hover:bg-white/5 transition">
@@ -946,7 +946,7 @@
   </footer>
 
   <!-- ==================== VERIFICATION LINK MODAL ==================== -->
-  <div id="link-modal" class="fixed inset-0 z-50 bg-black/70 backdrop-blur-md hidden flex items-center justify-center p-4">
+  <div id="link-modal" class="fixed inset-0 z-50 bg-black/70 backdrop-blur-md items-center justify-center p-4" style="display:none">
     <div class="glass-panel p-6 sm:p-8 rounded-3xl max-w-lg w-full border border-orange-500/30 relative shadow-2xl animate-blob">
       <!-- Close Button -->
       <button onclick="closeLinkModal()" class="absolute top-4 right-4 text-slate-400 hover:text-white p-2 rounded-xl hover:bg-white/5 transition">
@@ -1056,12 +1056,12 @@
       document.getElementById('modal-target-title').textContent = title;
       const savedUrl = localStorage.getItem('cred_link_' + id) || '';
       document.getElementById('modal-url-input').value = savedUrl;
-      document.getElementById('link-modal').classList.remove('hidden');
+      document.getElementById('link-modal').style.display = 'flex';
       document.getElementById('modal-url-input').focus();
     }
 
     function closeLinkModal() {
-      document.getElementById('link-modal').classList.add('hidden');
+      document.getElementById('link-modal').style.display = 'none';
       activeCredentialId = null;
     }
 
@@ -1111,11 +1111,11 @@
       document.getElementById('week-edit-area').classList.add('hidden');
       document.getElementById('week-save-btn').classList.add('hidden');
       document.getElementById('week-edit-btn').querySelector('span').textContent = 'Edit Content';
-      document.getElementById('week-modal').classList.remove('hidden');
+      document.getElementById('week-modal').style.display = 'flex';
     }
 
     function closeWeekModal() {
-      document.getElementById('week-modal').classList.add('hidden');
+      document.getElementById('week-modal').style.display = 'none';
       activeWeekNumber = null;
       weekEditMode = false;
     }
