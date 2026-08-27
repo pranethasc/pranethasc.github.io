@@ -1,526 +1,1550 @@
 <!DOCTYPE html>
-<html lang="en" class="scroll-smooth">
+<html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Pranetha S.C. | Finance & Accounting Portfolio | Innovation Trainee</title>
-  <meta name="description" content="Portfolio of Pranetha S.C. — B.Com at KCLAS, CMA Foundation (Distinction), Dept Rank 1, Mahatma Gandhi Merit Scholar, Innovation Professional Trainee at PRICE Protosem." />
+  <title>Pranetha S.C. — Finance &amp; Innovation Archive / 2026</title>
+  <meta name="description" content="Portfolio archive of Pranetha S.C. — B.Com at KCLAS, CMA Foundation Distinction, Dept Rank 1, Mahatma Gandhi Merit Scholar, PRICE Protosem Innovation Trainee." />
 
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Syne:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
-
-  <script src="https://cdn.tailwindcss.com"></script>
-  <script>
-    tailwind.config = {
-      theme: {
-        extend: {
-          fontFamily: {
-            sans: ['"Space Grotesk"', 'sans-serif'],
-            heading: ['Syne', 'sans-serif'],
-            mono: ['"JetBrains Mono"', 'monospace'],
-          }
-        }
-      }
-    }
-  </script>
-
-  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet" />
   <script src="https://unpkg.com/lucide@latest"></script>
-  <script src="https://unpkg.com/typed.js@2.1.0/dist/typed.umd.js"></script>
 
   <style>
-    :root { --gold: #e8a830; --teal: #14b8a6; --navy: #020817; --navy2: #0a1628; --navy3: #0f2040; }
-    * { box-sizing: border-box; }
-    body { background: var(--navy); color: #e2e8f0; font-family: 'Space Grotesk', sans-serif; overflow-x: hidden; }
-    .dot-grid { background-image: radial-gradient(circle, rgba(255,255,255,0.04) 1px, transparent 1px); background-size: 28px 28px; }
-    .gold-text { background: linear-gradient(135deg, #f0c060, #e8a830); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
-    .teal-text { background: linear-gradient(135deg, #5eead4, #14b8a6); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
-    .dual-text { background: linear-gradient(135deg, #f0c060 0%, #e8a830 40%, #14b8a6 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
-    .dossier-nav { background: rgba(2,8,23,0.88); backdrop-filter: blur(20px); border-bottom: 1px solid rgba(255,255,255,0.06); }
-    .dossier-card { background: var(--navy2); border: 1px solid rgba(255,255,255,0.07); transition: all 0.3s cubic-bezier(0.16,1,0.3,1); position: relative; overflow: hidden; }
-    .dossier-card::before { content:''; position:absolute; inset:0; background: linear-gradient(135deg,rgba(232,168,48,0.04),rgba(20,184,166,0.04)); opacity:0; transition:opacity 0.3s; }
-    .dossier-card:hover::before { opacity:1; }
-    .dossier-card:hover { border-color: rgba(232,168,48,0.28); transform: translateY(-4px); box-shadow: 0 20px 40px -12px rgba(232,168,48,0.1); }
-    .section-pill { display:inline-flex; align-items:center; gap:8px; font-family:'JetBrains Mono',monospace; font-size:11px; font-weight:500; letter-spacing:.15em; text-transform:uppercase; color:var(--teal); background:rgba(20,184,166,0.08); border:1px solid rgba(20,184,166,0.2); padding:6px 14px; border-radius:4px; }
-    .section-pill::before { content:'//'; color:rgba(20,184,166,0.45); }
-    .section-divider { border-top:1px solid rgba(255,255,255,0.06); }
-    .week-card { background:rgba(15,32,64,0.6); border:1px solid rgba(255,255,255,0.06); transition:all 0.25s ease; cursor:pointer; }
-    .week-card:hover { background:rgba(232,168,48,0.07); border-color:rgba(232,168,48,0.35); transform:translateY(-3px) scale(1.02); box-shadow:0 8px 20px -4px rgba(232,168,48,0.2); }
-    .timeline-line { border-left:2px solid rgba(255,255,255,0.08); }
-    .timeline-dot { width:14px; height:14px; border-radius:50%; background:linear-gradient(135deg,var(--gold),var(--teal)); border:3px solid var(--navy); box-shadow:0 0 12px rgba(232,168,48,0.4); flex-shrink:0; }
-    .metric-badge { background:linear-gradient(135deg,rgba(232,168,48,0.05),rgba(20,184,166,0.05)); border:1px solid rgba(255,255,255,0.07); border-radius:12px; transition:all 0.3s; }
-    .metric-badge:hover { border-color:rgba(232,168,48,0.22); }
-    .hero-frame { background:linear-gradient(135deg,rgba(232,168,48,0.15),rgba(20,184,166,0.15)); border:1px solid rgba(232,168,48,0.2); border-radius:20px; padding:3px; }
-    .hero-frame-inner { border-radius:18px; overflow:hidden; background:var(--navy2); }
-    .btn-primary { display:inline-flex; align-items:center; gap:8px; background:linear-gradient(135deg,#e8a830,#d4941c); color:#020817; font-weight:700; font-size:13px; letter-spacing:.05em; padding:12px 28px; border-radius:8px; border:none; cursor:pointer; transition:all 0.25s; text-decoration:none; }
-    .btn-primary:hover { transform:translateY(-2px); box-shadow:0 8px 24px rgba(232,168,48,0.35); }
-    .btn-outline { display:inline-flex; align-items:center; gap:8px; background:transparent; color:#e2e8f0; font-weight:600; font-size:13px; letter-spacing:.03em; padding:11px 24px; border-radius:8px; border:1px solid rgba(255,255,255,0.15); cursor:pointer; transition:all 0.25s; text-decoration:none; }
-    .btn-outline:hover { border-color:rgba(20,184,166,0.5); color:#2dd4bf; background:rgba(20,184,166,0.05); }
-    .corner-tl { position:absolute; top:-1px; left:-1px; width:24px; height:24px; border-top:2px solid var(--gold); border-left:2px solid var(--gold); border-radius:3px 0 0 0; }
-    .corner-br { position:absolute; bottom:-1px; right:-1px; width:24px; height:24px; border-bottom:2px solid var(--teal); border-right:2px solid var(--teal); border-radius:0 0 3px 0; }
-    .cert-badge { display:inline-flex; align-items:center; gap:5px; font-family:'JetBrains Mono',monospace; font-size:10px; padding:3px 10px; border-radius:3px; font-weight:500; letter-spacing:.05em; text-transform:uppercase; }
-    @keyframes float { 0%,100%{transform:translateY(0)} 50%{transform:translateY(-12px)} }
-    .animate-float { animation:float 6s ease-in-out infinite; }
-    ::-webkit-scrollbar { width:6px; } ::-webkit-scrollbar-track { background:#020817; } ::-webkit-scrollbar-thumb { background:#162952; border-radius:3px; } ::-webkit-scrollbar-thumb:hover { background:#e8a830; }
+    /* ══════════════════════════════════════════
+       ROOT TOKENS
+    ══════════════════════════════════════════ */
+    :root {
+      --bg:        #0D0D0B;
+      --bg2:       #111109;
+      --paper:     #E8E3D7;
+      --paper2:    #DDD8CC;
+      --charcoal:  #181714;
+      --gray:      #77736A;
+      --gray2:     #4A4743;
+      --red:       #8F211C;
+      --red2:      #A52A22;
+      --cream:     #C8C3B7;
+      --white:     #F2EDE4;
+      --border-d:  rgba(232,227,215,0.10);
+      --border-d2: rgba(232,227,215,0.06);
+      --border-r:  rgba(143,33,28,0.5);
+    }
+
+    /* ══════════════════════════════════════════
+       RESET & BASE
+    ══════════════════════════════════════════ */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; font-size: 16px; }
+    body {
+      background: var(--bg);
+      color: var(--white);
+      font-family: 'Inter', sans-serif;
+      font-weight: 400;
+      line-height: 1.6;
+      overflow-x: hidden;
+      -webkit-font-smoothing: antialiased;
+    }
+    a { color: inherit; text-decoration: none; }
+    img { display: block; max-width: 100%; }
+    button { background: none; border: none; cursor: pointer; font: inherit; color: inherit; }
+
+    /* ══════════════════════════════════════════
+       GRAIN TEXTURE OVERLAY
+    ══════════════════════════════════════════ */
+    body::before {
+      content: '';
+      position: fixed;
+      inset: 0;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E");
+      pointer-events: none;
+      z-index: 9999;
+      opacity: 0.35;
+    }
+
+    /* ══════════════════════════════════════════
+       TYPOGRAPHY SYSTEM
+    ══════════════════════════════════════════ */
+    .font-serif  { font-family: 'Playfair Display', Georgia, serif; }
+    .font-mono   { font-family: 'JetBrains Mono', 'Courier New', monospace; }
+    .font-sans   { font-family: 'Inter', sans-serif; }
+
+    .label {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 9px;
+      font-weight: 600;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--gray);
+    }
+    .label-red { color: var(--red2); }
+    .label-white { color: var(--white); }
+
+    /* ══════════════════════════════════════════
+       SCROLLBAR
+    ══════════════════════════════════════════ */
+    ::-webkit-scrollbar { width: 4px; }
+    ::-webkit-scrollbar-track { background: var(--bg); }
+    ::-webkit-scrollbar-thumb { background: var(--gray2); }
+    ::-webkit-scrollbar-thumb:hover { background: var(--red); }
+
+    /* ══════════════════════════════════════════
+       LAYOUT UTILITIES
+    ══════════════════════════════════════════ */
+    .container { max-width: 1200px; margin: 0 auto; padding: 0 24px; }
+    .rule { border: none; border-top: 1px solid var(--border-d); }
+    .rule-red { border-color: var(--red); }
+    .dot { display: inline-block; width: 4px; height: 4px; background: var(--red); border-radius: 50%; vertical-align: middle; margin: 0 8px; }
+
+    /* ══════════════════════════════════════════
+       HEADER
+    ══════════════════════════════════════════ */
+    #site-header {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
+      background: var(--bg);
+      border-bottom: 1px solid var(--border-d);
+    }
+    .header-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 52px;
+      padding: 0 24px;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+    .header-brand {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+    .header-brand-name {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--white);
+    }
+    .header-brand-sep {
+      width: 1px;
+      height: 16px;
+      background: var(--border-d);
+    }
+    .header-meta {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 9px;
+      font-weight: 400;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--gray);
+    }
+    .header-nav {
+      display: flex;
+      align-items: center;
+      gap: 0;
+    }
+    .header-nav a {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 10px;
+      font-weight: 500;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--gray);
+      padding: 6px 14px;
+      border-left: 1px solid var(--border-d2);
+      transition: color 0.2s, background 0.2s;
+    }
+    .header-nav a:last-child { border-right: 1px solid var(--border-d2); }
+    .header-nav a:hover { color: var(--white); background: rgba(255,255,255,0.03); }
+    .header-nav a.nav-cta { color: var(--red2); border-color: var(--border-r); }
+    .header-nav a.nav-cta:hover { background: rgba(143,33,28,0.08); }
+
+    /* ══════════════════════════════════════════
+       HERO / INTRO
+    ══════════════════════════════════════════ */
+    #hero {
+      padding-top: 52px;
+      border-bottom: 1px solid var(--border-d);
+    }
+    .hero-inner {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      min-height: calc(100vh - 52px);
+    }
+    .hero-left {
+      padding: 64px 48px 64px 24px;
+      border-right: 1px solid var(--border-d);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+    .hero-top-label {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 48px;
+    }
+    .hero-index { font-family: 'JetBrains Mono', monospace; font-size: 9px; color: var(--red2); letter-spacing: 0.15em; }
+    .hero-name {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(48px, 6vw, 80px);
+      font-weight: 900;
+      line-height: 1.0;
+      color: var(--white);
+      letter-spacing: -0.02em;
+      margin-bottom: 20px;
+    }
+    .hero-name em {
+      font-style: italic;
+      color: var(--cream);
+    }
+    .hero-role {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--red2);
+      margin-bottom: 28px;
+    }
+    .hero-bio {
+      font-size: 14px;
+      line-height: 1.75;
+      color: var(--cream);
+      max-width: 400px;
+      margin-bottom: 40px;
+    }
+    .hero-meta-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0;
+      border: 1px solid var(--border-d);
+      margin-top: auto;
+    }
+    .hero-meta-cell {
+      padding: 12px 16px;
+      border-right: 1px solid var(--border-d);
+      border-bottom: 1px solid var(--border-d);
+    }
+    .hero-meta-cell:nth-child(even) { border-right: none; }
+    .hero-meta-cell:nth-last-child(-n+2) { border-bottom: none; }
+    .hero-meta-cell .label { display: block; margin-bottom: 4px; }
+    .hero-meta-cell .val {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 11px;
+      color: var(--white);
+    }
+
+    .hero-right {
+      display: flex;
+      flex-direction: column;
+    }
+    .hero-photo-wrap {
+      flex: 1;
+      position: relative;
+      overflow: hidden;
+      border-bottom: 1px solid var(--border-d);
+    }
+    .hero-photo-wrap img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: top center;
+      filter: grayscale(20%) contrast(1.05);
+    }
+    .hero-photo-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to bottom, transparent 50%, rgba(13,13,11,0.7) 100%);
+    }
+    .hero-photo-label {
+      position: absolute;
+      bottom: 20px;
+      left: 20px;
+      right: 20px;
+      border: 1px solid rgba(232,227,215,0.15);
+      padding: 10px 14px;
+      background: rgba(13,13,11,0.8);
+    }
+    .hero-stats-bar {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+    }
+    .hero-stat {
+      padding: 20px 20px;
+      border-right: 1px solid var(--border-d);
+      text-align: center;
+    }
+    .hero-stat:last-child { border-right: none; }
+    .hero-stat-num {
+      font-family: 'Playfair Display', serif;
+      font-size: 28px;
+      font-weight: 700;
+      color: var(--white);
+      line-height: 1;
+      margin-bottom: 4px;
+    }
+    .hero-stat-lbl { font-family: 'JetBrains Mono', monospace; font-size: 8px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--gray); }
+
+    /* ══════════════════════════════════════════
+       SECTION HEADER (shared)
+    ══════════════════════════════════════════ */
+    .section-hd {
+      display: flex;
+      align-items: baseline;
+      gap: 20px;
+      padding: 28px 24px;
+      border-bottom: 1px solid var(--border-d);
+    }
+    .section-hd-num {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 10px;
+      color: var(--red2);
+      letter-spacing: 0.1em;
+      min-width: 32px;
+    }
+    .section-hd-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 22px;
+      font-weight: 700;
+      color: var(--white);
+      letter-spacing: -0.01em;
+    }
+    .section-hd-meta {
+      margin-left: auto;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 9px;
+      color: var(--gray);
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+    }
+
+    /* ══════════════════════════════════════════
+       ACHIEVEMENTS — ARCHIVAL PANELS
+    ══════════════════════════════════════════ */
+    #achievements { border-bottom: 1px solid var(--border-d); }
+    .ach-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+    }
+    .ach-panel {
+      border-right: 1px solid var(--border-d);
+      border-bottom: 1px solid var(--border-d);
+      padding: 28px 28px 24px;
+      transition: background 0.25s;
+      position: relative;
+    }
+    .ach-panel:nth-child(3n) { border-right: none; }
+    .ach-panel:nth-last-child(-n+3) { border-bottom: none; }
+    .ach-panel:hover { background: rgba(232,227,215,0.02); }
+    .ach-num {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 10px;
+      color: var(--red);
+      letter-spacing: 0.1em;
+      margin-bottom: 12px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .ach-num::after { content: ''; flex: 1; height: 1px; background: var(--border-d); }
+    .ach-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 18px;
+      font-weight: 700;
+      color: var(--white);
+      line-height: 1.2;
+      margin-bottom: 10px;
+    }
+    .ach-desc {
+      font-size: 12px;
+      line-height: 1.65;
+      color: var(--gray);
+      margin-bottom: 20px;
+    }
+    .ach-category {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 8px;
+      font-weight: 600;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--gray2);
+      margin-bottom: 16px;
+    }
+    .ach-actions {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding-top: 16px;
+      border-top: 1px solid var(--border-d2);
+      margin-top: auto;
+    }
+    .ach-verify-link {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 9px;
+      font-weight: 500;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--red2);
+      transition: color 0.2s;
+    }
+    .ach-verify-link:hover { color: var(--white); }
+    .ach-attach-btn {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 8px;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--gray2);
+      border: 1px solid var(--border-d);
+      padding: 4px 10px;
+      transition: all 0.2s;
+    }
+    .ach-attach-btn:hover { color: var(--white); border-color: var(--border-d); background: rgba(255,255,255,0.04); }
+
+    /* ══════════════════════════════════════════
+       ABOUT — PAPER DOCUMENT PANEL
+    ══════════════════════════════════════════ */
+    #about { border-bottom: 1px solid var(--border-d); }
+    .about-panel {
+      background: var(--paper);
+      color: var(--charcoal);
+      padding: 56px 64px;
+      margin: 40px 24px;
+      border: 1px solid var(--paper2);
+      position: relative;
+    }
+    .about-panel::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 3px;
+      background: var(--red);
+    }
+    .about-top {
+      display: grid;
+      grid-template-columns: 200px 1fr;
+      gap: 40px;
+      margin-bottom: 48px;
+      padding-bottom: 40px;
+      border-bottom: 1px solid var(--paper2);
+    }
+    .about-sidebar-label {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 9px;
+      font-weight: 600;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--red);
+      margin-bottom: 12px;
+    }
+    .about-sidebar-text {
+      font-size: 11px;
+      line-height: 1.7;
+      color: #4A4743;
+    }
+    .about-heading {
+      font-family: 'Playfair Display', serif;
+      font-size: 36px;
+      font-weight: 900;
+      line-height: 1.1;
+      color: var(--charcoal);
+      margin-bottom: 16px;
+    }
+    .about-body {
+      font-size: 13px;
+      line-height: 1.8;
+      color: #4A4743;
+      max-width: 600px;
+    }
+    .about-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 0;
+    }
+    .about-col {
+      padding-right: 32px;
+      border-right: 1px solid var(--paper2);
+      margin-right: 32px;
+    }
+    .about-col:last-child { border-right: none; margin-right: 0; padding-right: 0; }
+    .about-col-label {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 9px;
+      font-weight: 600;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--red);
+      margin-bottom: 14px;
+      padding-bottom: 8px;
+      border-bottom: 1px solid var(--paper2);
+    }
+    .about-col-item {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 10px;
+      color: var(--charcoal);
+      padding: 4px 0;
+      border-bottom: 1px solid rgba(0,0,0,0.06);
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .about-col-item::before { content: '—'; color: var(--red); font-size: 9px; }
+
+    /* ══════════════════════════════════════════
+       PROTOSEM — ARCHIVAL EXPERIENCE
+    ══════════════════════════════════════════ */
+    #experience { border-bottom: 1px solid var(--border-d); }
+    .exp-header-row {
+      display: grid;
+      grid-template-columns: 280px 1fr;
+      border-bottom: 1px solid var(--border-d);
+    }
+    .exp-header-left {
+      padding: 32px 32px 32px 24px;
+      border-right: 1px solid var(--border-d);
+    }
+    .exp-header-right {
+      padding: 32px 32px;
+    }
+    .exp-company {
+      font-family: 'Playfair Display', serif;
+      font-size: 28px;
+      font-weight: 700;
+      color: var(--white);
+      line-height: 1.1;
+      margin-bottom: 6px;
+    }
+    .exp-position {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 10px;
+      font-weight: 600;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--red2);
+      margin-bottom: 20px;
+    }
+    .exp-dates {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 9px;
+      color: var(--gray);
+      letter-spacing: 0.1em;
+    }
+    .exp-desc {
+      font-size: 13px;
+      line-height: 1.75;
+      color: var(--cream);
+      margin-bottom: 24px;
+    }
+    .exp-weeks-label {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 9px;
+      font-weight: 600;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--gray2);
+      margin-bottom: 12px;
+    }
+    .exp-weeks-grid {
+      display: grid;
+      grid-template-columns: repeat(7, 1fr);
+      border: 1px solid var(--border-d);
+    }
+    .week-cell {
+      padding: 10px 6px;
+      text-align: center;
+      border-right: 1px solid var(--border-d2);
+      border-bottom: 1px solid var(--border-d2);
+      cursor: pointer;
+      transition: background 0.2s, color 0.2s;
+    }
+    .week-cell:hover { background: rgba(143,33,28,0.12); }
+    .week-cell:nth-child(7n) { border-right: none; }
+    .week-cell span {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 9px;
+      font-weight: 500;
+      letter-spacing: 0.08em;
+      color: var(--gray);
+      display: block;
+      transition: color 0.2s;
+    }
+    .week-cell:hover span { color: var(--red2); }
+    .week-cell .wk-num {
+      font-size: 7px;
+      color: var(--gray2);
+      margin-bottom: 2px;
+    }
+
+    /* ══════════════════════════════════════════
+       CERTIFICATIONS — CATALOG TABLE
+    ══════════════════════════════════════════ */
+    #certifications { border-bottom: 1px solid var(--border-d); }
+    .cert-table {
+      width: 100%;
+      border-collapse: collapse;
+    }
+    .cert-table thead tr {
+      border-bottom: 1px solid var(--border-d);
+    }
+    .cert-table thead th {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 8px;
+      font-weight: 600;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--gray2);
+      padding: 12px 20px 12px 24px;
+      text-align: left;
+    }
+    .cert-table thead th:first-child { width: 56px; }
+    .cert-table tbody tr {
+      border-bottom: 1px solid var(--border-d2);
+      transition: background 0.2s;
+    }
+    .cert-table tbody tr:last-child { border-bottom: none; }
+    .cert-table tbody tr:hover { background: rgba(232,227,215,0.02); }
+    .cert-table td {
+      padding: 18px 20px 18px 24px;
+      vertical-align: middle;
+    }
+    .cert-num {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 10px;
+      color: var(--red);
+      letter-spacing: 0.1em;
+    }
+    .cert-issuer {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 8px;
+      font-weight: 600;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--gray2);
+      margin-bottom: 4px;
+    }
+    .cert-title-text {
+      font-size: 14px;
+      font-weight: 500;
+      color: var(--white);
+    }
+    .cert-type-badge {
+      display: inline-block;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 7px;
+      font-weight: 600;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      padding: 2px 7px;
+      border: 1px solid var(--border-d);
+      color: var(--gray);
+    }
+    .cert-type-badge.elite { border-color: var(--border-r); color: var(--red2); }
+    .cert-link {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 9px;
+      font-weight: 500;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--red2);
+      transition: color 0.2s;
+    }
+    .cert-link:hover { color: var(--white); }
+    .cert-attach {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 8px;
+      color: var(--gray2);
+      border: 1px solid var(--border-d);
+      padding: 3px 8px;
+      margin-left: 8px;
+      transition: all 0.2s;
+    }
+    .cert-attach:hover { color: var(--white); border-color: var(--border-d); background: rgba(255,255,255,0.04); }
+
+    /* ══════════════════════════════════════════
+       EDUCATION — ARCHIVAL DOCUMENT
+    ══════════════════════════════════════════ */
+    #education { border-bottom: 1px solid var(--border-d); }
+    .edu-rows { display: flex; flex-direction: column; }
+    .edu-row {
+      display: grid;
+      grid-template-columns: 56px 200px 1fr auto;
+      align-items: start;
+      border-bottom: 1px solid var(--border-d2);
+      padding: 24px 24px;
+      gap: 24px;
+      transition: background 0.2s;
+    }
+    .edu-row:last-child { border-bottom: none; }
+    .edu-row:hover { background: rgba(232,227,215,0.015); }
+    .edu-row-num { font-family: 'JetBrains Mono', monospace; font-size: 10px; color: var(--red); letter-spacing: 0.1em; padding-top: 2px; }
+    .edu-row-inst { font-family: 'JetBrains Mono', monospace; font-size: 10px; color: var(--gray); line-height: 1.5; padding-top: 2px; }
+    .edu-row-title { font-size: 15px; font-weight: 500; color: var(--white); margin-bottom: 4px; }
+    .edu-row-desc { font-size: 12px; color: var(--gray); line-height: 1.6; }
+    .edu-row-score { font-family: 'Playfair Display', serif; font-size: 22px; font-weight: 700; color: var(--red2); text-align: right; white-space: nowrap; }
+
+    /* ══════════════════════════════════════════
+       CONTACT — DARK EDITORIAL
+    ══════════════════════════════════════════ */
+    #contact {
+      border-bottom: 1px solid var(--border-d);
+      padding: 80px 24px;
+    }
+    .contact-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 80px;
+      align-items: start;
+    }
+    .contact-heading {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(36px, 5vw, 60px);
+      font-weight: 900;
+      line-height: 1.05;
+      color: var(--white);
+      letter-spacing: -0.02em;
+      margin-bottom: 16px;
+    }
+    .contact-heading em { font-style: italic; color: var(--red2); }
+    .contact-sub { font-size: 13px; color: var(--gray); line-height: 1.7; }
+    .contact-links { display: flex; flex-direction: column; gap: 0; }
+    .contact-link-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 18px 0;
+      border-bottom: 1px solid var(--border-d2);
+      transition: padding-left 0.25s;
+    }
+    .contact-link-row:last-child { border-bottom: none; }
+    .contact-link-row:hover { padding-left: 8px; }
+    .contact-link-label { font-family: 'JetBrains Mono', monospace; font-size: 9px; color: var(--gray2); letter-spacing: 0.15em; text-transform: uppercase; margin-bottom: 3px; }
+    .contact-link-val { font-size: 14px; color: var(--white); font-weight: 500; }
+    .contact-link-arr { font-family: 'JetBrains Mono', monospace; font-size: 12px; color: var(--red2); }
+
+    /* ══════════════════════════════════════════
+       FOOTER
+    ══════════════════════════════════════════ */
+    #site-footer {
+      padding: 20px 24px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      border-top: 1px solid var(--border-d);
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+    .footer-left { font-family: 'JetBrains Mono', monospace; font-size: 9px; color: var(--gray2); letter-spacing: 0.12em; }
+    .footer-right { font-family: 'JetBrains Mono', monospace; font-size: 9px; color: var(--gray2); letter-spacing: 0.08em; }
+    .footer-right a { color: var(--gray); transition: color 0.2s; }
+    .footer-right a:hover { color: var(--red2); }
+
+    /* ══════════════════════════════════════════
+       MODALS — ARCHIVAL STYLE
+    ══════════════════════════════════════════ */
+    .modal-backdrop {
+      position: fixed;
+      inset: 0;
+      z-index: 200;
+      background: rgba(13,13,11,0.92);
+      backdrop-filter: blur(4px);
+      display: none;
+      align-items: center;
+      justify-content: center;
+      padding: 24px;
+    }
+    .modal-panel {
+      background: var(--bg2);
+      border: 1px solid var(--border-d);
+      max-width: 560px;
+      width: 100%;
+      position: relative;
+    }
+    .modal-panel::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 2px;
+      background: var(--red);
+    }
+    .modal-header {
+      padding: 24px 28px 16px;
+      border-bottom: 1px solid var(--border-d2);
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+    }
+    .modal-close {
+      color: var(--gray2);
+      font-size: 18px;
+      line-height: 1;
+      padding: 4px;
+      transition: color 0.2s;
+    }
+    .modal-close:hover { color: var(--white); }
+    .modal-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 18px;
+      font-weight: 700;
+      color: var(--white);
+      margin-bottom: 2px;
+    }
+    .modal-sub { font-family: 'JetBrains Mono', monospace; font-size: 9px; color: var(--red2); letter-spacing: 0.12em; text-transform: uppercase; }
+    .modal-body { padding: 24px 28px; }
+    .modal-label { font-family: 'JetBrains Mono', monospace; font-size: 8px; font-weight: 600; letter-spacing: 0.2em; text-transform: uppercase; color: var(--gray2); margin-bottom: 8px; display: block; }
+    .modal-input {
+      width: 100%;
+      background: rgba(255,255,255,0.03);
+      border: 1px solid var(--border-d);
+      color: var(--white);
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 12px;
+      padding: 10px 14px;
+      outline: none;
+      transition: border-color 0.2s;
+    }
+    .modal-input:focus { border-color: var(--red); }
+    .modal-textarea {
+      resize: vertical;
+      min-height: 100px;
+    }
+    .modal-hint { font-family: 'JetBrains Mono', monospace; font-size: 8px; color: var(--gray2); margin-top: 6px; }
+    .modal-content-display {
+      background: rgba(255,255,255,0.02);
+      border: 1px solid var(--border-d2);
+      padding: 14px;
+      min-height: 80px;
+      font-size: 12px;
+      color: var(--cream);
+      line-height: 1.7;
+      margin-bottom: 16px;
+    }
+    .modal-footer {
+      padding: 14px 28px 20px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      border-top: 1px solid var(--border-d2);
+    }
+    .modal-btn {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 9px;
+      font-weight: 600;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      padding: 8px 18px;
+      border: 1px solid var(--border-d);
+      color: var(--gray);
+      transition: all 0.2s;
+      cursor: pointer;
+      background: none;
+    }
+    .modal-btn:hover { color: var(--white); border-color: rgba(255,255,255,0.2); }
+    .modal-btn-primary { border-color: var(--red); color: var(--red2); }
+    .modal-btn-primary:hover { background: var(--red); color: var(--white); }
+    .modal-btn-danger { color: var(--gray2); border-color: transparent; }
+    .modal-btn-danger:hover { color: var(--red2); }
+
+    /* ══════════════════════════════════════════
+       REVEAL ANIMATION
+    ══════════════════════════════════════════ */
+    .reveal {
+      opacity: 0;
+      transform: translateY(16px);
+      transition: opacity 0.6s ease, transform 0.6s ease;
+    }
+    .reveal.visible { opacity: 1; transform: none; }
+    .reveal-delay-1 { transition-delay: 0.1s; }
+    .reveal-delay-2 { transition-delay: 0.2s; }
+    .reveal-delay-3 { transition-delay: 0.3s; }
+
+    /* ══════════════════════════════════════════
+       RESPONSIVE
+    ══════════════════════════════════════════ */
+    @media (max-width: 900px) {
+      .hero-inner { grid-template-columns: 1fr; }
+      .hero-right { border-top: 1px solid var(--border-d); }
+      .hero-photo-wrap { min-height: 320px; }
+      .ach-grid { grid-template-columns: 1fr 1fr; }
+      .ach-panel:nth-child(3n) { border-right: 1px solid var(--border-d); }
+      .ach-panel:nth-child(2n) { border-right: none; }
+      .ach-panel:nth-last-child(-n+3) { border-bottom: 1px solid var(--border-d); }
+      .ach-panel:nth-last-child(-n+2) { border-bottom: none; }
+      .about-panel { padding: 36px 28px; }
+      .about-top { grid-template-columns: 1fr; gap: 20px; }
+      .about-grid { grid-template-columns: 1fr; gap: 24px; }
+      .about-col { border-right: none; margin-right: 0; padding-right: 0; border-bottom: 1px solid var(--paper2); padding-bottom: 20px; margin-bottom: 4px; }
+      .about-col:last-child { border-bottom: none; }
+      .exp-weeks-grid { grid-template-columns: repeat(4, 1fr); }
+      .week-cell:nth-child(4n) { border-right: none; }
+      .edu-row { grid-template-columns: 40px 1fr; }
+      .edu-row-inst { display: none; }
+      .edu-row-score { grid-column: 2; }
+      .contact-inner { grid-template-columns: 1fr; gap: 40px; }
+      .exp-header-row { grid-template-columns: 1fr; }
+      .exp-header-left { border-right: none; border-bottom: 1px solid var(--border-d); }
+      .cert-table thead { display: none; }
+      .cert-table, .cert-table tbody, .cert-table tr, .cert-table td { display: block; }
+      .cert-table tr { border-bottom: 1px solid var(--border-d); padding: 16px 24px; }
+      .cert-table td { padding: 2px 0; border: none; }
+    }
+    @media (max-width: 600px) {
+      .header-nav { display: none; }
+      .hero-left { padding: 40px 20px; }
+      .ach-grid { grid-template-columns: 1fr; }
+      .ach-panel { border-right: none !important; }
+      .exp-weeks-grid { grid-template-columns: repeat(3, 1fr); }
+      .week-cell:nth-child(7n) { border-right: 1px solid var(--border-d2); }
+      .week-cell:nth-child(3n) { border-right: none; }
+      .hero-meta-grid { grid-template-columns: 1fr; }
+      .hero-meta-cell { border-right: none !important; }
+      .hero-stats-bar { grid-template-columns: 1fr 1fr; }
+    }
   </style>
 </head>
 
-<body class="dot-grid min-h-screen">
+<body>
 
-  <!-- NAV -->
-  <header class="dossier-nav fixed top-0 left-0 right-0 z-50">
-    <div class="max-w-7xl mx-auto px-5 sm:px-8 h-[68px] flex items-center justify-between">
-      <a href="#hero" class="flex items-center gap-3 group">
-        <div class="w-9 h-9 rounded-lg bg-gradient-to-br from-yellow-400 to-teal-400 p-px">
-          <div class="w-full h-full rounded-[7px] bg-[#020817] flex items-center justify-center">
-            <span class="font-heading font-bold text-base dual-text">P</span>
-          </div>
-        </div>
-        <div>
-          <div class="font-heading font-bold text-white text-sm tracking-tight group-hover:text-yellow-400 transition-colors">Pranetha S.C.</div>
-          <div class="font-mono text-[10px] text-slate-500 tracking-widest uppercase">Finance · Innovation</div>
-        </div>
-      </a>
-      <nav class="hidden md:flex items-center gap-1">
-        <a href="#about" class="px-3 py-1.5 text-[13px] font-medium text-slate-400 hover:text-white hover:bg-white/5 rounded-md transition-all">About</a>
-        <a href="#achievements" class="px-3 py-1.5 text-[13px] font-medium text-slate-400 hover:text-white hover:bg-white/5 rounded-md transition-all">Achievements</a>
-        <a href="#experience" class="px-3 py-1.5 text-[13px] font-medium text-slate-400 hover:text-white hover:bg-white/5 rounded-md transition-all">Protosem</a>
-        <a href="#certifications" class="px-3 py-1.5 text-[13px] font-medium text-slate-400 hover:text-white hover:bg-white/5 rounded-md transition-all">Certifications</a>
-        <a href="#education" class="px-3 py-1.5 text-[13px] font-medium text-slate-400 hover:text-white hover:bg-white/5 rounded-md transition-all">Education</a>
-      </nav>
-      <div class="flex items-center gap-3">
-        <a href="resume.html" target="_blank" class="btn-outline text-xs px-3 py-2 hidden sm:flex"><i data-lucide="file-text" class="w-3.5 h-3.5"></i> Resume</a>
-        <a href="#contact" class="btn-primary text-xs px-4 py-2"><i data-lucide="send" class="w-3.5 h-3.5"></i> Contact</a>
+  <!-- ═══ HEADER ═══════════════════════════════════════════════════ -->
+  <header id="site-header" role="banner">
+    <div class="header-inner">
+      <div class="header-brand">
+        <span class="header-brand-name">Pranetha S.C.</span>
+        <div class="header-brand-sep"></div>
+        <span class="header-meta">Portfolio&nbsp;/&nbsp;2026</span>
       </div>
+      <nav class="header-nav" role="navigation" aria-label="Main navigation">
+        <a href="#achievements">Achievements</a>
+        <a href="#about">About</a>
+        <a href="#experience">Protosem</a>
+        <a href="#certifications">Certifications</a>
+        <a href="#education">Education</a>
+        <a href="#contact" class="nav-cta">Contact →</a>
+      </nav>
     </div>
   </header>
 
-  <main class="pt-[68px]">
+  <main>
 
-    <!-- HERO -->
-    <section id="hero" class="relative min-h-[92vh] flex items-center">
-      <div class="pointer-events-none absolute inset-0 overflow-hidden">
-        <div class="absolute -top-32 -left-32 w-[500px] h-[500px] rounded-full bg-yellow-500 opacity-[0.05] blur-[100px]"></div>
-        <div class="absolute top-1/2 -right-40 w-[400px] h-[400px] rounded-full bg-teal-400 opacity-[0.05] blur-[100px]"></div>
-        <div class="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-yellow-500/20 to-transparent"></div>
-      </div>
-      <div class="relative max-w-7xl mx-auto px-5 sm:px-8 w-full py-20">
-        <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
-          <!-- Left -->
-          <div data-aos="fade-right" data-aos-duration="900">
-            <div class="inline-flex items-center gap-2 mb-6 px-3 py-1.5 rounded-full border border-teal-400/20 bg-teal-400/5">
-              <span class="w-1.5 h-1.5 rounded-full bg-teal-400" style="animation:pulse 2s infinite"></span>
-              <span class="font-mono text-[11px] text-teal-400 tracking-widest uppercase">Available for Opportunities</span>
+    <!-- ═══ HERO ══════════════════════════════════════════════════ -->
+    <section id="hero" aria-label="Introduction">
+      <div class="hero-inner">
+
+        <!-- Left Column -->
+        <div class="hero-left">
+          <div>
+            <div class="hero-top-label">
+              <span class="hero-index">PSC-2026-001</span>
+              <div style="flex:1; height:1px; background:var(--border-d)"></div>
+              <span class="label">Finance &amp; Innovation</span>
             </div>
-            <h1 class="font-heading text-5xl sm:text-6xl lg:text-7xl font-extrabold leading-[1.05] text-white mb-4">
-              Pranetha<br/><span class="dual-text">S.C.</span>
+
+            <div style="margin-bottom:10px">
+              <span class="label label-red">B.Com Scholar · KCLAS</span>
+            </div>
+            <h1 class="hero-name font-serif reveal">
+              Pranetha<br/><em>S.C.</em>
             </h1>
-            <div class="h-8 mb-6">
-              <span class="font-mono text-lg text-yellow-400"><span id="typed-text"></span></span>
-            </div>
-            <p class="text-slate-400 leading-relaxed text-base mb-8 max-w-lg">
-              B.Com Scholar at <span class="text-white font-semibold">KCLAS</span> · <span class="text-yellow-400 font-semibold">Dept Rank 1</span> for two consecutive semesters · <span class="text-teal-400 font-semibold">CMA Foundation (Distinction)</span> · Innovation Professional Trainee at <span class="text-white font-semibold">PRICE Protosem</span>.
+            <p class="hero-role reveal reveal-delay-1">Innovation Professional Trainee</p>
+            <p class="hero-bio reveal reveal-delay-2">
+              B.Com scholar at KCLAS achieving Department Rank 1 for two consecutive semesters. CMA Foundation cleared with Distinction (308/400). Currently undergoing professional immersion at PRICE Protosem as an Innovation Professional Trainee. Mahatma Gandhi Merit Scholar.
             </p>
-            <div class="flex flex-wrap gap-3 mb-10">
-              <a href="#achievements" class="btn-primary"><i data-lucide="trophy" class="w-4 h-4"></i> View Achievements</a>
-              <a href="#experience" class="btn-outline"><i data-lucide="briefcase" class="w-4 h-4 text-teal-400"></i> PRICE Protosem</a>
+            <a href="resume.html" target="_blank" style="display:inline-flex; align-items:center; gap:10px; border:1px solid var(--border-r); padding:10px 20px; font-family:'JetBrains Mono',monospace; font-size:9px; font-weight:600; letter-spacing:0.15em; text-transform:uppercase; color:var(--red2); transition:all 0.2s; margin-bottom:40px;" class="reveal reveal-delay-3">
+              View ATS Resume <span style="font-size:12px">↗</span>
+            </a>
+          </div>
+
+          <div class="hero-meta-grid">
+            <div class="hero-meta-cell">
+              <span class="label">Current Role</span>
+              <span class="val">Innovation Trainee</span>
             </div>
-            <div class="grid grid-cols-3 gap-4">
-              <div class="metric-badge p-4 text-center">
-                <div class="font-heading font-extrabold text-xl text-yellow-400">Rank 1</div>
-                <div class="font-mono text-[10px] text-slate-500 uppercase tracking-wider mt-1">Dept · 2 Sems</div>
-              </div>
-              <div class="metric-badge p-4 text-center">
-                <div class="font-heading font-extrabold text-xl text-teal-400">308/400</div>
-                <div class="font-mono text-[10px] text-slate-500 uppercase tracking-wider mt-1">CMA Distinction</div>
-              </div>
-              <div class="metric-badge p-4 text-center">
-                <div class="font-heading font-extrabold text-xl text-white">93.4%</div>
-                <div class="font-mono text-[10px] text-slate-500 uppercase tracking-wider mt-1">12th Board</div>
-              </div>
+            <div class="hero-meta-cell">
+              <span class="label">Program</span>
+              <span class="val">PRICE Protosem</span>
+            </div>
+            <div class="hero-meta-cell">
+              <span class="label">Institution</span>
+              <span class="val">KCLAS</span>
+            </div>
+            <div class="hero-meta-cell">
+              <span class="label">Status</span>
+              <span class="val" style="color:var(--red2)">Active · 2026</span>
             </div>
           </div>
-          <!-- Right -->
-          <div data-aos="fade-left" data-aos-duration="900" data-aos-delay="150" class="flex justify-center lg:justify-end">
-            <div class="relative animate-float">
-              <div class="hero-frame relative inline-block">
-                <div class="corner-tl"></div>
-                <div class="corner-br"></div>
-                <div class="hero-frame-inner w-64 h-80 sm:w-72 sm:h-96">
-                  <img src="profile.jpg?v=2" onerror="this.onerror=null;this.src='https://ui-avatars.com/api/?name=Pranetha+SC&background=0f2040&color=e8a830&size=400&bold=true&font-size=0.38';" alt="Pranetha S.C." class="w-full h-full object-cover object-top" />
-                </div>
-              </div>
-              <div class="absolute -bottom-4 -left-4 bg-[#0a1628] border border-yellow-500/30 rounded-xl p-3 shadow-xl animate-float" style="animation-delay:1s">
-                <div class="flex items-center gap-2">
-                  <i data-lucide="award" class="w-5 h-5 text-yellow-400"></i>
-                  <div><div class="font-heading font-bold text-xs text-white">Merit Scholar</div><div class="font-mono text-[10px] text-slate-500">KCLAS College</div></div>
-                </div>
-              </div>
-              <div class="absolute -top-4 -right-4 bg-[#0a1628] border border-teal-400/30 rounded-xl p-3 shadow-xl animate-float" style="animation-delay:2s">
-                <div class="flex items-center gap-2">
-                  <i data-lucide="rocket" class="w-5 h-5 text-teal-400"></i>
-                  <div><div class="font-heading font-bold text-xs text-white">PRICE Protosem</div><div class="font-mono text-[10px] text-slate-500">Innovation Trainee</div></div>
-                </div>
-              </div>
+        </div>
+
+        <!-- Right Column -->
+        <div class="hero-right">
+          <div class="hero-photo-wrap">
+            <img
+              src="profile.jpg?v=2"
+              alt="Pranetha S.C."
+              onerror="this.onerror=null; this.parentElement.style.background='#111109'; this.remove();"
+            />
+            <div class="hero-photo-overlay"></div>
+            <div class="hero-photo-label">
+              <span class="label" style="display:block; margin-bottom:3px;">Pranetha S.C.</span>
+              <span style="font-family:'JetBrains Mono',monospace; font-size:9px; color:rgba(232,227,215,0.5);">B.Com · KCLAS · Dept Rank 1</span>
             </div>
+          </div>
+          <div class="hero-stats-bar">
+            <div class="hero-stat">
+              <div class="hero-stat-num">Rank 1</div>
+              <div class="hero-stat-lbl">Dept · 2 Sems</div>
+            </div>
+            <div class="hero-stat">
+              <div class="hero-stat-num">308</div>
+              <div class="hero-stat-lbl">CMA · /400</div>
+            </div>
+            <div class="hero-stat">
+              <div class="hero-stat-num">93.4%</div>
+              <div class="hero-stat-lbl">12th Board</div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ═══ ACHIEVEMENTS ══════════════════════════════════════════ -->
+    <section id="achievements" aria-label="Achievements">
+      <div class="section-hd">
+        <span class="section-hd-num">02</span>
+        <h2 class="section-hd-title">Academic &amp; Professional Record</h2>
+        <span class="section-hd-meta">6 Entries · 2020–2026</span>
+      </div>
+      <div class="ach-grid">
+
+        <!-- 01 -->
+        <article class="ach-panel reveal">
+          <div class="ach-num">01</div>
+          <div class="ach-category">College Merit · KCLAS</div>
+          <h3 class="ach-title">Mahatma Gandhi Merit Scholarship</h3>
+          <p class="ach-desc">Awarded in college at KCLAS for demonstrated academic distinction, discipline, and exemplary scholastic performance.</p>
+          <div class="ach-actions">
+            <a href="#" target="_blank" data-credential-id="mg-merit-scholarship" data-title="Mahatma Gandhi Merit Scholarship" onclick="handleCredentialClick(event,this)" class="ach-verify-link"><span class="cred-label">Verify Credential ↗</span></a>
+            <button onclick="openLinkModal('mg-merit-scholarship','Mahatma Gandhi Merit Scholarship')" class="ach-attach-btn">+ Attach</button>
+          </div>
+        </article>
+
+        <!-- 02 -->
+        <article class="ach-panel reveal reveal-delay-1">
+          <div class="ach-num">02</div>
+          <div class="ach-category">Academic Rank · B.Com</div>
+          <h3 class="ach-title">Department Rank 1</h3>
+          <p class="ach-desc">Secured 1st Rank in the Department for two consecutive semesters in the B.Com program at KCLAS.</p>
+          <div class="ach-actions">
+            <a href="#" target="_blank" data-credential-id="dept-rank-1" data-title="Department Rank 1" onclick="handleCredentialClick(event,this)" class="ach-verify-link"><span class="cred-label">Verify Credential ↗</span></a>
+            <button onclick="openLinkModal('dept-rank-1','Department Rank 1 (KCLAS)')" class="ach-attach-btn">+ Attach</button>
+          </div>
+        </article>
+
+        <!-- 03 -->
+        <article class="ach-panel reveal reveal-delay-2">
+          <div class="ach-num">03</div>
+          <div class="ach-category">Professional Examination</div>
+          <h3 class="ach-title">CMA Foundation — Distinction</h3>
+          <p class="ach-desc">Cleared the CMA Foundation examination with Distinction, securing a high score of <strong style="color:var(--red2)">308 / 400</strong>.</p>
+          <div class="ach-actions">
+            <a href="#" target="_blank" data-credential-id="cma-foundation" data-title="CMA Foundation (Distinction)" onclick="handleCredentialClick(event,this)" class="ach-verify-link"><span class="cred-label">Verify Credential ↗</span></a>
+            <button onclick="openLinkModal('cma-foundation','CMA Foundation Certificate')" class="ach-attach-btn">+ Attach</button>
+          </div>
+        </article>
+
+        <!-- 04 -->
+        <article class="ach-panel reveal">
+          <div class="ach-num">04</div>
+          <div class="ach-category">Higher Secondary · 12th</div>
+          <h3 class="ach-title">93.4% — 12th Board</h3>
+          <p class="ach-desc">Graduated with top academic standing and distinction in Commerce &amp; Accounting subjects.</p>
+          <div class="ach-actions">
+            <a href="#" target="_blank" data-credential-id="12th-board" data-title="12th Board Marks (93.4%)" onclick="handleCredentialClick(event,this)" class="ach-verify-link"><span class="cred-label">Verify Marks ↗</span></a>
+            <button onclick="openLinkModal('12th-board','12th Grade Marksheet / Certificate')" class="ach-attach-btn">+ Attach</button>
+          </div>
+        </article>
+
+        <!-- 05 -->
+        <article class="ach-panel reveal reveal-delay-1">
+          <div class="ach-num">05</div>
+          <div class="ach-category">Secondary School · 10th</div>
+          <h3 class="ach-title">92% — 10th Board</h3>
+          <p class="ach-desc">Consistent foundational excellence across quantitative and analytical curricula.</p>
+          <div class="ach-actions">
+            <a href="#" target="_blank" data-credential-id="10th-board" data-title="10th Board Marks (92%)" onclick="handleCredentialClick(event,this)" class="ach-verify-link"><span class="cred-label">Verify Marks ↗</span></a>
+            <button onclick="openLinkModal('10th-board','10th Grade Marksheet / Certificate')" class="ach-attach-btn">+ Attach</button>
+          </div>
+        </article>
+
+        <!-- 06 -->
+        <article class="ach-panel reveal reveal-delay-2">
+          <div class="ach-num">06</div>
+          <div class="ach-category">Industry Innovation</div>
+          <h3 class="ach-title">PRICE Protosem Trainee</h3>
+          <p class="ach-desc">Selected as Innovation Professional Trainee undergoing a comprehensive 21-week structured industry immersion program.</p>
+          <div class="ach-actions">
+            <a href="#" target="_blank" data-credential-id="protosem-trainee" data-title="PRICE Protosem Trainee" onclick="handleCredentialClick(event,this)" class="ach-verify-link"><span class="cred-label">Verify Offer ↗</span></a>
+            <button onclick="openLinkModal('protosem-trainee','PRICE Protosem Trainee Offer / Proof')" class="ach-attach-btn">+ Attach</button>
+          </div>
+        </article>
+
+      </div>
+    </section>
+
+    <!-- ═══ ABOUT ══════════════════════════════════════════════════ -->
+    <section id="about" aria-label="About">
+      <div class="section-hd">
+        <span class="section-hd-num">03</span>
+        <h2 class="section-hd-title">Profile Document</h2>
+        <span class="section-hd-meta">Personal Archive</span>
+      </div>
+      <div class="about-panel reveal" style="margin-bottom:40px;">
+        <div class="about-top">
+          <div>
+            <div class="about-sidebar-label">Document Type</div>
+            <div class="about-sidebar-text" style="font-family:'JetBrains Mono',monospace; font-size:9px; letter-spacing:0.1em; text-transform:uppercase; color:var(--red); margin-bottom:16px;">Personal Archive / 2026</div>
+            <div class="about-sidebar-label">Subject</div>
+            <div class="about-sidebar-text">Pranetha S.C.<br/>B.Com · KCLAS<br/>Coimbatore, India</div>
+          </div>
+          <div>
+            <h3 class="about-heading">B.Com Scholar &amp; Finance Professional in the Making.</h3>
+            <p class="about-body">I am a Bachelor of Commerce (B.Com) student at Kumaraguru College of Liberal Arts and Science (KCLAS), achieving Department Rank 1 for two consecutive semesters and awarded the prestigious Mahatma Gandhi Merit Scholarship in college. Having cleared the CMA Foundation examination with Distinction (308/400), I have developed strong analytical acumen in Finance and Accounting. Currently undergoing professional training as an Innovation Professional Trainee at PRICE Protosem, cultivating hands-on problem-solving and innovation methodologies.</p>
+          </div>
+        </div>
+        <div class="about-grid">
+          <div class="about-col">
+            <div class="about-col-label">Academic Profile</div>
+            <div class="about-col-item">B.Com · KCLAS</div>
+            <div class="about-col-item">Dept Rank 1 (2 Sems)</div>
+            <div class="about-col-item">CMA Foundation (Distinction)</div>
+            <div class="about-col-item">MG Merit Scholar</div>
+          </div>
+          <div class="about-col">
+            <div class="about-col-label">Expertise Areas</div>
+            <div class="about-col-item">Financial Accounting</div>
+            <div class="about-col-item">Cost Accounting (CMA)</div>
+            <div class="about-col-item">Business Communication</div>
+            <div class="about-col-item">Innovation &amp; Problem Solving</div>
+          </div>
+          <div class="about-col">
+            <div class="about-col-label">Currently</div>
+            <div class="about-col-item">PRICE Protosem Trainee</div>
+            <div class="about-col-item">B.Com · Final Year</div>
+            <div class="about-col-item">CMA Intermediate Prep.</div>
+            <div class="about-col-item">Multi-Certified (NPTEL, HP)</div>
           </div>
         </div>
       </div>
     </section>
 
-    <div class="section-divider"></div>
+    <!-- ═══ EXPERIENCE — PROTOSEM ════════════════════════════════ -->
+    <section id="experience" aria-label="Work Experience">
+      <div class="section-hd">
+        <span class="section-hd-num">04</span>
+        <h2 class="section-hd-title">Work Experience</h2>
+        <span class="section-hd-meta">1 Entry · 2025–2026</span>
+      </div>
 
-    <!-- ABOUT -->
-    <section id="about" class="py-24">
-      <div class="max-w-7xl mx-auto px-5 sm:px-8">
-        <div class="mb-12" data-aos="fade-up">
-          <div class="section-pill mb-4">About</div>
-          <h2 class="font-heading text-3xl sm:text-4xl font-bold text-white">Academic Excellence &amp; <span class="teal-text">Professional Drive</span></h2>
+      <div class="exp-header-row">
+        <div class="exp-header-left">
+          <div class="ach-category" style="margin-bottom:8px;">Organisation</div>
+          <h3 class="exp-company">PRICE<br/>Protosem</h3>
+          <p class="exp-position">Innovation Professional Trainee</p>
+          <p class="exp-dates">2025 — 2026 · 21 Weeks</p>
         </div>
-        <div class="grid grid-cols-1 lg:grid-cols-12 gap-8">
-          <div data-aos="fade-right" data-aos-duration="900" class="lg:col-span-7 dossier-card rounded-2xl p-8">
-            <div class="flex items-center gap-3 mb-6">
-              <div class="w-10 h-10 rounded-lg bg-yellow-500/10 border border-yellow-500/20 flex items-center justify-center"><i data-lucide="user" class="w-5 h-5 text-yellow-400"></i></div>
-              <h3 class="font-heading font-bold text-xl text-white">B.Com Scholar · CMA Aspirant</h3>
-            </div>
-            <p class="text-slate-300 leading-relaxed mb-4">I am a Bachelor of Commerce (B.Com) student at <strong class="text-white">Kumaraguru College of Liberal Arts and Science (KCLAS)</strong>, achieving <strong class="text-yellow-400">Department Rank 1</strong> for two consecutive semesters and awarded the prestigious <strong class="text-yellow-400">Mahatma Gandhi Merit Scholarship</strong> in college.</p>
-            <p class="text-slate-300 leading-relaxed mb-4">Having cleared the <strong class="text-teal-400">CMA Foundation examination with Distinction (308/400)</strong>, I have developed strong analytical acumen in Finance and Accounting.</p>
-            <p class="text-slate-300 leading-relaxed">Currently undergoing professional training as an <strong class="text-white">Innovation Professional Trainee at PRICE Protosem</strong>, cultivating hands-on problem-solving and innovation methodologies.</p>
-            <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 mt-6 pt-6 border-t border-white/5">
-              <div class="flex items-start gap-2.5"><i data-lucide="check-circle-2" class="w-4 h-4 text-yellow-400 mt-0.5 shrink-0"></i><span class="text-sm text-slate-300">Dept Rank 1 (2 consecutive semesters)</span></div>
-              <div class="flex items-start gap-2.5"><i data-lucide="check-circle-2" class="w-4 h-4 text-teal-400 mt-0.5 shrink-0"></i><span class="text-sm text-slate-300">CMA Foundation with Distinction (308/400)</span></div>
-              <div class="flex items-start gap-2.5"><i data-lucide="check-circle-2" class="w-4 h-4 text-yellow-400 mt-0.5 shrink-0"></i><span class="text-sm text-slate-300">PRICE Protosem Innovation Trainee</span></div>
-              <div class="flex items-start gap-2.5"><i data-lucide="check-circle-2" class="w-4 h-4 text-teal-400 mt-0.5 shrink-0"></i><span class="text-sm text-slate-300">NPTEL Elite &amp; Multi-Certified</span></div>
-            </div>
-          </div>
-          <div data-aos="fade-left" data-aos-duration="900" class="lg:col-span-5 flex flex-col gap-5">
-            <div class="dossier-card rounded-2xl p-6"><div class="flex items-center gap-3 mb-3"><div class="p-2 rounded-lg bg-yellow-500/10 text-yellow-400"><i data-lucide="medal" class="w-4 h-4"></i></div><h4 class="font-heading font-semibold text-white">College Honor &amp; Scholarship</h4></div><p class="text-sm text-slate-400">Awarded the <span class="text-yellow-400 font-medium">Mahatma Gandhi Merit Scholarship</span> in college (KCLAS) along with Department Rank 1 for two consecutive semesters.</p></div>
-            <div class="dossier-card rounded-2xl p-6"><div class="flex items-center gap-3 mb-3"><div class="p-2 rounded-lg bg-teal-400/10 text-teal-400"><i data-lucide="graduation-cap" class="w-4 h-4"></i></div><h4 class="font-heading font-semibold text-white">Professional Qualification</h4></div><p class="text-sm text-slate-400">CMA Foundation cleared with <span class="text-teal-400 font-medium">Distinction (Score: 308/400)</span>.</p></div>
-            <div class="dossier-card rounded-2xl p-6"><div class="flex items-center gap-3 mb-3"><div class="p-2 rounded-lg bg-yellow-500/10 text-yellow-400"><i data-lucide="zap" class="w-4 h-4"></i></div><h4 class="font-heading font-semibold text-white">Industry Immersion</h4></div><p class="text-sm text-slate-400">Innovation Professional Trainee at <span class="text-white font-medium">PRICE Protosem</span> — a 21-week structured industry program.</p></div>
-          </div>
+        <div class="exp-header-right">
+          <p class="exp-desc">A comprehensive 21-week industry immersion program designed to cultivate innovation thinking, hands-on problem-solving, analytical frameworks, and professional competencies in real-world business contexts. Each week represents a distinct learning module and project milestone.</p>
+          <p class="exp-desc">Click any week card below to view details or add your weekly learning notes, deliverables, and key outcomes.</p>
+        </div>
+      </div>
+
+      <div style="padding: 24px; border-top: 1px solid var(--border-d);">
+        <p class="exp-weeks-label">Weekly Log — Wk 00 through Wk 20 (Click to open)</p>
+        <div class="exp-weeks-grid">
+          <!-- Weeks 0–20 -->
+          <div class="week-cell" onclick="openWeekModal(0)"><span class="wk-num">WK</span><span>00</span></div>
+          <div class="week-cell" onclick="openWeekModal(1)"><span class="wk-num">WK</span><span>01</span></div>
+          <div class="week-cell" onclick="openWeekModal(2)"><span class="wk-num">WK</span><span>02</span></div>
+          <div class="week-cell" onclick="openWeekModal(3)"><span class="wk-num">WK</span><span>03</span></div>
+          <div class="week-cell" onclick="openWeekModal(4)"><span class="wk-num">WK</span><span>04</span></div>
+          <div class="week-cell" onclick="openWeekModal(5)"><span class="wk-num">WK</span><span>05</span></div>
+          <div class="week-cell" onclick="openWeekModal(6)"><span class="wk-num">WK</span><span>06</span></div>
+          <div class="week-cell" onclick="openWeekModal(7)"><span class="wk-num">WK</span><span>07</span></div>
+          <div class="week-cell" onclick="openWeekModal(8)"><span class="wk-num">WK</span><span>08</span></div>
+          <div class="week-cell" onclick="openWeekModal(9)"><span class="wk-num">WK</span><span>09</span></div>
+          <div class="week-cell" onclick="openWeekModal(10)"><span class="wk-num">WK</span><span>10</span></div>
+          <div class="week-cell" onclick="openWeekModal(11)"><span class="wk-num">WK</span><span>11</span></div>
+          <div class="week-cell" onclick="openWeekModal(12)"><span class="wk-num">WK</span><span>12</span></div>
+          <div class="week-cell" onclick="openWeekModal(13)"><span class="wk-num">WK</span><span>13</span></div>
+          <div class="week-cell" onclick="openWeekModal(14)"><span class="wk-num">WK</span><span>14</span></div>
+          <div class="week-cell" onclick="openWeekModal(15)"><span class="wk-num">WK</span><span>15</span></div>
+          <div class="week-cell" onclick="openWeekModal(16)"><span class="wk-num">WK</span><span>16</span></div>
+          <div class="week-cell" onclick="openWeekModal(17)"><span class="wk-num">WK</span><span>17</span></div>
+          <div class="week-cell" onclick="openWeekModal(18)"><span class="wk-num">WK</span><span>18</span></div>
+          <div class="week-cell" onclick="openWeekModal(19)"><span class="wk-num">WK</span><span>19</span></div>
+          <div class="week-cell" onclick="openWeekModal(20)"><span class="wk-num">WK</span><span>20</span></div>
         </div>
       </div>
     </section>
 
-    <div class="section-divider"></div>
+    <!-- ═══ CERTIFICATIONS ════════════════════════════════════════ -->
+    <section id="certifications" aria-label="Certifications and Workshops">
+      <div class="section-hd">
+        <span class="section-hd-num">05</span>
+        <h2 class="section-hd-title">Certifications &amp; Workshops</h2>
+        <span class="section-hd-meta">5 Entries · Continuous Learning</span>
+      </div>
+      <div style="padding: 0 0;">
+        <table class="cert-table">
+          <thead>
+            <tr>
+              <th>#</th>
+              <th>Issuing Body &amp; Title</th>
+              <th>Type</th>
+              <th>Verify</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr class="reveal">
+              <td><span class="cert-num">01</span></td>
+              <td>
+                <div class="cert-issuer">NPTEL</div>
+                <div class="cert-title-text">Soft Skill Development</div>
+              </td>
+              <td><span class="cert-type-badge elite">Elite</span></td>
+              <td>
+                <a href="#" target="_blank" data-credential-id="cert-nptel-soft-skills" data-title="NPTEL Soft Skill Development Certificate" onclick="handleCredentialClick(event,this)" class="cert-link"><span class="cred-label">Verify ↗</span></a>
+                <button onclick="openLinkModal('cert-nptel-soft-skills','NPTEL Soft Skill Development Certificate')" class="cert-attach">+ Link</button>
+              </td>
+            </tr>
+            <tr class="reveal reveal-delay-1">
+              <td><span class="cert-num">02</span></td>
+              <td>
+                <div class="cert-issuer">HP LIFE</div>
+                <div class="cert-title-text">Effective Leadership</div>
+              </td>
+              <td><span class="cert-type-badge">Certificate</span></td>
+              <td>
+                <a href="#" target="_blank" data-credential-id="cert-hp-leadership" data-title="HP LIFE Effective Leadership Certificate" onclick="handleCredentialClick(event,this)" class="cert-link"><span class="cred-label">Verify ↗</span></a>
+                <button onclick="openLinkModal('cert-hp-leadership','HP LIFE Effective Leadership Certificate')" class="cert-attach">+ Link</button>
+              </td>
+            </tr>
+            <tr class="reveal reveal-delay-2">
+              <td><span class="cert-num">03</span></td>
+              <td>
+                <div class="cert-issuer">HP LIFE</div>
+                <div class="cert-title-text">Effective Presentations</div>
+              </td>
+              <td><span class="cert-type-badge">Certificate</span></td>
+              <td>
+                <a href="#" target="_blank" data-credential-id="cert-hp-presentations" data-title="HP LIFE Effective Presentations Certificate" onclick="handleCredentialClick(event,this)" class="cert-link"><span class="cred-label">Verify ↗</span></a>
+                <button onclick="openLinkModal('cert-hp-presentations','HP LIFE Effective Presentations Certificate')" class="cert-attach">+ Link</button>
+              </td>
+            </tr>
+            <tr class="reveal reveal-delay-1">
+              <td><span class="cert-num">04</span></td>
+              <td>
+                <div class="cert-issuer">TCS iON</div>
+                <div class="cert-title-text">Contract Management for Beginners</div>
+              </td>
+              <td><span class="cert-type-badge">Certificate</span></td>
+              <td>
+                <a href="#" target="_blank" data-credential-id="cert-tcs-contract-management" data-title="TCS iON Contract Management Certificate" onclick="handleCredentialClick(event,this)" class="cert-link"><span class="cred-label">Verify ↗</span></a>
+                <button onclick="openLinkModal('cert-tcs-contract-management','TCS iON Contract Management Certificate')" class="cert-attach">+ Link</button>
+              </td>
+            </tr>
+            <tr class="reveal reveal-delay-2">
+              <td><span class="cert-num">05</span></td>
+              <td>
+                <div class="cert-issuer">Amypo Technologies</div>
+                <div class="cert-title-text">Basic Excel Micro Credential</div>
+              </td>
+              <td><span class="cert-type-badge elite">Workshop</span></td>
+              <td>
+                <a href="#" target="_blank" data-credential-id="cert-amypo-excel" data-title="Amypo Technologies Excel Micro Credential" onclick="handleCredentialClick(event,this)" class="cert-link"><span class="cred-label">Verify ↗</span></a>
+                <button onclick="openLinkModal('cert-amypo-excel','Amypo Technologies Excel Micro Credential Certificate')" class="cert-attach">+ Link</button>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
 
-    <!-- ACHIEVEMENTS -->
-    <section id="achievements" class="py-24">
-      <div class="max-w-7xl mx-auto px-5 sm:px-8">
-        <div class="mb-12" data-aos="fade-up">
-          <div class="section-pill mb-4">Honors &amp; Milestones</div>
-          <h2 class="font-heading text-3xl sm:text-4xl font-bold text-white">Key <span class="gold-text">Achievements</span></h2>
-          <p class="text-slate-500 mt-2 max-w-xl">A record of consistent academic excellence, competitive merit, and professional credentials.</p>
+    <!-- ═══ EDUCATION ═════════════════════════════════════════════ -->
+    <section id="education" aria-label="Education">
+      <div class="section-hd">
+        <span class="section-hd-num">06</span>
+        <h2 class="section-hd-title">Educational Record</h2>
+        <span class="section-hd-meta">3 Entries</span>
+      </div>
+      <div class="edu-rows">
+        <div class="edu-row reveal">
+          <div class="edu-row-num">E01</div>
+          <div class="edu-row-inst">KCLAS<br/>Coimbatore<br/>Expected 2026</div>
+          <div>
+            <div class="edu-row-title">Bachelor of Commerce (B.Com)</div>
+            <div class="edu-row-desc">Kumaraguru College of Liberal Arts and Science · Department Rank 1 for two consecutive semesters · Mahatma Gandhi Merit Scholar (awarded in college).</div>
+          </div>
+          <div class="edu-row-score">Rank 1</div>
         </div>
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
-
-          <div data-aos="fade-up" data-aos-delay="50" class="dossier-card rounded-2xl p-6 flex flex-col justify-between">
-            <div><div class="flex items-center justify-between mb-4"><div class="w-10 h-10 rounded-lg bg-yellow-500/10 border border-yellow-500/15 flex items-center justify-center"><i data-lucide="award" class="w-5 h-5 text-yellow-400"></i></div><span class="font-mono text-[10px] text-yellow-400/60 uppercase tracking-widest">College Merit</span></div><h3 class="font-heading font-bold text-lg text-white mb-2">Mahatma Gandhi Merit Scholarship</h3><p class="text-sm text-slate-400 leading-relaxed">Awarded in college at KCLAS for demonstrated academic distinction, discipline, and exemplary scholastic performance.</p></div>
-            <div class="mt-4 pt-4 border-t border-white/5 flex items-center justify-between"><a href="#" target="_blank" data-credential-id="mg-merit-scholarship" data-title="Mahatma Gandhi Merit Scholarship" onclick="handleCredentialClick(event,this)" class="inline-flex items-center gap-1.5 text-xs font-mono text-yellow-400 hover:text-yellow-300 transition-colors"><i data-lucide="external-link" class="w-3 h-3"></i><span class="cred-label">Verify Credential</span></a><button onclick="openLinkModal('mg-merit-scholarship','Mahatma Gandhi Merit Scholarship')" class="flex items-center gap-1 text-[11px] font-mono px-2.5 py-1 rounded-md bg-white/[0.03] hover:bg-yellow-500/10 text-slate-500 hover:text-yellow-400 border border-white/5 hover:border-yellow-500/20 transition-all"><i data-lucide="link" class="w-3 h-3"></i> Attach</button></div>
+        <div class="edu-row reveal reveal-delay-1">
+          <div class="edu-row-num">E02</div>
+          <div class="edu-row-inst">Higher Secondary<br/>12th Standard</div>
+          <div>
+            <div class="edu-row-title">Higher Secondary Certificate (12th)</div>
+            <div class="edu-row-desc">Top academic standing with distinction in Commerce &amp; Accounting subjects.</div>
           </div>
-
-          <div data-aos="fade-up" data-aos-delay="100" class="dossier-card rounded-2xl p-6 flex flex-col justify-between">
-            <div><div class="flex items-center justify-between mb-4"><div class="w-10 h-10 rounded-lg bg-teal-400/10 border border-teal-400/15 flex items-center justify-center"><i data-lucide="crown" class="w-5 h-5 text-teal-400"></i></div><span class="font-mono text-[10px] text-teal-400/60 uppercase tracking-widest">Academic Rank</span></div><h3 class="font-heading font-bold text-lg text-white mb-2">Department Rank 1</h3><p class="text-sm text-slate-400 leading-relaxed">Secured 1st Rank in the Department for two consecutive semesters in the B.Com program at KCLAS.</p></div>
-            <div class="mt-4 pt-4 border-t border-white/5 flex items-center justify-between"><a href="#" target="_blank" data-credential-id="dept-rank-1" data-title="Department Rank 1" onclick="handleCredentialClick(event,this)" class="inline-flex items-center gap-1.5 text-xs font-mono text-teal-400 hover:text-teal-300 transition-colors"><i data-lucide="external-link" class="w-3 h-3"></i><span class="cred-label">Verify Credential</span></a><button onclick="openLinkModal('dept-rank-1','Department Rank 1 (KCLAS)')" class="flex items-center gap-1 text-[11px] font-mono px-2.5 py-1 rounded-md bg-white/[0.03] hover:bg-teal-400/10 text-slate-500 hover:text-teal-400 border border-white/5 hover:border-teal-400/20 transition-all"><i data-lucide="link" class="w-3 h-3"></i> Attach</button></div>
+          <div class="edu-row-score" style="font-size:18px;">93.4%</div>
+        </div>
+        <div class="edu-row reveal reveal-delay-2">
+          <div class="edu-row-num">E03</div>
+          <div class="edu-row-inst">Secondary School<br/>10th Standard</div>
+          <div>
+            <div class="edu-row-title">Secondary School Certificate (10th)</div>
+            <div class="edu-row-desc">Consistent foundational excellence across all quantitative and analytical subjects.</div>
           </div>
-
-          <div data-aos="fade-up" data-aos-delay="150" class="dossier-card rounded-2xl p-6 flex flex-col justify-between">
-            <div><div class="flex items-center justify-between mb-4"><div class="w-10 h-10 rounded-lg bg-yellow-500/10 border border-yellow-500/15 flex items-center justify-center"><i data-lucide="check-check" class="w-5 h-5 text-yellow-400"></i></div><span class="font-mono text-[10px] text-yellow-400/60 uppercase tracking-widest">Professional Exam</span></div><h3 class="font-heading font-bold text-lg text-white mb-2">CMA Foundation (Distinction)</h3><p class="text-sm text-slate-400 leading-relaxed">Cleared the CMA Foundation examination with Distinction, securing a high score of <strong class="text-white">308 / 400</strong>.</p></div>
-            <div class="mt-4 pt-4 border-t border-white/5 flex items-center justify-between"><a href="#" target="_blank" data-credential-id="cma-foundation" data-title="CMA Foundation (Distinction)" onclick="handleCredentialClick(event,this)" class="inline-flex items-center gap-1.5 text-xs font-mono text-yellow-400 hover:text-yellow-300 transition-colors"><i data-lucide="external-link" class="w-3 h-3"></i><span class="cred-label">Verify Credential</span></a><button onclick="openLinkModal('cma-foundation','CMA Foundation Certificate')" class="flex items-center gap-1 text-[11px] font-mono px-2.5 py-1 rounded-md bg-white/[0.03] hover:bg-yellow-500/10 text-slate-500 hover:text-yellow-400 border border-white/5 hover:border-yellow-500/20 transition-all"><i data-lucide="link" class="w-3 h-3"></i> Attach</button></div>
-          </div>
-
-          <div data-aos="fade-up" data-aos-delay="200" class="dossier-card rounded-2xl p-6 flex flex-col justify-between">
-            <div><div class="flex items-center justify-between mb-4"><div class="w-10 h-10 rounded-lg bg-teal-400/10 border border-teal-400/15 flex items-center justify-center"><i data-lucide="trending-up" class="w-5 h-5 text-teal-400"></i></div><span class="font-mono text-[10px] text-teal-400/60 uppercase tracking-widest">Higher Secondary</span></div><h3 class="font-heading font-bold text-lg text-white mb-2">93.4% in 12th Board</h3><p class="text-sm text-slate-400 leading-relaxed">Graduated with top academic standing and distinction in Commerce &amp; Accounting subjects.</p></div>
-            <div class="mt-4 pt-4 border-t border-white/5 flex items-center justify-between"><a href="#" target="_blank" data-credential-id="12th-board" data-title="12th Board Marks (93.4%)" onclick="handleCredentialClick(event,this)" class="inline-flex items-center gap-1.5 text-xs font-mono text-teal-400 hover:text-teal-300 transition-colors"><i data-lucide="external-link" class="w-3 h-3"></i><span class="cred-label">Verify Marks</span></a><button onclick="openLinkModal('12th-board','12th Grade Marksheet / Certificate')" class="flex items-center gap-1 text-[11px] font-mono px-2.5 py-1 rounded-md bg-white/[0.03] hover:bg-teal-400/10 text-slate-500 hover:text-teal-400 border border-white/5 hover:border-teal-400/20 transition-all"><i data-lucide="link" class="w-3 h-3"></i> Attach</button></div>
-          </div>
-
-          <div data-aos="fade-up" data-aos-delay="250" class="dossier-card rounded-2xl p-6 flex flex-col justify-between">
-            <div><div class="flex items-center justify-between mb-4"><div class="w-10 h-10 rounded-lg bg-yellow-500/10 border border-yellow-500/15 flex items-center justify-center"><i data-lucide="star" class="w-5 h-5 text-yellow-400"></i></div><span class="font-mono text-[10px] text-yellow-400/60 uppercase tracking-widest">Secondary School</span></div><h3 class="font-heading font-bold text-lg text-white mb-2">92% in 10th Board</h3><p class="text-sm text-slate-400 leading-relaxed">Consistent foundational excellence across quantitative and analytical curricula.</p></div>
-            <div class="mt-4 pt-4 border-t border-white/5 flex items-center justify-between"><a href="#" target="_blank" data-credential-id="10th-board" data-title="10th Board Marks (92%)" onclick="handleCredentialClick(event,this)" class="inline-flex items-center gap-1.5 text-xs font-mono text-yellow-400 hover:text-yellow-300 transition-colors"><i data-lucide="external-link" class="w-3 h-3"></i><span class="cred-label">Verify Marks</span></a><button onclick="openLinkModal('10th-board','10th Grade Marksheet / Certificate')" class="flex items-center gap-1 text-[11px] font-mono px-2.5 py-1 rounded-md bg-white/[0.03] hover:bg-yellow-500/10 text-slate-500 hover:text-yellow-400 border border-white/5 hover:border-yellow-500/20 transition-all"><i data-lucide="link" class="w-3 h-3"></i> Attach</button></div>
-          </div>
-
-          <div data-aos="fade-up" data-aos-delay="300" class="dossier-card rounded-2xl p-6 flex flex-col justify-between">
-            <div><div class="flex items-center justify-between mb-4"><div class="w-10 h-10 rounded-lg bg-teal-400/10 border border-teal-400/15 flex items-center justify-center"><i data-lucide="rocket" class="w-5 h-5 text-teal-400"></i></div><span class="font-mono text-[10px] text-teal-400/60 uppercase tracking-widest">Industry Innovation</span></div><h3 class="font-heading font-bold text-lg text-white mb-2">PRICE Protosem Trainee</h3><p class="text-sm text-slate-400 leading-relaxed">Selected as an Innovation Professional Trainee undergoing a comprehensive 21-week industry immersion program.</p></div>
-            <div class="mt-4 pt-4 border-t border-white/5 flex items-center justify-between"><a href="#" target="_blank" data-credential-id="protosem-trainee" data-title="PRICE Protosem Trainee" onclick="handleCredentialClick(event,this)" class="inline-flex items-center gap-1.5 text-xs font-mono text-teal-400 hover:text-teal-300 transition-colors"><i data-lucide="external-link" class="w-3 h-3"></i><span class="cred-label">Verify Offer / Role</span></a><button onclick="openLinkModal('protosem-trainee','PRICE Protosem Trainee Offer / Proof')" class="flex items-center gap-1 text-[11px] font-mono px-2.5 py-1 rounded-md bg-white/[0.03] hover:bg-teal-400/10 text-slate-500 hover:text-teal-400 border border-white/5 hover:border-teal-400/20 transition-all"><i data-lucide="link" class="w-3 h-3"></i> Attach</button></div>
-          </div>
-
+          <div class="edu-row-score" style="font-size:18px;">92%</div>
         </div>
       </div>
     </section>
 
-    <div class="section-divider"></div>
-
-    <!-- PROTOSEM -->
-    <section id="experience" class="py-24">
-      <div class="max-w-7xl mx-auto px-5 sm:px-8">
-        <div class="mb-12" data-aos="fade-up">
-          <div class="section-pill mb-4">Work Experience</div>
-          <h2 class="font-heading text-3xl sm:text-4xl font-bold text-white">PRICE <span class="teal-text">Protosem</span></h2>
-          <p class="font-mono text-sm text-yellow-400 mt-1">Role: Innovation Professional Trainee</p>
-          <p class="font-mono text-[11px] text-slate-600 mt-2 uppercase tracking-widest">Click any week to view or add content</p>
+    <!-- ═══ CONTACT ═══════════════════════════════════════════════ -->
+    <section id="contact" aria-label="Contact">
+      <div class="contact-inner">
+        <div>
+          <div style="margin-bottom:16px;"><span class="label label-red">07 — Get In Touch</span></div>
+          <h2 class="contact-heading font-serif">Let's Make<br/><em>Something</em>.</h2>
+          <p class="contact-sub">Open to conversations about finance, innovation, academic opportunities, and professional collaboration. Reach out through any of the channels listed.</p>
         </div>
-        <div class="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-5 lg:grid-cols-7 gap-3">
-          <div data-aos="zoom-in" data-aos-delay="20"  onclick="openWeekModal(0)"  class="week-card rounded-xl py-4 flex flex-col items-center justify-center gap-1.5"><i data-lucide="calendar" class="w-3.5 h-3.5 text-yellow-400 opacity-50"></i><span class="font-mono font-semibold text-sm text-white">Wk 0</span></div>
-          <div data-aos="zoom-in" data-aos-delay="40"  onclick="openWeekModal(1)"  class="week-card rounded-xl py-4 flex flex-col items-center justify-center gap-1.5"><i data-lucide="calendar" class="w-3.5 h-3.5 text-yellow-400 opacity-50"></i><span class="font-mono font-semibold text-sm text-white">Wk 1</span></div>
-          <div data-aos="zoom-in" data-aos-delay="60"  onclick="openWeekModal(2)"  class="week-card rounded-xl py-4 flex flex-col items-center justify-center gap-1.5"><i data-lucide="calendar" class="w-3.5 h-3.5 text-yellow-400 opacity-50"></i><span class="font-mono font-semibold text-sm text-white">Wk 2</span></div>
-          <div data-aos="zoom-in" data-aos-delay="80"  onclick="openWeekModal(3)"  class="week-card rounded-xl py-4 flex flex-col items-center justify-center gap-1.5"><i data-lucide="calendar" class="w-3.5 h-3.5 text-yellow-400 opacity-50"></i><span class="font-mono font-semibold text-sm text-white">Wk 3</span></div>
-          <div data-aos="zoom-in" data-aos-delay="100" onclick="openWeekModal(4)"  class="week-card rounded-xl py-4 flex flex-col items-center justify-center gap-1.5"><i data-lucide="calendar" class="w-3.5 h-3.5 text-yellow-400 opacity-50"></i><span class="font-mono font-semibold text-sm text-white">Wk 4</span></div>
-          <div data-aos="zoom-in" data-aos-delay="120" onclick="openWeekModal(5)"  class="week-card rounded-xl py-4 flex flex-col items-center justify-center gap-1.5"><i data-lucide="calendar" class="w-3.5 h-3.5 text-yellow-400 opacity-50"></i><span class="font-mono font-semibold text-sm text-white">Wk 5</span></div>
-          <div data-aos="zoom-in" data-aos-delay="140" onclick="openWeekModal(6)"  class="week-card rounded-xl py-4 flex flex-col items-center justify-center gap-1.5"><i data-lucide="calendar" class="w-3.5 h-3.5 text-yellow-400 opacity-50"></i><span class="font-mono font-semibold text-sm text-white">Wk 6</span></div>
-          <div data-aos="zoom-in" data-aos-delay="160" onclick="openWeekModal(7)"  class="week-card rounded-xl py-4 flex flex-col items-center justify-center gap-1.5"><i data-lucide="calendar" class="w-3.5 h-3.5 text-teal-400 opacity-50"></i><span class="font-mono font-semibold text-sm text-white">Wk 7</span></div>
-          <div data-aos="zoom-in" data-aos-delay="180" onclick="openWeekModal(8)"  class="week-card rounded-xl py-4 flex flex-col items-center justify-center gap-1.5"><i data-lucide="calendar" class="w-3.5 h-3.5 text-teal-400 opacity-50"></i><span class="font-mono font-semibold text-sm text-white">Wk 8</span></div>
-          <div data-aos="zoom-in" data-aos-delay="200" onclick="openWeekModal(9)"  class="week-card rounded-xl py-4 flex flex-col items-center justify-center gap-1.5"><i data-lucide="calendar" class="w-3.5 h-3.5 text-teal-400 opacity-50"></i><span class="font-mono font-semibold text-sm text-white">Wk 9</span></div>
-          <div data-aos="zoom-in" data-aos-delay="220" onclick="openWeekModal(10)" class="week-card rounded-xl py-4 flex flex-col items-center justify-center gap-1.5"><i data-lucide="calendar" class="w-3.5 h-3.5 text-teal-400 opacity-50"></i><span class="font-mono font-semibold text-sm text-white">Wk 10</span></div>
-          <div data-aos="zoom-in" data-aos-delay="240" onclick="openWeekModal(11)" class="week-card rounded-xl py-4 flex flex-col items-center justify-center gap-1.5"><i data-lucide="calendar" class="w-3.5 h-3.5 text-teal-400 opacity-50"></i><span class="font-mono font-semibold text-sm text-white">Wk 11</span></div>
-          <div data-aos="zoom-in" data-aos-delay="260" onclick="openWeekModal(12)" class="week-card rounded-xl py-4 flex flex-col items-center justify-center gap-1.5"><i data-lucide="calendar" class="w-3.5 h-3.5 text-teal-400 opacity-50"></i><span class="font-mono font-semibold text-sm text-white">Wk 12</span></div>
-          <div data-aos="zoom-in" data-aos-delay="280" onclick="openWeekModal(13)" class="week-card rounded-xl py-4 flex flex-col items-center justify-center gap-1.5"><i data-lucide="calendar" class="w-3.5 h-3.5 text-yellow-400 opacity-50"></i><span class="font-mono font-semibold text-sm text-white">Wk 13</span></div>
-          <div data-aos="zoom-in" data-aos-delay="300" onclick="openWeekModal(14)" class="week-card rounded-xl py-4 flex flex-col items-center justify-center gap-1.5"><i data-lucide="calendar" class="w-3.5 h-3.5 text-yellow-400 opacity-50"></i><span class="font-mono font-semibold text-sm text-white">Wk 14</span></div>
-          <div data-aos="zoom-in" data-aos-delay="320" onclick="openWeekModal(15)" class="week-card rounded-xl py-4 flex flex-col items-center justify-center gap-1.5"><i data-lucide="calendar" class="w-3.5 h-3.5 text-yellow-400 opacity-50"></i><span class="font-mono font-semibold text-sm text-white">Wk 15</span></div>
-          <div data-aos="zoom-in" data-aos-delay="340" onclick="openWeekModal(16)" class="week-card rounded-xl py-4 flex flex-col items-center justify-center gap-1.5"><i data-lucide="calendar" class="w-3.5 h-3.5 text-yellow-400 opacity-50"></i><span class="font-mono font-semibold text-sm text-white">Wk 16</span></div>
-          <div data-aos="zoom-in" data-aos-delay="360" onclick="openWeekModal(17)" class="week-card rounded-xl py-4 flex flex-col items-center justify-center gap-1.5"><i data-lucide="calendar" class="w-3.5 h-3.5 text-teal-400 opacity-50"></i><span class="font-mono font-semibold text-sm text-white">Wk 17</span></div>
-          <div data-aos="zoom-in" data-aos-delay="380" onclick="openWeekModal(18)" class="week-card rounded-xl py-4 flex flex-col items-center justify-center gap-1.5"><i data-lucide="calendar" class="w-3.5 h-3.5 text-teal-400 opacity-50"></i><span class="font-mono font-semibold text-sm text-white">Wk 18</span></div>
-          <div data-aos="zoom-in" data-aos-delay="400" onclick="openWeekModal(19)" class="week-card rounded-xl py-4 flex flex-col items-center justify-center gap-1.5"><i data-lucide="calendar" class="w-3.5 h-3.5 text-teal-400 opacity-50"></i><span class="font-mono font-semibold text-sm text-white">Wk 19</span></div>
-          <div data-aos="zoom-in" data-aos-delay="420" onclick="openWeekModal(20)" class="week-card rounded-xl py-4 flex flex-col items-center justify-center gap-1.5"><i data-lucide="calendar" class="w-3.5 h-3.5 text-yellow-400 opacity-50"></i><span class="font-mono font-semibold text-sm text-white">Wk 20</span></div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Week Modal -->
-    <div id="week-modal" class="fixed inset-0 z-50 bg-black/80 backdrop-blur-md items-center justify-center p-4" style="display:none">
-      <div class="dossier-card rounded-2xl p-6 sm:p-8 max-w-xl w-full border border-yellow-500/20 relative shadow-2xl">
-        <button onclick="closeWeekModal()" class="absolute top-4 right-4 text-slate-500 hover:text-white p-2 rounded-lg hover:bg-white/5 transition"><i data-lucide="x" class="w-4 h-4"></i></button>
-        <div class="flex items-center gap-3 mb-5">
-          <div class="p-2.5 rounded-lg bg-yellow-500/10 border border-yellow-500/15 text-yellow-400"><i data-lucide="calendar-days" class="w-5 h-5"></i></div>
-          <div><p class="font-mono text-[10px] text-yellow-400/60 uppercase tracking-widest">PRICE Protosem</p><h3 id="week-modal-title" class="font-heading font-bold text-xl text-white">Week 0</h3></div>
-        </div>
-        <div id="week-content-display" class="min-h-[80px] text-sm text-slate-300 leading-relaxed mb-5 p-4 rounded-xl bg-[#020817] border border-white/5"><span class="text-slate-600 italic font-mono text-xs">// No content added yet. Click "Edit" to add details.</span></div>
-        <div id="week-edit-area" class="hidden mb-5">
-          <label class="block font-mono text-[10px] text-slate-500 uppercase tracking-wider mb-2">Weekly Content</label>
-          <textarea id="week-content-input" rows="5" placeholder="Add what you learned, built, or accomplished this week..." class="w-full bg-[#020817] text-white font-sans text-sm px-4 py-3 rounded-xl border border-white/8 focus:border-yellow-500/50 focus:outline-none transition resize-none leading-relaxed"></textarea>
-        </div>
-        <div class="flex flex-wrap items-center justify-between gap-2 pt-4 border-t border-white/5">
-          <button id="week-edit-btn" onclick="toggleWeekEdit()" class="flex items-center gap-1.5 px-4 py-2 text-xs font-mono text-yellow-400 hover:text-yellow-300 hover:bg-yellow-500/10 border border-yellow-500/20 rounded-lg transition"><i data-lucide="pencil" class="w-3.5 h-3.5"></i><span>Edit Content</span></button>
-          <div class="flex items-center gap-2">
-            <button onclick="closeWeekModal()" class="px-4 py-2 text-xs font-mono text-slate-400 hover:text-white bg-white/5 hover:bg-white/10 rounded-lg transition">Close</button>
-            <button id="week-save-btn" onclick="saveWeekContent()" class="hidden px-5 py-2 text-xs font-mono font-bold text-[#020817] bg-yellow-400 hover:bg-yellow-300 rounded-lg transition hover:scale-105">Save</button>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <div class="section-divider"></div>
-
-    <!-- CERTIFICATIONS -->
-    <section id="certifications" class="py-24">
-      <div class="max-w-7xl mx-auto px-5 sm:px-8">
-        <div class="mb-12" data-aos="fade-up">
-          <div class="section-pill mb-4">Continuous Learning</div>
-          <h2 class="font-heading text-3xl sm:text-4xl font-bold text-white">Certifications &amp; <span class="gold-text">Workshops</span></h2>
-          <p class="text-slate-500 mt-2">Professional training programs and accredited development courses.</p>
-        </div>
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
-
-          <div data-aos="fade-up" data-aos-delay="50" class="dossier-card rounded-2xl p-6 flex flex-col justify-between">
-            <div><div class="flex items-center gap-3 mb-4"><div class="p-2.5 rounded-lg bg-yellow-500/10 border border-yellow-500/15 text-yellow-400"><i data-lucide="award" class="w-4 h-4"></i></div><div><div class="font-mono text-[10px] text-yellow-400/70 uppercase tracking-widest">NPTEL</div><h3 class="font-heading font-bold text-white">Soft Skill Development</h3></div></div><span class="cert-badge bg-emerald-400/10 text-emerald-400 border border-emerald-400/15">✦ Elite Certification</span></div>
-            <div class="mt-4 pt-3 border-t border-white/5 flex items-center justify-between"><a href="#" target="_blank" data-credential-id="cert-nptel-soft-skills" data-title="NPTEL Soft Skill Development Certificate" onclick="handleCredentialClick(event,this)" class="inline-flex items-center gap-1.5 text-xs font-mono text-yellow-400 hover:text-yellow-300 transition-colors"><i data-lucide="external-link" class="w-3 h-3"></i><span class="cred-label">Verify</span></a><button onclick="openLinkModal('cert-nptel-soft-skills','NPTEL Soft Skill Development Certificate')" class="flex items-center gap-1 text-[11px] font-mono px-2.5 py-1 rounded-md bg-white/[0.03] hover:bg-yellow-500/10 text-slate-500 hover:text-yellow-400 border border-white/5 hover:border-yellow-500/20 transition-all"><i data-lucide="link" class="w-3 h-3"></i> Attach</button></div>
-          </div>
-
-          <div data-aos="fade-up" data-aos-delay="100" class="dossier-card rounded-2xl p-6 flex flex-col justify-between">
-            <div><div class="flex items-center gap-3 mb-4"><div class="p-2.5 rounded-lg bg-teal-400/10 border border-teal-400/15 text-teal-400"><i data-lucide="users" class="w-4 h-4"></i></div><div><div class="font-mono text-[10px] text-teal-400/70 uppercase tracking-widest">HP LIFE</div><h3 class="font-heading font-bold text-white">Effective Leadership</h3></div></div><span class="cert-badge bg-white/5 text-slate-400 border border-white/8">Leadership &amp; Management</span></div>
-            <div class="mt-4 pt-3 border-t border-white/5 flex items-center justify-between"><a href="#" target="_blank" data-credential-id="cert-hp-leadership" data-title="HP LIFE Effective Leadership Certificate" onclick="handleCredentialClick(event,this)" class="inline-flex items-center gap-1.5 text-xs font-mono text-teal-400 hover:text-teal-300 transition-colors"><i data-lucide="external-link" class="w-3 h-3"></i><span class="cred-label">Verify</span></a><button onclick="openLinkModal('cert-hp-leadership','HP LIFE Effective Leadership Certificate')" class="flex items-center gap-1 text-[11px] font-mono px-2.5 py-1 rounded-md bg-white/[0.03] hover:bg-teal-400/10 text-slate-500 hover:text-teal-400 border border-white/5 hover:border-teal-400/20 transition-all"><i data-lucide="link" class="w-3 h-3"></i> Attach</button></div>
-          </div>
-
-          <div data-aos="fade-up" data-aos-delay="150" class="dossier-card rounded-2xl p-6 flex flex-col justify-between">
-            <div><div class="flex items-center gap-3 mb-4"><div class="p-2.5 rounded-lg bg-yellow-500/10 border border-yellow-500/15 text-yellow-400"><i data-lucide="presentation" class="w-4 h-4"></i></div><div><div class="font-mono text-[10px] text-yellow-400/70 uppercase tracking-widest">HP LIFE</div><h3 class="font-heading font-bold text-white">Effective Presentations</h3></div></div><span class="cert-badge bg-white/5 text-slate-400 border border-white/8">Business Communication</span></div>
-            <div class="mt-4 pt-3 border-t border-white/5 flex items-center justify-between"><a href="#" target="_blank" data-credential-id="cert-hp-presentations" data-title="HP LIFE Effective Presentations Certificate" onclick="handleCredentialClick(event,this)" class="inline-flex items-center gap-1.5 text-xs font-mono text-yellow-400 hover:text-yellow-300 transition-colors"><i data-lucide="external-link" class="w-3 h-3"></i><span class="cred-label">Verify</span></a><button onclick="openLinkModal('cert-hp-presentations','HP LIFE Effective Presentations Certificate')" class="flex items-center gap-1 text-[11px] font-mono px-2.5 py-1 rounded-md bg-white/[0.03] hover:bg-yellow-500/10 text-slate-500 hover:text-yellow-400 border border-white/5 hover:border-yellow-500/20 transition-all"><i data-lucide="link" class="w-3 h-3"></i> Attach</button></div>
-          </div>
-
-          <div data-aos="fade-up" data-aos-delay="200" class="dossier-card rounded-2xl p-6 flex flex-col justify-between">
-            <div><div class="flex items-center gap-3 mb-4"><div class="p-2.5 rounded-lg bg-teal-400/10 border border-teal-400/15 text-teal-400"><i data-lucide="file-check-2" class="w-4 h-4"></i></div><div><div class="font-mono text-[10px] text-teal-400/70 uppercase tracking-widest">TCS iON</div><h3 class="font-heading font-bold text-white">Contract Management</h3></div></div><span class="cert-badge bg-white/5 text-slate-400 border border-white/8">Corporate Compliance</span></div>
-            <div class="mt-4 pt-3 border-t border-white/5 flex items-center justify-between"><a href="#" target="_blank" data-credential-id="cert-tcs-contract-management" data-title="TCS iON Contract Management Certificate" onclick="handleCredentialClick(event,this)" class="inline-flex items-center gap-1.5 text-xs font-mono text-teal-400 hover:text-teal-300 transition-colors"><i data-lucide="external-link" class="w-3 h-3"></i><span class="cred-label">Verify</span></a><button onclick="openLinkModal('cert-tcs-contract-management','TCS iON Contract Management Certificate')" class="flex items-center gap-1 text-[11px] font-mono px-2.5 py-1 rounded-md bg-white/[0.03] hover:bg-teal-400/10 text-slate-500 hover:text-teal-400 border border-white/5 hover:border-teal-400/20 transition-all"><i data-lucide="link" class="w-3 h-3"></i> Attach</button></div>
-          </div>
-
-          <div data-aos="fade-up" data-aos-delay="250" class="dossier-card rounded-2xl p-6 flex flex-col justify-between">
-            <div><div class="flex items-center gap-3 mb-4"><div class="p-2.5 rounded-lg bg-yellow-500/10 border border-yellow-500/15 text-yellow-400"><i data-lucide="table" class="w-4 h-4"></i></div><div><div class="font-mono text-[10px] text-yellow-400/70 uppercase tracking-widest">Amypo Technologies</div><h3 class="font-heading font-bold text-white">Basic Excel Micro Credential</h3></div></div><span class="cert-badge bg-emerald-400/10 text-emerald-400 border border-emerald-400/15">✦ Workshop &amp; Credential</span></div>
-            <div class="mt-4 pt-3 border-t border-white/5 flex items-center justify-between"><a href="#" target="_blank" data-credential-id="cert-amypo-excel" data-title="Amypo Technologies Excel Micro Credential" onclick="handleCredentialClick(event,this)" class="inline-flex items-center gap-1.5 text-xs font-mono text-yellow-400 hover:text-yellow-300 transition-colors"><i data-lucide="external-link" class="w-3 h-3"></i><span class="cred-label">Verify</span></a><button onclick="openLinkModal('cert-amypo-excel','Amypo Technologies Excel Micro Credential Certificate')" class="flex items-center gap-1 text-[11px] font-mono px-2.5 py-1 rounded-md bg-white/[0.03] hover:bg-yellow-500/10 text-slate-500 hover:text-yellow-400 border border-white/5 hover:border-yellow-500/20 transition-all"><i data-lucide="link" class="w-3 h-3"></i> Attach</button></div>
-          </div>
-
-        </div>
-      </div>
-    </section>
-
-    <div class="section-divider"></div>
-
-    <!-- EDUCATION -->
-    <section id="education" class="py-24">
-      <div class="max-w-4xl mx-auto px-5 sm:px-8">
-        <div class="mb-12" data-aos="fade-up">
-          <div class="section-pill mb-4">Academic Background</div>
-          <h2 class="font-heading text-3xl sm:text-4xl font-bold text-white">Education</h2>
-        </div>
-        <div class="timeline-line pl-8 space-y-10">
-          <div data-aos="fade-up" class="relative">
-            <div class="absolute -left-[43px] top-2 flex items-center justify-center"><div class="timeline-dot"></div></div>
-            <div class="dossier-card rounded-2xl p-6 sm:p-8">
-              <div class="flex flex-wrap items-start justify-between gap-3 mb-3"><div><span class="font-mono text-[10px] text-yellow-400/70 uppercase tracking-widest">Undergraduate Degree</span><h3 class="font-heading font-bold text-xl text-white mt-1">Bachelor of Commerce (B.Com)</h3></div><span class="font-mono text-xs text-slate-500 bg-white/5 px-3 py-1 rounded-md">Expected 2026</span></div>
-              <div class="flex items-center gap-2 text-sm text-slate-400 mb-3"><i data-lucide="map-pin" class="w-4 h-4 text-yellow-400"></i>Kumaraguru College of Liberal Arts and Science (KCLAS)</div>
-              <p class="text-sm text-slate-400 leading-relaxed">Achieved <strong class="text-yellow-400">Department Rank 1</strong> for two consecutive semesters. Awarded the <strong class="text-yellow-400">Mahatma Gandhi Merit Scholarship</strong> in college.</p>
-            </div>
-          </div>
-          <div data-aos="fade-up" data-aos-delay="100" class="relative">
-            <div class="absolute -left-[43px] top-2 flex items-center justify-center"><div class="timeline-dot"></div></div>
-            <div class="dossier-card rounded-2xl p-6 sm:p-8">
-              <div class="flex flex-wrap items-start justify-between gap-3 mb-2"><div><span class="font-mono text-[10px] text-teal-400/70 uppercase tracking-widest">Higher Secondary (12th)</span><h3 class="font-heading font-bold text-xl text-white mt-1">Score: <span class="teal-text">93.4%</span></h3></div></div>
-              <p class="text-sm text-slate-400">Graduated with top academic standing and distinction in Commerce &amp; Accounting subjects.</p>
-            </div>
-          </div>
-          <div data-aos="fade-up" data-aos-delay="200" class="relative">
-            <div class="absolute -left-[43px] top-2 flex items-center justify-center"><div class="timeline-dot"></div></div>
-            <div class="dossier-card rounded-2xl p-6 sm:p-8">
-              <div class="flex flex-wrap items-start justify-between gap-3 mb-2"><div><span class="font-mono text-[10px] text-yellow-400/70 uppercase tracking-widest">Secondary School (10th)</span><h3 class="font-heading font-bold text-xl text-white mt-1">Score: <span class="gold-text">92%</span></h3></div></div>
-              <p class="text-sm text-slate-400">Consistent scholastic performance across all foundational subjects.</p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <div class="section-divider"></div>
-
-    <!-- CONTACT -->
-    <section id="contact" class="py-24">
-      <div class="max-w-4xl mx-auto px-5 sm:px-8">
-        <div data-aos="zoom-in" class="dossier-card rounded-2xl p-8 sm:p-12 border border-yellow-500/15">
-          <div class="text-center mb-10">
-            <div class="section-pill mb-4 mx-auto w-fit">Get In Touch</div>
-            <h2 class="font-heading text-3xl sm:text-4xl font-bold text-white">Connect With Me</h2>
-          </div>
-          <div class="grid grid-cols-1 md:grid-cols-3 gap-5 mb-8">
-            <a href="mailto:pranetha.kclas@gmail.com" class="dossier-card rounded-xl p-5 flex flex-col items-center gap-3 text-center"><div class="w-11 h-11 rounded-lg bg-yellow-500/10 border border-yellow-500/15 text-yellow-400 flex items-center justify-center"><i data-lucide="mail" class="w-5 h-5"></i></div><div><div class="font-mono text-[10px] text-slate-500 uppercase tracking-widest mb-1">Direct Email</div><div class="text-xs font-semibold text-white break-all">pranetha.kclas@gmail.com</div></div></a>
-            <a href="https://github.com/pranethasc" target="_blank" class="dossier-card rounded-xl p-5 flex flex-col items-center gap-3 text-center"><div class="w-11 h-11 rounded-lg bg-teal-400/10 border border-teal-400/15 text-teal-400 flex items-center justify-center"><i data-lucide="github" class="w-5 h-5"></i></div><div><div class="font-mono text-[10px] text-slate-500 uppercase tracking-widest mb-1">GitHub</div><div class="text-xs font-semibold text-white">github.com/pranethasc</div></div></a>
-            <a href="https://linkedin.com" target="_blank" class="dossier-card rounded-xl p-5 flex flex-col items-center gap-3 text-center"><div class="w-11 h-11 rounded-lg bg-yellow-500/10 border border-yellow-500/15 text-yellow-400 flex items-center justify-center"><i data-lucide="linkedin" class="w-5 h-5"></i></div><div><div class="font-mono text-[10px] text-slate-500 uppercase tracking-widest mb-1">LinkedIn</div><div class="text-xs font-semibold text-white">Connect on LinkedIn</div></div></a>
-          </div>
-          <div class="text-center pt-6 border-t border-white/5">
-            <a href="resume.html" target="_blank" class="btn-primary"><i data-lucide="file-check" class="w-4 h-4"></i> View &amp; Print Official ATS Resume</a>
-          </div>
+        <div class="contact-links">
+          <a href="mailto:pranetha.kclas@gmail.com" class="contact-link-row">
+            <div><div class="contact-link-label">Email</div><div class="contact-link-val">pranetha.kclas@gmail.com</div></div>
+            <span class="contact-link-arr">→</span>
+          </a>
+          <a href="https://github.com/pranethasc" target="_blank" class="contact-link-row">
+            <div><div class="contact-link-label">GitHub</div><div class="contact-link-val">github.com/pranethasc</div></div>
+            <span class="contact-link-arr">→</span>
+          </a>
+          <a href="https://linkedin.com" target="_blank" class="contact-link-row">
+            <div><div class="contact-link-label">LinkedIn</div><div class="contact-link-val">Connect on LinkedIn</div></div>
+            <span class="contact-link-arr">→</span>
+          </a>
+          <a href="resume.html" target="_blank" class="contact-link-row">
+            <div><div class="contact-link-label">Resume</div><div class="contact-link-val">View ATS-Optimized Resume</div></div>
+            <span class="contact-link-arr">↗</span>
+          </a>
         </div>
       </div>
     </section>
 
   </main>
 
-  <!-- FOOTER -->
-  <footer class="section-divider py-8">
-    <div class="max-w-7xl mx-auto px-5 sm:px-8 flex flex-col sm:flex-row items-center justify-between gap-4">
-      <div class="font-mono text-xs text-slate-600">© <span id="year"></span> <strong class="text-slate-400">Pranetha S.C.</strong> · B.Com at KCLAS</div>
-      <div class="flex items-center gap-4 font-mono text-xs text-slate-600">
-        <a href="#hero" class="hover:text-yellow-400 transition-colors">↑ Top</a>
-        <span>·</span>
-        <a href="resume.html" target="_blank" class="hover:text-yellow-400 transition-colors">ATS Resume</a>
-        <span>·</span>
-        <a href="https://github.com/pranethasc" target="_blank" class="hover:text-teal-400 transition-colors">GitHub</a>
+  <!-- ═══ FOOTER ════════════════════════════════════════════════ -->
+  <footer>
+    <div id="site-footer">
+      <span class="footer-left">© <span id="year"></span> Pranetha S.C. — All Rights Reserved.</span>
+      <div class="footer-right" style="display:flex; gap:20px;">
+        <a href="#hero">↑ Top</a>
+        <a href="resume.html" target="_blank">ATS Resume</a>
+        <a href="https://github.com/pranethasc" target="_blank">GitHub</a>
       </div>
     </div>
   </footer>
 
-  <!-- LINK MODAL -->
-  <div id="link-modal" class="fixed inset-0 z-50 bg-black/80 backdrop-blur-md items-center justify-center p-4" style="display:none">
-    <div class="dossier-card rounded-2xl p-6 sm:p-8 max-w-lg w-full border border-teal-400/20 relative shadow-2xl">
-      <button onclick="closeLinkModal()" class="absolute top-4 right-4 text-slate-500 hover:text-white p-2 rounded-lg hover:bg-white/5 transition"><i data-lucide="x" class="w-4 h-4"></i></button>
-      <div class="flex items-center gap-3 mb-5"><div class="p-2.5 rounded-lg bg-teal-400/10 border border-teal-400/15 text-teal-400"><i data-lucide="link" class="w-5 h-5"></i></div><div><h3 class="font-heading font-bold text-lg text-white">Attach Verification Link</h3><p id="modal-target-title" class="font-mono text-[10px] text-teal-400/70">Credential / Certificate</p></div></div>
-      <p class="text-xs text-slate-400 mb-4 leading-relaxed">Paste a public Google Drive, DigiLocker, or verification URL for this achievement:</p>
-      <div class="mb-5"><label class="block font-mono text-[10px] text-slate-500 uppercase tracking-wider mb-2">Verification URL</label><input type="url" id="modal-url-input" placeholder="https://drive.google.com/file/d/..." class="w-full bg-[#020817] text-white font-mono text-sm px-4 py-3 rounded-xl border border-white/8 focus:border-teal-400/50 focus:outline-none transition" /><span class="font-mono text-[10px] text-slate-600 mt-1 block">Ensure sharing is set to "Anyone with the link can view".</span></div>
-      <div class="flex flex-wrap items-center justify-between gap-2 pt-4 border-t border-white/5">
-        <button onclick="clearCredentialLink()" class="px-3 py-2 text-xs font-mono text-red-400 hover:text-red-300 hover:bg-red-500/10 rounded-lg transition">Clear Link</button>
-        <div class="flex items-center gap-2"><button onclick="closeLinkModal()" class="px-4 py-2 text-xs font-mono text-slate-400 hover:text-white bg-white/5 hover:bg-white/10 rounded-lg transition">Cancel</button><button onclick="saveCredentialLink()" class="px-5 py-2 text-xs font-mono font-bold text-[#020817] bg-teal-400 hover:bg-teal-300 rounded-lg transition hover:scale-105">Save Link</button></div>
+  <!-- ═══ WEEK MODAL ════════════════════════════════════════════ -->
+  <div id="week-modal" class="modal-backdrop" style="display:none" role="dialog" aria-modal="true">
+    <div class="modal-panel">
+      <div class="modal-header">
+        <div>
+          <div class="modal-sub">PRICE Protosem · Weekly Log</div>
+          <h3 class="modal-title" id="week-modal-title">Week 00</h3>
+        </div>
+        <button onclick="closeWeekModal()" class="modal-close" aria-label="Close">✕</button>
+      </div>
+      <div class="modal-body">
+        <span class="modal-label">Entry</span>
+        <div id="week-content-display" class="modal-content-display">
+          <span style="font-family:'JetBrains Mono',monospace; font-size:9px; color:var(--gray2); letter-spacing:0.1em;">// NO ENTRY — Click "Edit" to add content for this week.</span>
+        </div>
+        <div id="week-edit-area" style="display:none;">
+          <span class="modal-label">Edit Entry</span>
+          <textarea id="week-content-input" class="modal-input modal-textarea" placeholder="Document your learnings, deliverables, and outcomes for this week..."></textarea>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button id="week-edit-btn" onclick="toggleWeekEdit()" class="modal-btn">Edit</button>
+        <div style="display:flex; gap:8px;">
+          <button onclick="closeWeekModal()" class="modal-btn">Close</button>
+          <button id="week-save-btn" onclick="saveWeekContent()" class="modal-btn modal-btn-primary" style="display:none;">Save Entry</button>
+        </div>
       </div>
     </div>
   </div>
 
-  <!-- SCRIPTS -->
-  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <!-- ═══ LINK MODAL ════════════════════════════════════════════ -->
+  <div id="link-modal" class="modal-backdrop" style="display:none" role="dialog" aria-modal="true">
+    <div class="modal-panel">
+      <div class="modal-header">
+        <div>
+          <div class="modal-sub">Credential Verification</div>
+          <h3 class="modal-title">Attach Verification Link</h3>
+          <p id="modal-target-title" style="font-family:'JetBrains Mono',monospace; font-size:9px; color:var(--gray); margin-top:2px;"></p>
+        </div>
+        <button onclick="closeLinkModal()" class="modal-close" aria-label="Close">✕</button>
+      </div>
+      <div class="modal-body">
+        <span class="modal-label">Verification URL</span>
+        <input type="url" id="modal-url-input" class="modal-input" placeholder="https://drive.google.com/file/d/..." />
+        <p class="modal-hint">Paste a Google Drive, DigiLocker, or public verification link. Ensure "Anyone with link" access is enabled.</p>
+      </div>
+      <div class="modal-footer">
+        <button onclick="clearCredentialLink()" class="modal-btn modal-btn-danger">Clear Link</button>
+        <div style="display:flex; gap:8px;">
+          <button onclick="closeLinkModal()" class="modal-btn">Cancel</button>
+          <button onclick="saveCredentialLink()" class="modal-btn modal-btn-primary">Save Link</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ═══ SCRIPTS ═══════════════════════════════════════════════ -->
+  <script src="https://unpkg.com/lucide@latest"></script>
   <script>
     lucide.createIcons();
-    AOS.init({ once: true, duration: 750, offset: 50, easing: 'ease-out-cubic' });
-    new Typed('#typed-text', {
-      strings: ['B.Com Scholar · KCLAS','Dept Rank 1 (2 Semesters)','CMA Foundation — Distinction','Mahatma Gandhi Merit Scholar','Innovation Professional Trainee'],
-      typeSpeed: 45, backSpeed: 28, backDelay: 1800, loop: true
-    });
     document.getElementById('year').textContent = new Date().getFullYear();
 
+    // ── Scroll Reveal ──
+    const revealEls = document.querySelectorAll('.reveal');
+    const revealObserver = new IntersectionObserver(entries => {
+      entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); revealObserver.unobserve(e.target); } });
+    }, { threshold: 0.08, rootMargin: '0px 0px -40px 0px' });
+    revealEls.forEach(el => revealObserver.observe(el));
+
+    // ── Credential Link System ──
     let activeCredentialId = null;
+
     function initCredentialLinks() {
       document.querySelectorAll('[data-credential-id]').forEach(link => {
         const id = link.getAttribute('data-credential-id');
         const savedUrl = localStorage.getItem('cred_link_' + id);
-        if (savedUrl && savedUrl.trim()) { link.href = savedUrl; const l = link.querySelector('.cred-label'); if (l) l.textContent = 'View Link ↗'; }
+        if (savedUrl && savedUrl.trim()) {
+          link.href = savedUrl;
+          const lbl = link.querySelector('.cred-label');
+          if (lbl) lbl.textContent = 'View Link ↗';
+        }
       });
     }
+
     function handleCredentialClick(event, element) {
       const id = element.getAttribute('data-credential-id');
       const title = element.getAttribute('data-title') || 'Achievement';
       const savedUrl = localStorage.getItem('cred_link_' + id);
-      if (!savedUrl || !savedUrl.trim() || element.getAttribute('href') === '#') { event.preventDefault(); openLinkModal(id, title); }
+      if (!savedUrl || !savedUrl.trim() || element.getAttribute('href') === '#') {
+        event.preventDefault();
+        openLinkModal(id, title);
+      }
     }
+
     function openLinkModal(id, title) {
       activeCredentialId = id;
       document.getElementById('modal-target-title').textContent = title;
       document.getElementById('modal-url-input').value = localStorage.getItem('cred_link_' + id) || '';
       document.getElementById('link-modal').style.display = 'flex';
-      document.getElementById('modal-url-input').focus();
+      setTimeout(() => document.getElementById('modal-url-input').focus(), 50);
     }
-    function closeLinkModal() { document.getElementById('link-modal').style.display = 'none'; activeCredentialId = null; }
+
+    function closeLinkModal() {
+      document.getElementById('link-modal').style.display = 'none';
+      activeCredentialId = null;
+    }
+
     function saveCredentialLink() {
       if (!activeCredentialId) return;
       const url = document.getElementById('modal-url-input').value.trim();
       if (url) localStorage.setItem('cred_link_' + activeCredentialId, url);
       else localStorage.removeItem('cred_link_' + activeCredentialId);
-      initCredentialLinks(); closeLinkModal();
+      initCredentialLinks();
+      closeLinkModal();
     }
+
     function clearCredentialLink() {
       if (!activeCredentialId) return;
       localStorage.removeItem('cred_link_' + activeCredentialId);
       const link = document.querySelector(`[data-credential-id="${activeCredentialId}"]`);
-      if (link) { link.href = '#'; const l = link.querySelector('.cred-label'); if (l) l.textContent = 'Verify Credential'; }
+      if (link) { link.href = '#'; const l = link.querySelector('.cred-label'); if (l) l.textContent = 'Verify Credential ↗'; }
       closeLinkModal();
     }
+
     initCredentialLinks();
 
+    // ── Week Modal System ──
     let activeWeekNumber = null, weekEditMode = false;
+
     function openWeekModal(weekNum) {
       activeWeekNumber = weekNum; weekEditMode = false;
-      document.getElementById('week-modal-title').textContent = 'Week ' + weekNum;
+      document.getElementById('week-modal-title').textContent = 'Week ' + String(weekNum).padStart(2,'0');
       const saved = localStorage.getItem('week_content_' + weekNum) || '';
       const display = document.getElementById('week-content-display');
-      display.innerHTML = saved.trim() ? saved.replace(/\n/g,'<br/>') : '<span class="text-slate-600 italic font-mono text-xs">// No content added yet. Click "Edit" to add details.</span>';
+      display.innerHTML = saved.trim()
+        ? saved.replace(/\n/g, '<br/>')
+        : '<span style="font-family:\'JetBrains Mono\',monospace; font-size:9px; color:var(--gray2); letter-spacing:0.1em;">// NO ENTRY — Click "Edit" to add content for this week.</span>';
       document.getElementById('week-content-input').value = saved;
-      document.getElementById('week-edit-area').classList.add('hidden');
-      document.getElementById('week-save-btn').classList.add('hidden');
-      document.getElementById('week-edit-btn').querySelector('span').textContent = 'Edit Content';
+      document.getElementById('week-edit-area').style.display = 'none';
+      document.getElementById('week-save-btn').style.display = 'none';
+      document.getElementById('week-edit-btn').textContent = 'Edit';
       document.getElementById('week-modal').style.display = 'flex';
     }
-    function closeWeekModal() { document.getElementById('week-modal').style.display = 'none'; activeWeekNumber = null; weekEditMode = false; }
+
+    function closeWeekModal() {
+      document.getElementById('week-modal').style.display = 'none';
+      activeWeekNumber = null; weekEditMode = false;
+    }
+
     function toggleWeekEdit() {
       weekEditMode = !weekEditMode;
-      const ea = document.getElementById('week-edit-area'), sb = document.getElementById('week-save-btn'), lbl = document.getElementById('week-edit-btn').querySelector('span');
-      if (weekEditMode) { ea.classList.remove('hidden'); sb.classList.remove('hidden'); lbl.textContent = 'Cancel Edit'; document.getElementById('week-content-input').focus(); }
-      else { ea.classList.add('hidden'); sb.classList.add('hidden'); lbl.textContent = 'Edit Content'; }
+      const ea = document.getElementById('week-edit-area');
+      const sb = document.getElementById('week-save-btn');
+      const btn = document.getElementById('week-edit-btn');
+      if (weekEditMode) {
+        ea.style.display = 'block'; sb.style.display = 'block'; btn.textContent = 'Cancel';
+        setTimeout(() => document.getElementById('week-content-input').focus(), 50);
+      } else {
+        ea.style.display = 'none'; sb.style.display = 'none'; btn.textContent = 'Edit';
+      }
     }
+
     function saveWeekContent() {
       if (activeWeekNumber === null) return;
       const text = document.getElementById('week-content-input').value.trim();
       if (text) localStorage.setItem('week_content_' + activeWeekNumber, text);
       else localStorage.removeItem('week_content_' + activeWeekNumber);
       const display = document.getElementById('week-content-display');
-      display.innerHTML = text ? text.replace(/\n/g,'<br/>') : '<span class="text-slate-600 italic font-mono text-xs">// No content added yet. Click "Edit" to add details.</span>';
+      display.innerHTML = text
+        ? text.replace(/\n/g, '<br/>')
+        : '<span style="font-family:\'JetBrains Mono\',monospace; font-size:9px; color:var(--gray2); letter-spacing:0.1em;">// NO ENTRY — Click "Edit" to add content.</span>';
       weekEditMode = false;
-      document.getElementById('week-edit-area').classList.add('hidden');
-      document.getElementById('week-save-btn').classList.add('hidden');
-      document.getElementById('week-edit-btn').querySelector('span').textContent = 'Edit Content';
+      document.getElementById('week-edit-area').style.display = 'none';
+      document.getElementById('week-save-btn').style.display = 'none';
+      document.getElementById('week-edit-btn').textContent = 'Edit';
     }
-    document.getElementById('week-modal').addEventListener('click', e => { if (e.target === document.getElementById('week-modal')) closeWeekModal(); });
-    document.getElementById('link-modal').addEventListener('click', e => { if (e.target === document.getElementById('link-modal')) closeLinkModal(); });
+
+    // ── Close modals on backdrop click ──
+    ['week-modal','link-modal'].forEach(id => {
+      document.getElementById(id).addEventListener('click', e => {
+        if (e.target.id === id) { id === 'week-modal' ? closeWeekModal() : closeLinkModal(); }
+      });
+    });
+
+    // ── Keyboard: Escape closes modals ──
+    document.addEventListener('keydown', e => {
+      if (e.key === 'Escape') { closeWeekModal(); closeLinkModal(); }
+    });
   </script>
 </body>
 </html>
