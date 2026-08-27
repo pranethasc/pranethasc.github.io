@@ -521,77 +521,155 @@
         <span class="text-xs font-semibold uppercase tracking-widest text-orange-400 bg-orange-500/10 px-3.5 py-1.5 rounded-full border border-orange-500/20">Work Experience</span>
         <h2 class="text-3xl sm:text-4xl font-heading font-bold text-white mt-4">PRICE Protosem</h2>
         <p class="text-lg font-medium text-orange-400 mt-2">Role: Innovation Professional Trainee</p>
+        <p class="text-xs text-slate-500 mt-2">Click any week card to view or add your weekly content</p>
       </div>
 
-      <!-- 20 Weekly Placeholder Cards (Week 1 to Week 20) with no other text -->
+      <!-- Week 0 to Week 19 — 20 interactive clickable cards -->
       <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4">
-        
-        <div data-aos="zoom-in" data-aos-delay="50" class="week-card p-6 rounded-2xl text-center flex items-center justify-center cursor-default">
+
+        <div data-aos="zoom-in" data-aos-delay="50"  onclick="openWeekModal(0)"  class="week-card p-6 rounded-2xl text-center flex flex-col items-center justify-center cursor-pointer gap-1.5">
+          <i data-lucide="calendar" class="w-4 h-4 text-orange-400 opacity-70"></i>
+          <span class="font-heading font-bold text-base text-white tracking-wide">Week 0</span>
+        </div>
+        <div data-aos="zoom-in" data-aos-delay="75"  onclick="openWeekModal(1)"  class="week-card p-6 rounded-2xl text-center flex flex-col items-center justify-center cursor-pointer gap-1.5">
+          <i data-lucide="calendar" class="w-4 h-4 text-orange-400 opacity-70"></i>
           <span class="font-heading font-bold text-base text-white tracking-wide">Week 1</span>
         </div>
-        <div data-aos="zoom-in" data-aos-delay="75" class="week-card p-6 rounded-2xl text-center flex items-center justify-center cursor-default">
+        <div data-aos="zoom-in" data-aos-delay="100" onclick="openWeekModal(2)"  class="week-card p-6 rounded-2xl text-center flex flex-col items-center justify-center cursor-pointer gap-1.5">
+          <i data-lucide="calendar" class="w-4 h-4 text-orange-400 opacity-70"></i>
           <span class="font-heading font-bold text-base text-white tracking-wide">Week 2</span>
         </div>
-        <div data-aos="zoom-in" data-aos-delay="100" class="week-card p-6 rounded-2xl text-center flex items-center justify-center cursor-default">
+        <div data-aos="zoom-in" data-aos-delay="125" onclick="openWeekModal(3)"  class="week-card p-6 rounded-2xl text-center flex flex-col items-center justify-center cursor-pointer gap-1.5">
+          <i data-lucide="calendar" class="w-4 h-4 text-orange-400 opacity-70"></i>
           <span class="font-heading font-bold text-base text-white tracking-wide">Week 3</span>
         </div>
-        <div data-aos="zoom-in" data-aos-delay="125" class="week-card p-6 rounded-2xl text-center flex items-center justify-center cursor-default">
+        <div data-aos="zoom-in" data-aos-delay="150" onclick="openWeekModal(4)"  class="week-card p-6 rounded-2xl text-center flex flex-col items-center justify-center cursor-pointer gap-1.5">
+          <i data-lucide="calendar" class="w-4 h-4 text-orange-400 opacity-70"></i>
           <span class="font-heading font-bold text-base text-white tracking-wide">Week 4</span>
         </div>
-        <div data-aos="zoom-in" data-aos-delay="150" class="week-card p-6 rounded-2xl text-center flex items-center justify-center cursor-default">
+
+        <div data-aos="zoom-in" data-aos-delay="175" onclick="openWeekModal(5)"  class="week-card p-6 rounded-2xl text-center flex flex-col items-center justify-center cursor-pointer gap-1.5">
+          <i data-lucide="calendar" class="w-4 h-4 text-orange-400 opacity-70"></i>
           <span class="font-heading font-bold text-base text-white tracking-wide">Week 5</span>
         </div>
-
-        <div data-aos="zoom-in" data-aos-delay="175" class="week-card p-6 rounded-2xl text-center flex items-center justify-center cursor-default">
+        <div data-aos="zoom-in" data-aos-delay="200" onclick="openWeekModal(6)"  class="week-card p-6 rounded-2xl text-center flex flex-col items-center justify-center cursor-pointer gap-1.5">
+          <i data-lucide="calendar" class="w-4 h-4 text-orange-400 opacity-70"></i>
           <span class="font-heading font-bold text-base text-white tracking-wide">Week 6</span>
         </div>
-        <div data-aos="zoom-in" data-aos-delay="200" class="week-card p-6 rounded-2xl text-center flex items-center justify-center cursor-default">
+        <div data-aos="zoom-in" data-aos-delay="225" onclick="openWeekModal(7)"  class="week-card p-6 rounded-2xl text-center flex flex-col items-center justify-center cursor-pointer gap-1.5">
+          <i data-lucide="calendar" class="w-4 h-4 text-orange-400 opacity-70"></i>
           <span class="font-heading font-bold text-base text-white tracking-wide">Week 7</span>
         </div>
-        <div data-aos="zoom-in" data-aos-delay="225" class="week-card p-6 rounded-2xl text-center flex items-center justify-center cursor-default">
+        <div data-aos="zoom-in" data-aos-delay="250" onclick="openWeekModal(8)"  class="week-card p-6 rounded-2xl text-center flex flex-col items-center justify-center cursor-pointer gap-1.5">
+          <i data-lucide="calendar" class="w-4 h-4 text-orange-400 opacity-70"></i>
           <span class="font-heading font-bold text-base text-white tracking-wide">Week 8</span>
         </div>
-        <div data-aos="zoom-in" data-aos-delay="250" class="week-card p-6 rounded-2xl text-center flex items-center justify-center cursor-default">
+        <div data-aos="zoom-in" data-aos-delay="275" onclick="openWeekModal(9)"  class="week-card p-6 rounded-2xl text-center flex flex-col items-center justify-center cursor-pointer gap-1.5">
+          <i data-lucide="calendar" class="w-4 h-4 text-orange-400 opacity-70"></i>
           <span class="font-heading font-bold text-base text-white tracking-wide">Week 9</span>
         </div>
-        <div data-aos="zoom-in" data-aos-delay="275" class="week-card p-6 rounded-2xl text-center flex items-center justify-center cursor-default">
+
+        <div data-aos="zoom-in" data-aos-delay="300" onclick="openWeekModal(10)" class="week-card p-6 rounded-2xl text-center flex flex-col items-center justify-center cursor-pointer gap-1.5">
+          <i data-lucide="calendar" class="w-4 h-4 text-orange-400 opacity-70"></i>
           <span class="font-heading font-bold text-base text-white tracking-wide">Week 10</span>
         </div>
-
-        <div data-aos="zoom-in" data-aos-delay="300" class="week-card p-6 rounded-2xl text-center flex items-center justify-center cursor-default">
+        <div data-aos="zoom-in" data-aos-delay="325" onclick="openWeekModal(11)" class="week-card p-6 rounded-2xl text-center flex flex-col items-center justify-center cursor-pointer gap-1.5">
+          <i data-lucide="calendar" class="w-4 h-4 text-orange-400 opacity-70"></i>
           <span class="font-heading font-bold text-base text-white tracking-wide">Week 11</span>
         </div>
-        <div data-aos="zoom-in" data-aos-delay="325" class="week-card p-6 rounded-2xl text-center flex items-center justify-center cursor-default">
+        <div data-aos="zoom-in" data-aos-delay="350" onclick="openWeekModal(12)" class="week-card p-6 rounded-2xl text-center flex flex-col items-center justify-center cursor-pointer gap-1.5">
+          <i data-lucide="calendar" class="w-4 h-4 text-orange-400 opacity-70"></i>
           <span class="font-heading font-bold text-base text-white tracking-wide">Week 12</span>
         </div>
-        <div data-aos="zoom-in" data-aos-delay="350" class="week-card p-6 rounded-2xl text-center flex items-center justify-center cursor-default">
+        <div data-aos="zoom-in" data-aos-delay="375" onclick="openWeekModal(13)" class="week-card p-6 rounded-2xl text-center flex flex-col items-center justify-center cursor-pointer gap-1.5">
+          <i data-lucide="calendar" class="w-4 h-4 text-orange-400 opacity-70"></i>
           <span class="font-heading font-bold text-base text-white tracking-wide">Week 13</span>
         </div>
-        <div data-aos="zoom-in" data-aos-delay="375" class="week-card p-6 rounded-2xl text-center flex items-center justify-center cursor-default">
+        <div data-aos="zoom-in" data-aos-delay="400" onclick="openWeekModal(14)" class="week-card p-6 rounded-2xl text-center flex flex-col items-center justify-center cursor-pointer gap-1.5">
+          <i data-lucide="calendar" class="w-4 h-4 text-orange-400 opacity-70"></i>
           <span class="font-heading font-bold text-base text-white tracking-wide">Week 14</span>
         </div>
-        <div data-aos="zoom-in" data-aos-delay="400" class="week-card p-6 rounded-2xl text-center flex items-center justify-center cursor-default">
+
+        <div data-aos="zoom-in" data-aos-delay="425" onclick="openWeekModal(15)" class="week-card p-6 rounded-2xl text-center flex flex-col items-center justify-center cursor-pointer gap-1.5">
+          <i data-lucide="calendar" class="w-4 h-4 text-orange-400 opacity-70"></i>
           <span class="font-heading font-bold text-base text-white tracking-wide">Week 15</span>
         </div>
-
-        <div data-aos="zoom-in" data-aos-delay="425" class="week-card p-6 rounded-2xl text-center flex items-center justify-center cursor-default">
+        <div data-aos="zoom-in" data-aos-delay="450" onclick="openWeekModal(16)" class="week-card p-6 rounded-2xl text-center flex flex-col items-center justify-center cursor-pointer gap-1.5">
+          <i data-lucide="calendar" class="w-4 h-4 text-orange-400 opacity-70"></i>
           <span class="font-heading font-bold text-base text-white tracking-wide">Week 16</span>
         </div>
-        <div data-aos="zoom-in" data-aos-delay="450" class="week-card p-6 rounded-2xl text-center flex items-center justify-center cursor-default">
+        <div data-aos="zoom-in" data-aos-delay="475" onclick="openWeekModal(17)" class="week-card p-6 rounded-2xl text-center flex flex-col items-center justify-center cursor-pointer gap-1.5">
+          <i data-lucide="calendar" class="w-4 h-4 text-orange-400 opacity-70"></i>
           <span class="font-heading font-bold text-base text-white tracking-wide">Week 17</span>
         </div>
-        <div data-aos="zoom-in" data-aos-delay="475" class="week-card p-6 rounded-2xl text-center flex items-center justify-center cursor-default">
+        <div data-aos="zoom-in" data-aos-delay="500" onclick="openWeekModal(18)" class="week-card p-6 rounded-2xl text-center flex flex-col items-center justify-center cursor-pointer gap-1.5">
+          <i data-lucide="calendar" class="w-4 h-4 text-orange-400 opacity-70"></i>
           <span class="font-heading font-bold text-base text-white tracking-wide">Week 18</span>
         </div>
-        <div data-aos="zoom-in" data-aos-delay="500" class="week-card p-6 rounded-2xl text-center flex items-center justify-center cursor-default">
+        <div data-aos="zoom-in" data-aos-delay="525" onclick="openWeekModal(19)" class="week-card p-6 rounded-2xl text-center flex flex-col items-center justify-center cursor-pointer gap-1.5">
+          <i data-lucide="calendar" class="w-4 h-4 text-orange-400 opacity-70"></i>
           <span class="font-heading font-bold text-base text-white tracking-wide">Week 19</span>
         </div>
-        <div data-aos="zoom-in" data-aos-delay="525" class="week-card p-6 rounded-2xl text-center flex items-center justify-center cursor-default">
+        <div data-aos="zoom-in" data-aos-delay="550" onclick="openWeekModal(20)" class="week-card p-6 rounded-2xl text-center flex flex-col items-center justify-center cursor-pointer gap-1.5">
+          <i data-lucide="calendar" class="w-4 h-4 text-orange-400 opacity-70"></i>
           <span class="font-heading font-bold text-base text-white tracking-wide">Week 20</span>
         </div>
 
       </div>
     </section>
+
+    <!-- ==================== WEEK DETAIL MODAL ==================== -->
+    <div id="week-modal" class="fixed inset-0 z-50 bg-black/70 backdrop-blur-md hidden flex items-center justify-center p-4">
+      <div class="glass-panel p-6 sm:p-8 rounded-3xl max-w-xl w-full border border-orange-500/30 relative shadow-2xl">
+        <!-- Close -->
+        <button onclick="closeWeekModal()" class="absolute top-4 right-4 text-slate-400 hover:text-white p-2 rounded-xl hover:bg-white/5 transition">
+          <i data-lucide="x" class="w-5 h-5"></i>
+        </button>
+
+        <!-- Header -->
+        <div class="flex items-center space-x-3 mb-5">
+          <div class="p-2.5 rounded-xl bg-orange-500/10 text-orange-400">
+            <i data-lucide="calendar-days" class="w-6 h-6"></i>
+          </div>
+          <div>
+            <p class="text-[11px] font-semibold text-orange-400 uppercase tracking-wider">PRICE Protosem</p>
+            <h3 id="week-modal-title" class="text-xl font-heading font-bold text-white">Week 0</h3>
+          </div>
+        </div>
+
+        <!-- Content Display Area -->
+        <div id="week-content-display" class="min-h-[80px] text-sm text-slate-300 leading-relaxed mb-5 p-4 rounded-xl bg-white/[0.025] border border-white/5">
+          <span class="text-slate-500 italic">No content added yet. Click "Edit Content" to add details for this week.</span>
+        </div>
+
+        <!-- Edit Area (hidden by default) -->
+        <div id="week-edit-area" class="hidden mb-5">
+          <label class="block text-[11px] font-semibold text-slate-400 uppercase tracking-wider mb-1.5">Weekly Content</label>
+          <textarea
+            id="week-content-input"
+            rows="5"
+            placeholder="Add what you learned, built, or accomplished this week..."
+            class="w-full bg-[#0d121f] text-white text-sm px-4 py-3 rounded-xl border border-white/10 focus:border-orange-500 focus:outline-none transition resize-none leading-relaxed"
+          ></textarea>
+        </div>
+
+        <!-- Actions -->
+        <div class="flex flex-wrap items-center justify-between gap-2 pt-4 border-t border-white/10">
+          <button id="week-edit-btn" onclick="toggleWeekEdit()" class="px-4 py-2 text-xs font-semibold text-orange-400 hover:text-orange-300 hover:bg-orange-500/10 border border-orange-500/20 rounded-xl transition flex items-center gap-1.5">
+            <i data-lucide="pencil" class="w-3.5 h-3.5"></i>
+            <span>Edit Content</span>
+          </button>
+          <div class="flex items-center space-x-2">
+            <button onclick="closeWeekModal()" class="px-4 py-2 text-xs font-semibold text-slate-300 hover:text-white bg-white/5 hover:bg-white/10 rounded-xl transition">
+              Close
+            </button>
+            <button id="week-save-btn" onclick="saveWeekContent()" class="hidden px-5 py-2 text-xs font-bold uppercase tracking-wider text-white bg-gradient-to-r from-orange-500 to-rose-600 hover:from-orange-600 hover:to-rose-700 rounded-xl shadow-lg transition hover:scale-105">
+              Save
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
 
     <!-- ==================== CERTIFICATIONS & WORKSHOPS SECTION ==================== -->
     <section id="certifications" class="py-20 relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -1013,6 +1091,78 @@
 
     // Initialize links on load
     initCredentialLinks();
+
+    // ==================== WEEK MODAL SYSTEM ====================
+    let activeWeekNumber = null;
+    let weekEditMode = false;
+
+    function openWeekModal(weekNum) {
+      activeWeekNumber = weekNum;
+      weekEditMode = false;
+      document.getElementById('week-modal-title').textContent = 'Week ' + weekNum;
+      const saved = localStorage.getItem('week_content_' + weekNum) || '';
+      const display = document.getElementById('week-content-display');
+      if (saved.trim()) {
+        display.innerHTML = saved.replace(/\n/g, '<br/>');
+      } else {
+        display.innerHTML = '<span class="text-slate-500 italic">No content added yet. Click "Edit Content" to add details for this week.</span>';
+      }
+      document.getElementById('week-content-input').value = saved;
+      document.getElementById('week-edit-area').classList.add('hidden');
+      document.getElementById('week-save-btn').classList.add('hidden');
+      document.getElementById('week-edit-btn').querySelector('span').textContent = 'Edit Content';
+      document.getElementById('week-modal').classList.remove('hidden');
+    }
+
+    function closeWeekModal() {
+      document.getElementById('week-modal').classList.add('hidden');
+      activeWeekNumber = null;
+      weekEditMode = false;
+    }
+
+    function toggleWeekEdit() {
+      weekEditMode = !weekEditMode;
+      const editArea = document.getElementById('week-edit-area');
+      const saveBtn = document.getElementById('week-save-btn');
+      const editBtnLabel = document.getElementById('week-edit-btn').querySelector('span');
+      if (weekEditMode) {
+        editArea.classList.remove('hidden');
+        saveBtn.classList.remove('hidden');
+        editBtnLabel.textContent = 'Cancel Edit';
+        document.getElementById('week-content-input').focus();
+      } else {
+        editArea.classList.add('hidden');
+        saveBtn.classList.add('hidden');
+        editBtnLabel.textContent = 'Edit Content';
+      }
+    }
+
+    function saveWeekContent() {
+      if (activeWeekNumber === null) return;
+      const text = document.getElementById('week-content-input').value.trim();
+      if (text) {
+        localStorage.setItem('week_content_' + activeWeekNumber, text);
+      } else {
+        localStorage.removeItem('week_content_' + activeWeekNumber);
+      }
+      // Update display
+      const display = document.getElementById('week-content-display');
+      if (text) {
+        display.innerHTML = text.replace(/\n/g, '<br/>');
+      } else {
+        display.innerHTML = '<span class="text-slate-500 italic">No content added yet. Click "Edit Content" to add details for this week.</span>';
+      }
+      // Exit edit mode
+      weekEditMode = false;
+      document.getElementById('week-edit-area').classList.add('hidden');
+      document.getElementById('week-save-btn').classList.add('hidden');
+      document.getElementById('week-edit-btn').querySelector('span').textContent = 'Edit Content';
+    }
+
+    // Close week modal when clicking backdrop
+    document.getElementById('week-modal').addEventListener('click', function(e) {
+      if (e.target === this) closeWeekModal();
+    });
   </script>
 </body>
 </html>
