@@ -1,0 +1,1450 @@
+<!DOCTYPE html>
+<html lang="en" class="dark scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Week 1 Blog | Design, Discovery & Code — Pranetha S.C.</title>
+  
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400;1,600&family=Syne:wght@600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet" />
+
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['"Plus Jakarta Sans"', 'system-ui', 'sans-serif'],
+            heading: ['"Syne"', '"Plus Jakarta Sans"', 'sans-serif'],
+            mono: ['"JetBrains Mono"', 'monospace'],
+          },
+          colors: {
+            brand: {
+              50: '#f0fdf4',
+              100: '#dcfce7',
+              200: '#bbf7d0',
+              300: '#86efac',
+              400: '#4ade80',
+              500: '#22c55e',
+              600: '#16a34a',
+              700: '#15803d',
+              800: '#166534',
+              900: '#14532d',
+            },
+            accent: {
+              50: '#eff6ff',
+              100: '#dbeafe',
+              500: '#3b82f6',
+              600: '#2563eb',
+              700: '#1d4ed8',
+            },
+            warm: {
+              50: '#fffbeb',
+              100: '#fef3c7',
+              500: '#f59e0b',
+              600: '#d97706',
+              700: '#b45309',
+            }
+          }
+        }
+      }
+    }
+  </script>
+
+  <!-- Lucide Icons -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+
+  <!-- Three.js for 3D WebGL Animations -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+
+  <style>
+    /* 3D Card Tilt and Floating Styles */
+    .card-3d {
+      transform-style: preserve-3d;
+      transition: transform 0.12s ease-out, box-shadow 0.25s ease-out;
+      will-change: transform;
+      position: relative;
+    }
+    .card-3d:hover {
+      box-shadow: 0 20px 45px -12px rgba(16, 185, 129, 0.28), 0 0 25px -5px rgba(59, 130, 246, 0.22);
+    }
+    .card-3d-glare {
+      position: absolute;
+      inset: 0;
+      border-radius: inherit;
+      pointer-events: none;
+      opacity: 0;
+      transition: opacity 0.25s ease;
+      background: radial-gradient(circle at var(--gx, 50%) var(--gy, 50%), rgba(255, 255, 255, 0.14), transparent 65%);
+      z-index: 2;
+    }
+    .card-3d:hover .card-3d-glare {
+      opacity: 1;
+    }
+    @keyframes float3d {
+      0%, 100% {
+        transform: translateY(0px) rotateX(0deg) rotateY(0deg);
+      }
+      50% {
+        transform: translateY(-8px) rotateX(3deg) rotateY(-3deg);
+      }
+    }
+    .animate-float-3d {
+      animation: float3d 5s ease-in-out infinite;
+      transform-style: preserve-3d;
+    }
+    @keyframes pulseGlow {
+      0%, 100% { opacity: 0.4; transform: scale(1); }
+      50% { opacity: 0.8; transform: scale(1.08); }
+    }
+    .glow-pulse {
+      animation: pulseGlow 4s ease-in-out infinite;
+    }
+
+    /* Day 2 Animated Value Chain & SWOT Styles */
+    @keyframes energyBeam {
+      0% { background-position: -200% 0; }
+      100% { background-position: 200% 0; }
+    }
+    .energy-pipeline {
+      background: linear-gradient(90deg, rgba(16, 185, 129, 0.1) 0%, rgba(16, 185, 129, 0.85) 50%, rgba(59, 130, 246, 0.1) 100%);
+      background-size: 200% 100%;
+      animation: energyBeam 3s linear infinite;
+    }
+    @keyframes pulseRing {
+      0% { transform: scale(0.96); box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.7); }
+      70% { transform: scale(1.04); box-shadow: 0 0 0 8px rgba(16, 185, 129, 0); }
+      100% { transform: scale(0.96); box-shadow: 0 0 0 0 rgba(16, 185, 129, 0); }
+    }
+    .pulse-ring {
+      animation: pulseRing 2.4s ease-in-out infinite;
+    }
+    @keyframes floatParticle {
+      0%, 100% { transform: translateY(0px) rotate(0deg); }
+      50% { transform: translateY(-7px) rotate(6deg); }
+    }
+    .animate-float-seed {
+      animation: floatParticle 3.5s ease-in-out infinite;
+    }
+    .swot-card-s {
+      transition: all 0.25s ease;
+    }
+    .swot-card-s:hover {
+      box-shadow: 0 16px 36px -10px rgba(16, 185, 129, 0.35);
+      border-color: rgba(16, 185, 129, 0.7);
+      transform: translateY(-4px);
+    }
+    .swot-card-w {
+      transition: all 0.25s ease;
+    }
+    .swot-card-w:hover {
+      box-shadow: 0 16px 36px -10px rgba(245, 158, 11, 0.35);
+      border-color: rgba(245, 158, 11, 0.7);
+      transform: translateY(-4px);
+    }
+    .swot-card-o {
+      transition: all 0.25s ease;
+    }
+    .swot-card-o:hover {
+      box-shadow: 0 16px 36px -10px rgba(59, 130, 246, 0.35);
+      border-color: rgba(59, 130, 246, 0.7);
+      transform: translateY(-4px);
+    }
+    .swot-card-t {
+      transition: all 0.25s ease;
+    }
+    .swot-card-t:hover {
+      box-shadow: 0 16px 36px -10px rgba(244, 63, 94, 0.35);
+      border-color: rgba(244, 63, 94, 0.7);
+      transform: translateY(-4px);
+    }
+    /* Custom scrollbar and animations */
+    ::-webkit-scrollbar {
+      width: 8px;
+      height: 8px;
+    }
+    ::-webkit-scrollbar-track {
+      background: rgba(0,0,0,0.03);
+    }
+    ::-webkit-scrollbar-thumb {
+      background: rgba(100, 116, 139, 0.4);
+      border-radius: 9999px;
+    }
+    ::-webkit-scrollbar-thumb:hover {
+      background: rgba(100, 116, 139, 0.7);
+    }
+    .glass-nav {
+      background: rgba(11, 15, 25, 0.88);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    }
+    .hero-glow {
+      background: radial-gradient(circle at 50% 20%, rgba(16, 185, 129, 0.16), rgba(59, 130, 246, 0.1) 40%, transparent 70%);
+    }
+    .img-zoom-wrapper {
+      position: relative;
+      cursor: zoom-in;
+    }
+    .img-zoom-wrapper:after {
+      content: 'Click to expand';
+      position: absolute;
+      bottom: 12px;
+      right: 12px;
+      background: rgba(15, 23, 42, 0.75);
+      backdrop-filter: blur(4px);
+      color: #fff;
+      font-size: 0.72rem;
+      font-weight: 600;
+      padding: 4px 10px;
+      border-radius: 9999px;
+      opacity: 0;
+      transform: translateY(4px);
+      transition: all 0.2s ease;
+      pointer-events: none;
+    }
+    .img-zoom-wrapper:hover:after {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    @media print {
+      .no-print { display: none !important; }
+      body { background: white !important; color: black !important; }
+      .shadow-xl, .shadow-2xl { box-shadow: none !important; }
+    }
+  </style>
+</head>
+<body class="bg-[#0b0f19] text-slate-100 font-sans antialiased selection:bg-emerald-500 selection:text-white transition-colors duration-200 min-h-screen flex flex-col">
+
+  <!-- Reading Progress Bar -->
+  <div id="progress-container" class="fixed top-0 left-0 w-full h-1 z-50 bg-slate-200/50 dark:bg-slate-800/50 no-print">
+    <div id="progress-bar" class="h-full bg-gradient-to-r from-brand-500 via-emerald-400 to-accent-500 w-0 transition-[width] duration-100 ease-out"></div>
+  </div>
+
+  <!-- Header / Navigation Bar -->
+  <header class="sticky top-0 z-40 border-b border-slate-200/80 dark:border-slate-800/80 glass-nav transition-all duration-200">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
+      
+      <!-- Logo / Back Link -->
+      <a href="#top" class="flex items-center gap-3 group">
+        <div class="w-9 h-9 rounded-xl bg-gradient-to-tr from-brand-600 to-emerald-400 flex items-center justify-center text-white shadow-md shadow-brand-500/20 group-hover:scale-105 transition-transform">
+          <i data-lucide="sparkles" class="w-5 h-5"></i>
+        </div>
+        <div>
+          <span class="font-heading font-bold text-lg tracking-tight text-slate-900 dark:text-white group-hover:text-brand-600 dark:group-hover:text-brand-400 transition-colors">Pranetha S.C.</span>
+          <span class="block text-[11px] font-mono uppercase tracking-wider text-slate-500 dark:text-slate-400 -mt-1">Learning Journal · Week 1</span>
+        </div>
+      </a>
+
+      <!-- Quick Anchor Navigation -->
+      <nav class="hidden md:flex items-center gap-1 text-sm font-medium text-slate-600 dark:text-slate-300">
+        <a href="#day-1" class="px-3 py-1.5 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-800 hover:text-brand-600 dark:hover:text-brand-400 transition-colors">Day 1: Design</a>
+        <a href="#day-2" class="px-3 py-1.5 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-800 hover:text-brand-600 dark:hover:text-brand-400 transition-colors">Day 2: Seed Sector</a>
+        <a href="#day-3" class="px-3 py-1.5 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-800 hover:text-brand-600 dark:hover:text-brand-400 transition-colors">Day 3: Tech Leap</a>
+        <a href="#day-4" class="px-3 py-1.5 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-800 hover:text-brand-600 dark:hover:text-brand-400 transition-colors">Day 4: Alumni & Goals</a>
+        <a href="#reflection" class="px-3 py-1.5 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-800 hover:text-brand-600 dark:hover:text-brand-400 transition-colors">Takeaways</a>
+      </nav>
+
+      <!-- Action Buttons -->
+      <div class="flex items-center gap-2">
+        <!-- Print Button -->
+        <button onclick="window.print()" title="Print or Save as PDF" class="p-2 rounded-lg text-slate-500 hover:text-slate-900 dark:text-slate-400 dark:hover:text-white hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors">
+          <i data-lucide="printer" class="w-4 h-4"></i>
+        </button>
+
+        <!-- Dark/Light Theme Toggle -->
+        <button id="theme-toggle" title="Toggle dark/light theme" class="p-2 rounded-lg text-slate-500 hover:text-slate-900 dark:text-slate-400 dark:hover:text-white hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors">
+          <i data-lucide="moon" class="w-4 h-4 hidden dark:block"></i>
+          <i data-lucide="sun" class="w-4 h-4 block dark:hidden"></i>
+        </button>
+
+        <!-- Mobile Menu Button -->
+        <button id="mobile-menu-btn" class="md:hidden p-2 rounded-lg text-slate-600 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800">
+          <i data-lucide="menu" class="w-5 h-5"></i>
+        </button>
+      </div>
+    </div>
+
+    <!-- Mobile Dropdown Navigation -->
+    <div id="mobile-menu" class="hidden md:hidden border-t border-slate-200 dark:border-slate-800 px-4 py-3 bg-white dark:bg-slate-900 space-y-2">
+      <a href="#day-1" class="block px-3 py-2 rounded-md text-sm font-medium hover:bg-slate-100 dark:hover:bg-slate-800">Day 1: Design Thinking & Algorithms</a>
+      <a href="#day-2" class="block px-3 py-2 rounded-md text-sm font-medium hover:bg-slate-100 dark:hover:bg-slate-800">Day 2: Seed Retail & Distribution Sector</a>
+      <a href="#day-3" class="block px-3 py-2 rounded-md text-sm font-medium hover:bg-slate-100 dark:hover:bg-slate-800">Day 3: Portfolio Development with Antigravity</a>
+      <a href="#day-4" class="block px-3 py-2 rounded-md text-sm font-medium hover:bg-slate-100 dark:hover:bg-slate-800">Day 4: Alumni Talk & SMART Goals</a>
+      <a href="#reflection" class="block px-3 py-2 rounded-md text-sm font-medium hover:bg-slate-100 dark:hover:bg-slate-800">Weekly Reflection & Summary</a>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <section id="top" class="relative pt-12 pb-16 md:pt-20 md:pb-24 overflow-hidden hero-glow border-b border-slate-800">
+    <!-- 3D WebGL Canvas Animation (Three.js) -->
+    <canvas id="hero-3d-canvas" class="absolute inset-0 w-full h-full pointer-events-none opacity-80 z-0"></canvas>
+    
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
+      
+      <!-- Pill Tag with 3D Float -->
+      <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-emerald-950/80 border border-emerald-500/50 text-emerald-300 text-xs font-semibold uppercase tracking-wider mb-6 shadow-lg shadow-emerald-950/50 animate-float-3d">
+        <i data-lucide="sparkles" class="w-3.5 h-3.5 text-emerald-400"></i>
+        <span>Weekly Retrospective · Week 01</span>
+      </div>
+
+      <!-- Main Headline -->
+      <h1 class="font-heading font-extrabold text-3xl sm:text-5xl lg:text-6xl text-white tracking-tight leading-[1.15] mb-6">
+        From Algorithms to Agriculture: <br class="hidden sm:inline" />
+        <span class="text-transparent bg-clip-text bg-gradient-to-r from-emerald-400 via-teal-300 to-accent-400">
+          Navigating Design, Code & Growth
+        </span>
+      </h1>
+
+      <!-- Subtitle -->
+      <p class="text-base sm:text-lg text-slate-300 max-w-2xl mx-auto leading-relaxed mb-8">
+        An immersive four-day journey exploring Instagram’s recommendation engine, human-centered design thinking, the strategic nuances of India's seed value chain, and taking my first bold leap into coding as a commerce student.
+      </p>
+
+      <!-- Meta Card with 3D Card Class -->
+      <div class="card-3d inline-flex flex-wrap items-center justify-center gap-4 sm:gap-6 p-3 sm:px-6 rounded-2xl bg-slate-900/90 border border-slate-700/80 shadow-xl text-xs sm:text-sm text-slate-300 backdrop-blur">
+        <div class="card-3d-glare"></div>
+        <div class="flex items-center gap-2.5">
+          <div class="w-8 h-8 rounded-full bg-gradient-to-tr from-brand-600 to-emerald-400 text-white font-bold flex items-center justify-center text-xs shadow-md">
+            PS
+          </div>
+          <div class="text-left">
+            <p class="font-bold text-white">Pranetha S.C.</p>
+            <p class="text-[11px] text-slate-400 font-mono">Finance & Accounting</p>
+          </div>
+        </div>
+        <div class="h-6 w-px bg-slate-700"></div>
+        <div class="flex items-center gap-1.5">
+          <i data-lucide="calendar" class="w-4 h-4 text-emerald-400"></i>
+          <span>Week 1 Cohort</span>
+        </div>
+        <div class="h-6 w-px bg-slate-700"></div>
+        <div class="flex items-center gap-1.5">
+          <i data-lucide="clock" class="w-4 h-4 text-accent-400"></i>
+          <span>5 min read</span>
+        </div>
+      </div>
+
+      <!-- Quick Metric Highlights with 3D Card Hover -->
+      <div class="grid grid-cols-2 sm:grid-cols-4 gap-3 sm:gap-4 mt-10 max-w-3xl mx-auto text-left">
+        <div class="card-3d p-3.5 rounded-xl bg-slate-900/80 border border-slate-800 backdrop-blur hover:border-emerald-500/50 transition-colors">
+          <div class="card-3d-glare"></div>
+          <span class="text-xs text-slate-400 font-mono">DAY 01</span>
+          <p class="text-sm font-bold text-white mt-1">Design Thinking</p>
+          <span class="text-[11px] text-emerald-400 font-medium">30 Circles in 3 Mins</span>
+        </div>
+        <div class="card-3d p-3.5 rounded-xl bg-slate-900/80 border border-slate-800 backdrop-blur hover:border-amber-500/50 transition-colors">
+          <div class="card-3d-glare"></div>
+          <span class="text-xs text-slate-400 font-mono">DAY 02</span>
+          <p class="text-sm font-bold text-white mt-1">Seed Retail Sector</p>
+          <span class="text-[11px] text-amber-400 font-medium">Value Chain & SWOT</span>
+        </div>
+        <div class="card-3d p-3.5 rounded-xl bg-slate-900/80 border border-slate-800 backdrop-blur hover:border-accent-500/50 transition-colors">
+          <div class="card-3d-glare"></div>
+          <span class="text-xs text-slate-400 font-mono">DAY 03</span>
+          <p class="text-sm font-bold text-white mt-1">Antigravity IDE</p>
+          <span class="text-[11px] text-accent-400 font-medium">Commerce to Code</span>
+        </div>
+        <div class="card-3d p-3.5 rounded-xl bg-slate-900/80 border border-slate-800 backdrop-blur hover:border-purple-500/50 transition-colors">
+          <div class="card-3d-glare"></div>
+          <span class="text-xs text-slate-400 font-mono">DAY 04</span>
+          <p class="text-sm font-bold text-white mt-1">Alumni Resilience</p>
+          <span class="text-[11px] text-purple-400 font-medium">SMART Goal Roadmap</span>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Main Content Area -->
+  <main class="flex-grow max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-12 space-y-16">
+
+    <!-- ========================================== -->
+    <!-- DAY 1: INSTAGRAM ALGORITHM & DESIGN THINKING -->
+    <!-- ========================================== -->
+    <article id="day-1" class="scroll-mt-20 group">
+      
+      <!-- Day Badge & Header -->
+      <div class="flex items-center gap-3 mb-4">
+        <span class="px-3 py-1 rounded-md text-xs font-mono font-bold bg-emerald-100 text-emerald-800 dark:bg-emerald-950 dark:text-emerald-300 border border-emerald-300 dark:border-emerald-800">
+          DAY 01
+        </span>
+        <div class="h-px flex-grow bg-slate-200 dark:bg-slate-800"></div>
+        <span class="text-xs text-slate-400 font-mono flex items-center gap-1">
+          <i data-lucide="cpu" class="w-3.5 h-3.5"></i> Tech Talk & Workshop
+        </span>
+      </div>
+
+      <h2 class="font-heading text-2xl sm:text-3xl font-bold text-slate-900 dark:text-white mb-6 tracking-tight">
+        Cracking the Instagram Algorithm & Mastering Design Thinking
+      </h2>
+
+      <!-- Card Container with 3D Tilt -->
+      <div class="card-3d bg-slate-900 rounded-2xl border border-slate-800 p-6 sm:p-8 shadow-xl space-y-8">
+        <div class="card-3d-glare"></div>
+        
+        <!-- Part 1: Instagram Algorithm -->
+        <div>
+          <div class="flex items-center gap-2 text-brand-600 dark:text-brand-400 text-sm font-semibold mb-2">
+            <i data-lucide="instagram" class="w-4 h-4"></i>
+            <span>Part 1: The Feed Architecture</span>
+          </div>
+          <p class="text-slate-700 dark:text-slate-300 leading-relaxed">
+            The day kicked off with an eye-opening Tech Talk dissecting the engineering and mathematical principles powering <strong>Instagram’s Algorithm</strong>. The speaker broke down how modern recommendation pipelines categorize feeds and Reels: tracking subtle behavioral signals such as repeat loop counts, dwell time, watch completion percentage, and inversely, the micro-skips and instant swipes that penalize content visibility.
+          </p>
+
+          <!-- Interactive Activity Box -->
+          <div class="mt-4 p-4 rounded-xl bg-slate-50 dark:bg-slate-800/60 border border-slate-200/70 dark:border-slate-700/60 flex items-start gap-3.5">
+            <div class="p-2 rounded-lg bg-pink-100 text-pink-700 dark:bg-pink-950/80 dark:text-pink-300 shrink-0 mt-0.5">
+              <i data-lucide="gamepad-2" class="w-5 h-5"></i>
+            </div>
+            <div>
+              <h4 class="font-bold text-slate-900 dark:text-white text-sm">Interactive Activity: Two Truths and One Lie</h4>
+              <p class="text-xs sm:text-sm text-slate-600 dark:text-slate-400 mt-1 leading-normal">
+                To put algorithmic curation into perspective, each team analyzed their personal feed patterns and challenged teammates to guess <em>two truths and one lie</em> about their daily feed recommendations. It demonstrated how algorithms construct deep behavioral personas from our unspoken digital micro-habits.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <hr class="border-slate-100 dark:border-slate-800" />
+
+        <!-- Part 2: Design Thinking -->
+        <div>
+          <div class="flex items-center gap-2 text-brand-600 dark:text-brand-400 text-sm font-semibold mb-2">
+            <i data-lucide="lightbulb" class="w-4 h-4"></i>
+            <span>Part 2: The Design Thinking Paradigm</span>
+          </div>
+          
+          <blockquote class="my-4 pl-4 border-l-4 border-emerald-500 italic text-slate-800 dark:text-slate-200 font-medium text-base sm:text-lg bg-emerald-50/50 dark:bg-emerald-950/20 py-2 rounded-r-lg">
+            “A problem cannot be solved with the same mindset with which the problem was created.”
+          </blockquote>
+
+          <p class="text-slate-700 dark:text-slate-300 leading-relaxed mb-6">
+            We transitioned into an intensive, perceptive session on <strong>Design Thinking</strong> — learning that it is not merely a corporate buzzword, but an iterative, non-linear methodology grounded in empathy and rigorous testing.
+          </p>
+
+          <!-- 5 Stages Grid -->
+          <div class="grid grid-cols-1 sm:grid-cols-5 gap-3 mb-6">
+            <div class="p-3.5 rounded-xl bg-slate-50 dark:bg-slate-800/80 border border-slate-200/80 dark:border-slate-700/80 text-center hover:border-emerald-500 transition-colors">
+              <span class="w-7 h-7 mx-auto rounded-full bg-emerald-100 dark:bg-emerald-900/60 text-emerald-700 dark:text-emerald-300 flex items-center justify-center font-bold text-xs mb-2">1</span>
+              <h5 class="font-bold text-xs text-slate-900 dark:text-white">Empathize</h5>
+              <p class="text-[11px] text-slate-500 dark:text-slate-400 mt-1">Listen to human pain points deeply</p>
+            </div>
+            <div class="p-3.5 rounded-xl bg-slate-50 dark:bg-slate-800/80 border border-slate-200/80 dark:border-slate-700/80 text-center hover:border-emerald-500 transition-colors">
+              <span class="w-7 h-7 mx-auto rounded-full bg-emerald-100 dark:bg-emerald-900/60 text-emerald-700 dark:text-emerald-300 flex items-center justify-center font-bold text-xs mb-2">2</span>
+              <h5 class="font-bold text-xs text-slate-900 dark:text-white">Define</h5>
+              <p class="text-[11px] text-slate-500 dark:text-slate-400 mt-1">Frame the core problem clearly</p>
+            </div>
+            <div class="p-3.5 rounded-xl bg-slate-50 dark:bg-slate-800/80 border border-slate-200/80 dark:border-slate-700/80 text-center hover:border-emerald-500 transition-colors">
+              <span class="w-7 h-7 mx-auto rounded-full bg-emerald-100 dark:bg-emerald-900/60 text-emerald-700 dark:text-emerald-300 flex items-center justify-center font-bold text-xs mb-2">3</span>
+              <h5 class="font-bold text-xs text-slate-900 dark:text-white">Ideate</h5>
+              <p class="text-[11px] text-slate-500 dark:text-slate-400 mt-1">Divergent, wild brainstorming</p>
+            </div>
+            <div class="p-3.5 rounded-xl bg-slate-50 dark:bg-slate-800/80 border border-slate-200/80 dark:border-slate-700/80 text-center hover:border-emerald-500 transition-colors">
+              <span class="w-7 h-7 mx-auto rounded-full bg-emerald-100 dark:bg-emerald-900/60 text-emerald-700 dark:text-emerald-300 flex items-center justify-center font-bold text-xs mb-2">4</span>
+              <h5 class="font-bold text-xs text-slate-900 dark:text-white">Prototype</h5>
+              <p class="text-[11px] text-slate-500 dark:text-slate-400 mt-1">Build tangible, low-cost representations</p>
+            </div>
+            <div class="p-3.5 rounded-xl bg-slate-50 dark:bg-slate-800/80 border border-slate-200/80 dark:border-slate-700/80 text-center hover:border-emerald-500 transition-colors">
+              <span class="w-7 h-7 mx-auto rounded-full bg-emerald-100 dark:bg-emerald-900/60 text-emerald-700 dark:text-emerald-300 flex items-center justify-center font-bold text-xs mb-2">5</span>
+              <h5 class="font-bold text-xs text-slate-900 dark:text-white">Test</h5>
+              <p class="text-[11px] text-slate-500 dark:text-slate-400 mt-1">Validate with users & iterate back</p>
+            </div>
+          </div>
+
+          <!-- The Triad of Innovation -->
+          <div class="grid grid-cols-1 md:grid-cols-3 gap-3 my-6">
+            <div class="p-4 rounded-xl bg-blue-50/70 dark:bg-blue-950/30 border border-blue-200 dark:border-blue-900/50">
+              <div class="flex items-center gap-2 text-blue-700 dark:text-blue-300 font-bold text-sm mb-1">
+                <i data-lucide="heart" class="w-4 h-4"></i> Desirability
+              </div>
+              <p class="text-xs text-slate-600 dark:text-slate-400">Do people actually want this? Does it solve real human friction?</p>
+            </div>
+            <div class="p-4 rounded-xl bg-emerald-50/70 dark:bg-emerald-950/30 border border-emerald-200 dark:border-emerald-900/50">
+              <div class="flex items-center gap-2 text-emerald-700 dark:text-emerald-300 font-bold text-sm mb-1">
+                <i data-lucide="wrench" class="w-4 h-4"></i> Feasibility
+              </div>
+              <p class="text-xs text-slate-600 dark:text-slate-400">Can we practically build it using current technology and engineering?</p>
+            </div>
+            <div class="p-4 rounded-xl bg-amber-50/70 dark:bg-amber-950/30 border border-amber-200 dark:border-amber-900/50">
+              <div class="flex items-center gap-2 text-amber-700 dark:text-amber-300 font-bold text-sm mb-1">
+                <i data-lucide="trending-up" class="w-4 h-4"></i> Viability
+              </div>
+              <p class="text-xs text-slate-600 dark:text-slate-400">Is the business model sustainable? Can it generate long-term value?</p>
+            </div>
+          </div>
+
+          <p class="text-slate-700 dark:text-slate-300 leading-relaxed">
+            The session emphasized that innovation requires dynamic shifting between <em>divergent thinking</em> (opening wide to explore multiple creative possibilities) and <em>convergent thinking</em> (synthesizing and selecting the most viable answer).
+          </p>
+        </div>
+
+        <!-- Part 3: 30 Circles Challenge with Real Image -->
+        <div class="pt-2">
+          <div class="flex items-center gap-2 text-slate-900 dark:text-white font-bold text-base mb-3">
+            <i data-lucide="circle-dot" class="w-5 h-5 text-emerald-600"></i>
+            <span>The "30 Circles in 3 Minutes" Creative Sprint</span>
+          </div>
+          <p class="text-slate-700 dark:text-slate-300 leading-relaxed mb-4">
+            To shock us out of conventional thinking, we were given a sheet with 30 blank circles and exactly 3 minutes on the clock to turn as many circles as possible into unique objects without any digital tools. Under strict time pressure, self-censorship vanished, forcing our brains to think outside the box and unleash raw creativity.
+          </p>
+
+          <!-- Embedded Photo -->
+          <figure class="rounded-xl overflow-hidden border border-slate-200 dark:border-slate-700 shadow-md img-zoom-wrapper group" onclick="openLightbox('assets/images/image2.png', 'Day 1 Workshop: The 30 Circles Challenge in 3 Minutes with the facilitator guiding our ideation sprint.')">
+            <img src="assets/images/image2.png" alt="Facilitator guiding the 30 circles challenge in 3 minutes" class="w-full h-auto object-cover max-h-[460px] group-hover:scale-[1.01] transition-transform duration-300" loading="lazy" />
+            <figcaption class="p-3 bg-slate-100/90 dark:bg-slate-800/90 text-xs text-slate-600 dark:text-slate-300 flex items-center justify-between border-t border-slate-200 dark:border-slate-700">
+              <span class="flex items-center gap-1.5">
+                <i data-lucide="camera" class="w-3.5 h-3.5 text-emerald-600"></i>
+                <span>Classroom ideation sprint: Facilitator launching the 30-circles constraint exercise</span>
+              </span>
+              <span class="font-mono text-[10px] uppercase text-slate-400">Click to expand</span>
+            </figcaption>
+          </figure>
+        </div>
+
+      </div>
+    </article>
+
+
+    <!-- ========================================== -->
+    <!-- DAY 2: SEED INDUSTRY & VALUE CHAIN        -->
+    <!-- ========================================== -->
+    <article id="day-2" class="scroll-mt-20 group">
+      
+      <!-- Day Badge & Header -->
+      <div class="flex items-center gap-3 mb-4">
+        <span class="px-3 py-1 rounded-md text-xs font-mono font-bold bg-amber-100 text-amber-900 dark:bg-amber-950 dark:text-amber-300 border border-amber-300 dark:border-amber-800">
+          DAY 02
+        </span>
+        <div class="h-px flex-grow bg-slate-200 dark:bg-slate-800"></div>
+        <span class="text-xs text-slate-400 font-mono flex items-center gap-1">
+          <i data-lucide="sprout" class="w-3.5 h-3.5"></i> Industry Research & Value Chain
+        </span>
+      </div>
+
+      <h2 class="font-heading text-2xl sm:text-3xl font-bold text-slate-900 dark:text-white mb-6 tracking-tight">
+        Deep Dive into India’s Seed Retail & Distribution Ecosystem
+      </h2>
+
+      <!-- Card Container with 3D Tilt -->
+      <div class="card-3d bg-slate-900 rounded-2xl border border-slate-800 p-6 sm:p-8 shadow-xl space-y-8 relative overflow-hidden">
+        <div class="card-3d-glare"></div>
+
+        <!-- Animated Background Agritech Particle Canvas -->
+        <canvas id="agritech-canvas" class="absolute inset-0 w-full h-full pointer-events-none opacity-40 z-0"></canvas>
+        
+        <!-- Context & Narrative -->
+        <div class="relative z-10">
+          <p class="text-slate-300 leading-relaxed mb-4">
+            On the second day, we translated our Day 1 Design Thinking framework into a rigorous market research analysis of <strong>India's Seed Retail and Distribution sector</strong>. Agriculture forms the indispensable backbone of our nation’s economy, where overall agricultural yield hinges entirely on one foundational input: the genetic quality of seeds and their timely, unadulterated availability to the farmer in the right season.
+          </p>
+          <p class="text-slate-300 leading-relaxed">
+            Together with our team, we mapped out the end-to-end journey that transforms genetic innovation in a research laboratory into a viable seed packet in a farmer’s hand.
+          </p>
+        </div>
+
+        <!-- Animated Live Market Metric Counters -->
+        <div class="relative z-10 grid grid-cols-2 sm:grid-cols-4 gap-3">
+          <div class="p-3.5 rounded-xl bg-slate-950/70 border border-emerald-500/30 backdrop-blur swot-card-s">
+            <div class="flex items-center justify-between text-emerald-400 mb-1">
+              <span class="text-[10px] font-mono uppercase tracking-wider">Market Size</span>
+              <i data-lucide="trending-up" class="w-3.5 h-3.5"></i>
+            </div>
+            <div class="text-lg sm:text-xl font-heading font-extrabold text-white">
+              ≈ US$ <span class="counter-val" data-target="3.5">3–4</span>B
+            </div>
+            <span class="text-[11px] text-slate-400">Total Indian Seed Industry</span>
+          </div>
+
+          <div class="p-3.5 rounded-xl bg-slate-950/70 border border-teal-500/30 backdrop-blur swot-card-s">
+            <div class="flex items-center justify-between text-teal-400 mb-1">
+              <span class="text-[10px] font-mono uppercase tracking-wider">Annual Supply</span>
+              <i data-lucide="sprout" class="w-3.5 h-3.5 animate-float-seed"></i>
+            </div>
+            <div class="text-lg sm:text-xl font-heading font-extrabold text-white">
+              <span class="counter-val" data-target="508.6">508.6</span>L
+            </div>
+            <span class="text-[11px] text-slate-400">Quintals Seed Availability</span>
+          </div>
+
+          <div class="p-3.5 rounded-xl bg-slate-950/70 border border-amber-500/30 backdrop-blur swot-card-w">
+            <div class="flex items-center justify-between text-amber-400 mb-1">
+              <span class="text-[10px] font-mono uppercase tracking-wider">Top Player</span>
+              <i data-lucide="badge-dollar-sign" class="w-3.5 h-3.5"></i>
+            </div>
+            <div class="text-lg sm:text-xl font-heading font-extrabold text-white">
+              ₹<span class="counter-val" data-target="1121.6">1,121.6</span> Cr
+            </div>
+            <span class="text-[11px] text-slate-400">Kaveri Seed Revenue FY25</span>
+          </div>
+
+          <div class="p-3.5 rounded-xl bg-slate-950/70 border border-rose-500/30 backdrop-blur swot-card-t">
+            <div class="flex items-center justify-between text-rose-400 mb-1">
+              <span class="text-[10px] font-mono uppercase tracking-wider">Quality Alert</span>
+              <span class="w-2 h-2 rounded-full bg-rose-500 animate-ping"></span>
+            </div>
+            <div class="text-lg sm:text-xl font-heading font-extrabold text-rose-300">
+              <span class="counter-val" data-target="3630">3,630</span>
+            </div>
+            <span class="text-[11px] text-slate-400">Sub-standard Samples</span>
+          </div>
+        </div>
+
+        <!-- Animated 9-Stage Value Chain Interactive Pipeline -->
+        <div class="relative z-10 p-5 rounded-2xl bg-slate-950/80 border border-slate-800 shadow-xl space-y-4">
+          <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2">
+            <div class="flex items-center gap-2">
+              <span class="w-2.5 h-2.5 rounded-full bg-emerald-400 pulse-ring"></span>
+              <h3 class="font-heading font-bold text-base sm:text-lg text-white">
+                Interactive Animated Value Chain Pipeline
+              </h3>
+            </div>
+            <span class="text-xs font-mono text-emerald-400 bg-emerald-950/80 px-2.5 py-1 rounded-full border border-emerald-800">
+              9 Connected Nodes · Pulse Active
+            </span>
+          </div>
+
+          <!-- Connecting Animated Energy Pipeline -->
+          <div class="relative py-3 overflow-x-auto">
+            <div class="h-1.5 w-full energy-pipeline rounded-full mb-4"></div>
+            
+            <div class="grid grid-cols-3 sm:grid-cols-9 gap-2 text-center min-w-[620px]">
+              <div class="p-2 rounded-lg bg-slate-900/90 border border-emerald-500/40 hover:border-emerald-400 hover:scale-105 transition-all cursor-pointer group">
+                <span class="w-5 h-5 mx-auto rounded-full bg-emerald-900/80 text-emerald-300 text-[10px] font-mono font-bold flex items-center justify-center mb-1 group-hover:bg-emerald-500 group-hover:text-black transition-colors">01</span>
+                <p class="text-[11px] font-bold text-white">Research</p>
+                <span class="text-[9px] text-slate-400">Genetic value</span>
+              </div>
+              <div class="p-2 rounded-lg bg-slate-900/90 border border-emerald-500/40 hover:border-emerald-400 hover:scale-105 transition-all cursor-pointer group">
+                <span class="w-5 h-5 mx-auto rounded-full bg-emerald-900/80 text-emerald-300 text-[10px] font-mono font-bold flex items-center justify-center mb-1 group-hover:bg-emerald-500 group-hover:text-black transition-colors">02</span>
+                <p class="text-[11px] font-bold text-white">Production</p>
+                <span class="text-[9px] text-slate-400">Scale multiply</span>
+              </div>
+              <div class="p-2 rounded-lg bg-slate-900/90 border border-emerald-500/40 hover:border-emerald-400 hover:scale-105 transition-all cursor-pointer group">
+                <span class="w-5 h-5 mx-auto rounded-full bg-emerald-900/80 text-emerald-300 text-[10px] font-mono font-bold flex items-center justify-center mb-1 group-hover:bg-emerald-500 group-hover:text-black transition-colors">03</span>
+                <p class="text-[11px] font-bold text-white">Processing</p>
+                <span class="text-[9px] text-slate-400">Clean & Grade</span>
+              </div>
+              <div class="p-2 rounded-lg bg-slate-900/90 border border-emerald-500/40 hover:border-emerald-400 hover:scale-105 transition-all cursor-pointer group">
+                <span class="w-5 h-5 mx-auto rounded-full bg-emerald-900/80 text-emerald-300 text-[10px] font-mono font-bold flex items-center justify-center mb-1 group-hover:bg-emerald-500 group-hover:text-black transition-colors">04</span>
+                <p class="text-[11px] font-bold text-white">Certify</p>
+                <span class="text-[9px] text-slate-400">Quality trust</span>
+              </div>
+              <div class="p-2 rounded-lg bg-slate-900/90 border border-teal-500/40 hover:border-teal-400 hover:scale-105 transition-all cursor-pointer group">
+                <span class="w-5 h-5 mx-auto rounded-full bg-teal-900/80 text-teal-300 text-[10px] font-mono font-bold flex items-center justify-center mb-1 group-hover:bg-teal-500 group-hover:text-black transition-colors">05</span>
+                <p class="text-[11px] font-bold text-white">Market</p>
+                <span class="text-[9px] text-slate-400">Commercialise</span>
+              </div>
+              <div class="p-2 rounded-lg bg-slate-900/90 border border-teal-500/40 hover:border-teal-400 hover:scale-105 transition-all cursor-pointer group">
+                <span class="w-5 h-5 mx-auto rounded-full bg-teal-900/80 text-teal-300 text-[10px] font-mono font-bold flex items-center justify-center mb-1 group-hover:bg-teal-500 group-hover:text-black transition-colors">06</span>
+                <p class="text-[11px] font-bold text-white">Distribution</p>
+                <span class="text-[9px] text-slate-400">Stock & move</span>
+              </div>
+              <div class="p-2 rounded-lg bg-slate-900/90 border border-blue-500/40 hover:border-blue-400 hover:scale-105 transition-all cursor-pointer group">
+                <span class="w-5 h-5 mx-auto rounded-full bg-blue-900/80 text-blue-300 text-[10px] font-mono font-bold flex items-center justify-center mb-1 group-hover:bg-blue-500 group-hover:text-black transition-colors">07</span>
+                <p class="text-[11px] font-bold text-white">Retail</p>
+                <span class="text-[9px] text-slate-400">Advice & sale</span>
+              </div>
+              <div class="p-2 rounded-lg bg-slate-900/90 border border-blue-500/40 hover:border-blue-400 hover:scale-105 transition-all cursor-pointer group">
+                <span class="w-5 h-5 mx-auto rounded-full bg-blue-900/80 text-blue-300 text-[10px] font-mono font-bold flex items-center justify-center mb-1 group-hover:bg-blue-500 group-hover:text-black transition-colors">08</span>
+                <p class="text-[11px] font-bold text-white">Farmer</p>
+                <span class="text-[9px] text-slate-400">Sow & grow</span>
+              </div>
+              <div class="p-2 rounded-lg bg-slate-900/90 border border-purple-500/40 hover:border-purple-400 hover:scale-105 transition-all cursor-pointer group">
+                <span class="w-5 h-5 mx-auto rounded-full bg-purple-900/80 text-purple-300 text-[10px] font-mono font-bold flex items-center justify-center mb-1 group-hover:bg-purple-500 group-hover:text-black transition-colors">09</span>
+                <p class="text-[11px] font-bold text-white">Feedback</p>
+                <span class="text-[9px] text-slate-400">Industry loop</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Value Chain Infographic Showcase -->
+        <div class="relative z-10 bg-slate-950/60 p-4 sm:p-6 rounded-2xl border border-emerald-900/60 shadow-lg">
+          <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2 mb-4">
+            <div>
+              <span class="text-xs font-mono uppercase tracking-wider text-emerald-400 font-bold flex items-center gap-1.5">
+                <span class="w-2 h-2 rounded-full bg-emerald-400 animate-ping"></span>
+                <span>Comprehensive Research Poster</span>
+              </span>
+              <h3 class="font-heading text-lg sm:text-xl font-bold text-white">
+                India's Seed Retail & Distribution Value Chain
+              </h3>
+            </div>
+            <span class="text-xs px-2.5 py-1 rounded-full bg-emerald-950 text-emerald-200 border border-emerald-800 font-semibold self-start sm:self-auto">
+              Market Size: US$ 3–4 Billion
+            </span>
+          </div>
+
+          <p class="text-xs sm:text-sm text-slate-300 mb-4 leading-relaxed">
+            The infographic traces the 9 distinct phases of value creation: from R&D genetic breeding, field multiplication, cleaning and grading, certification and packaging, to multi-tier dealer networks reaching 508.6 Lakh Quintals across India.
+          </p>
+
+          <!-- Poster Image Clickable with 3D Hover -->
+          <figure class="rounded-xl overflow-hidden border border-slate-700 shadow-xl img-zoom-wrapper group" onclick="openLightbox('assets/images/image7.png', 'India Seed Retail & Distribution Value Chain: High-resolution market analysis mapping public/private/global players and retail nodes.')">
+            <img src="assets/images/image7.png" alt="India's Seed Retail & Distribution Value Chain Poster" class="w-full h-auto object-cover max-h-[580px] mx-auto group-hover:scale-[1.01] transition-transform duration-300" loading="lazy" />
+            <figcaption class="p-3 bg-slate-900 text-slate-200 text-xs flex items-center justify-between">
+              <span class="truncate">Infographic: From Genetic Innovation to the Farmer (US$ 3-4B Market & 508.6L Quintals)</span>
+              <span class="font-mono text-emerald-400 shrink-0 ml-2">Click to inspect in full HD</span>
+            </figcaption>
+          </figure>
+        </div>
+
+        <!-- SWOT Analysis Section with Animated Cards -->
+        <div class="relative z-10">
+          <div class="flex items-center justify-between mb-4">
+            <div>
+              <span class="text-xs font-mono uppercase tracking-wider text-amber-400 font-bold">Strategic Evaluation</span>
+              <h3 class="font-heading text-xl font-bold text-white">
+                SWOT Analysis: Seed Distribution Sector
+              </h3>
+            </div>
+            <span class="text-xs text-slate-400 font-mono">10 Key Dimensions</span>
+          </div>
+
+          <!-- Interactive Animated SWOT Grid -->
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-6">
+            
+            <!-- Strengths -->
+            <div class="swot-card-s p-5 rounded-xl bg-slate-950/80 border border-emerald-500/30">
+              <div class="flex items-center justify-between mb-3">
+                <div class="flex items-center gap-2 text-emerald-300 font-bold">
+                  <span class="w-6 h-6 rounded-md bg-emerald-600 text-white flex items-center justify-center text-xs font-mono">S</span>
+                  <span>Strengths: Scale & Scientific Depth</span>
+                </div>
+                <span class="text-[10px] font-mono text-emerald-400 bg-emerald-950 px-2 py-0.5 rounded border border-emerald-800">ADVANTAGE</span>
+              </div>
+              <ul class="space-y-2 text-xs sm:text-sm text-slate-300">
+                <li class="flex items-start gap-2">
+                  <i data-lucide="check-circle" class="w-4 h-4 text-emerald-400 shrink-0 mt-0.5"></i>
+                  <span><strong>Strong R&D Backbone:</strong> Robust institutional breeding produces improved, high-germination and hybrid seed varieties.</span>
+                </li>
+                <li class="flex items-start gap-2">
+                  <i data-lucide="check-circle" class="w-4 h-4 text-emerald-400 shrink-0 mt-0.5"></i>
+                  <span><strong>Vast Distribution Reach:</strong> Expansive pan-India network linking institutional seed companies, stockists, dealers, and rural retailers.</span>
+                </li>
+              </ul>
+            </div>
+
+            <!-- Weaknesses -->
+            <div class="swot-card-w p-5 rounded-xl bg-slate-950/80 border border-amber-500/30">
+              <div class="flex items-center justify-between mb-3">
+                <div class="flex items-center gap-2 text-amber-300 font-bold">
+                  <span class="w-6 h-6 rounded-md bg-amber-600 text-white flex items-center justify-center text-xs font-mono">W</span>
+                  <span>Weaknesses: The Fragmented Last-Mile</span>
+                </div>
+                <span class="text-[10px] font-mono text-amber-400 bg-amber-950 px-2 py-0.5 rounded border border-amber-800">BOTTLENECK</span>
+              </div>
+              <ul class="space-y-2 text-xs sm:text-sm text-slate-300">
+                <li class="flex items-start gap-2">
+                  <i data-lucide="alert-triangle" class="w-4 h-4 text-amber-400 shrink-0 mt-0.5"></i>
+                  <span><strong>Fragmented Nodes:</strong> Multi-tiered retail networks make real-time inventory tracking and movement visibility difficult.</span>
+                </li>
+                <li class="flex items-start gap-2">
+                  <i data-lucide="alert-triangle" class="w-4 h-4 text-amber-400 shrink-0 mt-0.5"></i>
+                  <span><strong>Scattered Market Data:</strong> Acute communication bottlenecks between manufacturers and frontline rural dealers.</span>
+                </li>
+                <li class="flex items-start gap-2">
+                  <i data-lucide="alert-triangle" class="w-4 h-4 text-amber-400 shrink-0 mt-0.5"></i>
+                  <span><strong>Substandard Seeds:</strong> 3,630+ substandard samples recorded in 2023-24, creating trust deficits among farmers.</span>
+                </li>
+              </ul>
+            </div>
+
+            <!-- Opportunities -->
+            <div class="swot-card-o p-5 rounded-xl bg-slate-950/80 border border-blue-500/30">
+              <div class="flex items-center justify-between mb-3">
+                <div class="flex items-center gap-2 text-blue-300 font-bold">
+                  <span class="w-6 h-6 rounded-md bg-blue-600 text-white flex items-center justify-center text-xs font-mono">O</span>
+                  <span>Opportunities: Moving from Inventory to Intelligence</span>
+                </div>
+                <span class="text-[10px] font-mono text-blue-400 bg-blue-950 px-2 py-0.5 rounded border border-blue-800">GROWTH</span>
+              </div>
+              <ul class="space-y-2 text-xs sm:text-sm text-slate-300">
+                <li class="flex items-start gap-2">
+                  <i data-lucide="zap" class="w-4 h-4 text-blue-400 shrink-0 mt-0.5"></i>
+                  <span><strong>Digitizing the Chain:</strong> Real-time platforms (like SATHI portal) enabling QR traceability and authenticity verification.</span>
+                </li>
+                <li class="flex items-start gap-2">
+                  <i data-lucide="zap" class="w-4 h-4 text-blue-400 shrink-0 mt-0.5"></i>
+                  <span><strong>Smart Logistics:</strong> Demand-forecasting algorithms ensuring the exact right seed reaches the right micro-climate at the right sowing window.</span>
+                </li>
+              </ul>
+            </div>
+
+            <!-- Threats -->
+            <div class="swot-card-t p-5 rounded-xl bg-slate-950/80 border border-rose-500/30">
+              <div class="flex items-center justify-between mb-3">
+                <div class="flex items-center gap-2 text-rose-300 font-bold">
+                  <span class="w-6 h-6 rounded-md bg-rose-600 text-white flex items-center justify-center text-xs font-mono">T</span>
+                  <span>Threats: Climate & Spurious Infiltration</span>
+                </div>
+                <span class="text-[10px] font-mono text-rose-400 bg-rose-950 px-2 py-0.5 rounded border border-rose-800">HIGH RISK</span>
+              </div>
+              <ul class="space-y-2 text-xs sm:text-sm text-slate-300">
+                <li class="flex items-start gap-2">
+                  <i data-lucide="shield-alert" class="w-4 h-4 text-rose-400 shrink-0 mt-0.5"></i>
+                  <span><strong>Climate Volatility:</strong> Droughts, erratic monsoons, and pest mutations jeopardizing germination and yields.</span>
+                </li>
+                <li class="flex items-start gap-2">
+                  <i data-lucide="shield-alert" class="w-4 h-4 text-rose-400 shrink-0 mt-0.5"></i>
+                  <span><strong>Spurious Seeds:</strong> Counterfeit packaging directly destroys crop seasons and farmer livelihood.</span>
+                </li>
+                <li class="flex items-start gap-2">
+                  <i data-lucide="shield-alert" class="w-4 h-4 text-rose-400 shrink-0 mt-0.5"></i>
+                  <span><strong>Regulatory Compliance:</strong> Tightening seed standards requiring complex certification and liability management.</span>
+                </li>
+              </ul>
+            </div>
+
+          </div>
+              <div class="flex items-center gap-2 text-rose-700 dark:text-rose-300 font-bold mb-3">
+                <span class="w-6 h-6 rounded-md bg-rose-600 text-white flex items-center justify-center text-xs">T</span>
+                <span>Threats: Climate & Spurious Infiltration</span>
+              </div>
+              <ul class="space-y-2 text-xs sm:text-sm text-slate-700 dark:text-slate-300">
+                <li class="flex items-start gap-2">
+                  <i data-lucide="shield-alert" class="w-4 h-4 text-rose-600 shrink-0 mt-0.5"></i>
+                  <span><strong>Climate Volatility:</strong> Droughts, erratic monsoons, and pest mutations jeopardizing germination and yields.</span>
+                </li>
+                <li class="flex items-start gap-2">
+                  <i data-lucide="shield-alert" class="w-4 h-4 text-rose-600 shrink-0 mt-0.5"></i>
+                  <span><strong>Spurious Seeds:</strong> Counterfeit packaging directly destroys crop seasons and farmer livelihood.</span>
+                </li>
+                <li class="flex items-start gap-2">
+                  <i data-lucide="shield-alert" class="w-4 h-4 text-rose-600 shrink-0 mt-0.5"></i>
+                  <span><strong>Regulatory Compliance:</strong> Tightening seed standards requiring complex certification and liability management.</span>
+                </li>
+              </ul>
+            </div>
+
+          </div>
+
+          <!-- Strategic Takeaway Box & SWOT Poster Preview -->
+          <div class="grid grid-cols-1 md:grid-cols-3 gap-6 items-center bg-slate-900 text-white p-6 rounded-2xl">
+            <div class="md:col-span-2 space-y-3">
+              <div class="inline-flex items-center gap-1.5 text-xs font-mono text-emerald-400 font-bold uppercase tracking-wider">
+                <i data-lucide="crosshair" class="w-3.5 h-3.5"></i> The Strategic Takeaway
+              </div>
+              <h4 class="font-heading text-xl sm:text-2xl font-bold text-white leading-snug">
+                “India has seeds. The gap is coordination.”
+              </h4>
+              <p class="text-xs sm:text-sm text-slate-300 leading-relaxed">
+                The next frontier of agricultural transformation will not come merely from breeding a incrementally better seed in isolation — it will come from architecting a <strong>better, transparent, and connected system</strong> around the seed.
+              </p>
+            </div>
+            <div class="rounded-xl overflow-hidden border border-slate-700 img-zoom-wrapper" onclick="openLightbox('assets/images/image5.jpg', 'India Seed Sector SWOT Analysis Poster with SATHI digital infrastructure highlights.')">
+              <img src="assets/images/image5.jpg" alt="SWOT Analysis Poster" class="w-full h-auto object-cover max-h-[220px]" loading="lazy" />
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </article>
+
+
+    <!-- ========================================== -->
+    <!-- DAY 3: ANTIGRAVITY IDE & PORTFOLIO         -->
+    <!-- ========================================== -->
+    <article id="day-3" class="scroll-mt-20 group">
+      
+      <!-- Day Badge & Header -->
+      <div class="flex items-center gap-3 mb-4">
+        <span class="px-3 py-1 rounded-md text-xs font-mono font-bold bg-accent-100 text-accent-800 dark:bg-accent-950 dark:text-accent-300 border border-accent-300 dark:border-accent-800">
+          DAY 03
+        </span>
+        <div class="h-px flex-grow bg-slate-200 dark:bg-slate-800"></div>
+        <span class="text-xs text-slate-400 font-mono flex items-center gap-1">
+          <i data-lucide="terminal" class="w-3.5 h-3.5"></i> Technical Breakthrough
+        </span>
+      </div>
+
+      <h2 class="font-heading text-2xl sm:text-3xl font-bold text-slate-900 dark:text-white mb-6 tracking-tight">
+        Stepping Into Tech: Portfolio Development on Antigravity IDE
+      </h2>
+
+      <!-- Card Container with 3D Tilt -->
+      <div class="card-3d bg-slate-900 rounded-2xl border border-slate-800 p-6 sm:p-8 shadow-xl space-y-6">
+        <div class="card-3d-glare"></div>
+        
+        <!-- Story / Vulnerability / Growth -->
+        <div class="space-y-4 text-slate-700 dark:text-slate-300 leading-relaxed">
+          <p>
+            This was undeniably the turning point of the week. We were introduced to a hands-on specialization session on <strong>Antigravity IDE</strong>, tasked with writing code, configuring styles, and deploying our own digital portfolios.
+          </p>
+
+          <!-- Honest Quote Box -->
+          <div class="p-4 sm:p-5 rounded-xl bg-slate-100 dark:bg-slate-800/80 border-l-4 border-accent-500 my-4">
+            <div class="flex items-start gap-3">
+              <i data-lucide="quote" class="w-6 h-6 text-accent-500 shrink-0 mt-1"></i>
+              <div>
+                <p class="font-medium text-slate-900 dark:text-white text-sm sm:text-base italic">
+                  “As a commerce student, I found it very complicated and difficult in the beginning with no technical experience. But somehow with repeated trial and errors, I was able to get an idea of how things work.”
+                </p>
+                <span class="block text-xs font-mono text-slate-500 dark:text-slate-400 mt-2">
+                  — Pranetha S.C., Finance & Accounting Scholar
+                </span>
+              </div>
+            </div>
+          </div>
+
+          <p>
+            Facing an IDE full of HTML boilerplate, Tailwind CSS configuration directives, and file trees was intimidating. But treating code not as a barrier, but as a system of logic — much like financial ledger balancing — enabled me to troubleshoot errors, test layouts, and watch my portfolio come alive in real-time.
+          </p>
+        </div>
+
+        <!-- Antigravity IDE Showcase -->
+        <div class="space-y-3 pt-2">
+          <div class="flex items-center justify-between">
+            <div class="flex items-center gap-2 text-sm font-bold text-slate-900 dark:text-white">
+              <i data-lucide="code" class="w-4 h-4 text-accent-500"></i>
+              <span>Inside the Workspace: Antigravity IDE Session</span>
+            </div>
+            <span class="text-xs font-mono px-2 py-0.5 rounded bg-slate-200 dark:bg-slate-800 text-slate-700 dark:text-slate-300">
+              index.html · Tailwind CSS · AOS
+            </span>
+          </div>
+
+          <!-- IDE Screenshot with Zoom -->
+          <figure class="rounded-xl overflow-hidden border border-slate-700/80 shadow-xl bg-slate-950 img-zoom-wrapper" onclick="openLightbox('assets/images/image3.png', 'Antigravity IDE Environment: Developing index.html for Pranetha S.C. Finance & Accounting Portfolio with custom Tailwind configuration.')">
+            <img src="assets/images/image3.png" alt="Antigravity IDE Portfolio Development Screenshot" class="w-full h-auto object-cover max-h-[500px]" loading="lazy" />
+            <figcaption class="p-3 bg-slate-900 text-slate-300 text-xs flex items-center justify-between border-t border-slate-800">
+              <span class="flex items-center gap-2">
+                <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
+                <span>Active project: <code class="text-emerald-400 font-mono">portfolio-main/index.html</code> (Pranetha S.C. Portfolio)</span>
+              </span>
+              <span class="font-mono text-slate-400 text-[11px]">Click to inspect code</span>
+            </figcaption>
+          </figure>
+
+          <!-- Skill Badges acquired -->
+          <div class="flex flex-wrap gap-2 pt-3">
+            <span class="px-2.5 py-1 rounded-md text-xs font-mono bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 border border-slate-200 dark:border-slate-700">HTML5 Semantic Structure</span>
+            <span class="px-2.5 py-1 rounded-md text-xs font-mono bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 border border-slate-200 dark:border-slate-700">Tailwind CSS Utility Classes</span>
+            <span class="px-2.5 py-1 rounded-md text-xs font-mono bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 border border-slate-200 dark:border-slate-700">Responsive Layouts</span>
+            <span class="px-2.5 py-1 rounded-md text-xs font-mono bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 border border-slate-200 dark:border-slate-700">Debugging & File Architecture</span>
+          </div>
+        </div>
+
+      </div>
+    </article>
+
+
+    <!-- ========================================== -->
+    <!-- DAY 4: ALUMNI TALK & SMART GOAL SETTING   -->
+    <!-- ========================================== -->
+    <article id="day-4" class="scroll-mt-20 group">
+      
+      <!-- Day Badge & Header -->
+      <div class="flex items-center gap-3 mb-4">
+        <span class="px-3 py-1 rounded-md text-xs font-mono font-bold bg-purple-100 text-purple-900 dark:bg-purple-950 dark:text-purple-300 border border-purple-300 dark:border-purple-800">
+          DAY 04
+        </span>
+        <div class="h-px flex-grow bg-slate-200 dark:bg-slate-800"></div>
+        <span class="text-xs text-slate-400 font-mono flex items-center gap-1">
+          <i data-lucide="target" class="w-3.5 h-3.5"></i> Alumni & Strategic Goals
+        </span>
+      </div>
+
+      <h2 class="font-heading text-2xl sm:text-3xl font-bold text-slate-900 dark:text-white mb-6 tracking-tight">
+        Alumni Wisdom & The Framework for Resilient Goal Setting
+      </h2>
+
+      <!-- Card Container with 3D Tilt -->
+      <div class="card-3d bg-slate-900 rounded-2xl border border-slate-800 p-6 sm:p-8 shadow-xl space-y-8">
+        <div class="card-3d-glare"></div>
+        
+        <!-- Part 1: Alumni Talk -->
+        <div>
+          <div class="flex items-center gap-2 text-purple-600 dark:text-purple-400 text-sm font-semibold mb-2">
+            <i data-lucide="users" class="w-4 h-4"></i>
+            <span>Part 1: The Entrepreneurial Reality</span>
+          </div>
+          <p class="text-slate-700 dark:text-slate-300 leading-relaxed mb-4">
+            On the final day of the week, we attended a deeply thought-provoking interaction with alumni leaders from diverse sectors including agriculture, textile manufacturing, and entrepreneurship. Hearing their journeys since 1997 demystified the glamour of business and laid bare the gritty reality of starting something from scratch.
+          </p>
+
+          <blockquote class="my-4 pl-4 border-l-4 border-purple-500 italic text-slate-800 dark:text-slate-200 font-medium text-base sm:text-lg bg-purple-50/50 dark:bg-purple-950/20 py-2 rounded-r-lg">
+            “Building and creating something demands relentless effort and, above all, the mental resilience to bounce back from every setback.”
+          </blockquote>
+
+          <!-- 3-Image Alumni Gallery -->
+          <div class="grid grid-cols-1 sm:grid-cols-3 gap-3 my-6">
+            <div class="rounded-xl overflow-hidden border border-slate-200 dark:border-slate-700 shadow-sm img-zoom-wrapper" onclick="openLightbox('assets/images/image1.png', 'Alumni speaker presenting Our Story (1997) highlighting agricultural roots and perseverance.')">
+              <img src="assets/images/image1.png" alt="Alumni session 1" class="w-full h-44 object-cover hover:scale-105 transition-transform duration-300" loading="lazy" />
+              <div class="p-2.5 bg-slate-50 dark:bg-slate-800 text-[11px] text-slate-600 dark:text-slate-300 font-medium truncate">
+                Our Story: Agricultural Roots (1997)
+              </div>
+            </div>
+            <div class="rounded-xl overflow-hidden border border-slate-200 dark:border-slate-700 shadow-sm img-zoom-wrapper" onclick="openLightbox('assets/images/image6.png', 'Alumni speaker discussing supply chain management and field experiences.')">
+              <img src="assets/images/image6.png" alt="Alumni session 2" class="w-full h-44 object-cover hover:scale-105 transition-transform duration-300" loading="lazy" />
+              <div class="p-2.5 bg-slate-50 dark:bg-slate-800 text-[11px] text-slate-600 dark:text-slate-300 font-medium truncate">
+                Field Experience & Industry Hardships
+              </div>
+            </div>
+            <div class="rounded-xl overflow-hidden border border-slate-200 dark:border-slate-700 shadow-sm img-zoom-wrapper" onclick="openLightbox('assets/images/image4.png', 'Alumni speaker sharing interactive Q&A on entrepreneurial mindset.')">
+              <img src="assets/images/image4.png" alt="Alumni session 3" class="w-full h-44 object-cover hover:scale-105 transition-transform duration-300" loading="lazy" />
+              <div class="p-2.5 bg-slate-50 dark:bg-slate-800 text-[11px] text-slate-600 dark:text-slate-300 font-medium truncate">
+                Bouncing Back: Mentorship & Q&A
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <hr class="border-slate-100 dark:border-slate-800" />
+
+        <!-- Part 2: SMART Goal Setting -->
+        <div>
+          <div class="flex items-center gap-2 text-purple-600 dark:text-purple-400 text-sm font-semibold mb-2">
+            <i data-lucide="crosshair" class="w-4 h-4"></i>
+            <span>Part 2: The SMART Goal Methodology</span>
+          </div>
+          <p class="text-slate-700 dark:text-slate-300 leading-relaxed mb-6">
+            The week culminated in an actionable <strong>Goal Setting session</strong>. We explored how overarching, abstract ambitions fail without deliberate, measurable micro-steps. Making goals <strong>SMART</strong> transforms vague intentions into an executable compass.
+          </p>
+
+          <!-- SMART Cards Breakdown -->
+          <div class="grid grid-cols-1 sm:grid-cols-5 gap-3 mb-6">
+            <div class="p-4 rounded-xl bg-slate-50 dark:bg-slate-800 border border-slate-200/80 dark:border-slate-700 text-center">
+              <span class="w-8 h-8 mx-auto rounded-full bg-purple-100 dark:bg-purple-900/60 text-purple-700 dark:text-purple-300 flex items-center justify-center font-bold text-sm mb-2">S</span>
+              <h5 class="font-bold text-xs text-slate-900 dark:text-white uppercase tracking-wider">Specific</h5>
+              <p class="text-[11px] text-slate-500 dark:text-slate-400 mt-1">Pinpoint exact targets, not broad wishes</p>
+            </div>
+            <div class="p-4 rounded-xl bg-slate-50 dark:bg-slate-800 border border-slate-200/80 dark:border-slate-700 text-center">
+              <span class="w-8 h-8 mx-auto rounded-full bg-purple-100 dark:bg-purple-900/60 text-purple-700 dark:text-purple-300 flex items-center justify-center font-bold text-sm mb-2">M</span>
+              <h5 class="font-bold text-xs text-slate-900 dark:text-white uppercase tracking-wider">Measurable</h5>
+              <p class="text-[11px] text-slate-500 dark:text-slate-400 mt-1">Quantify progress with clear metrics</p>
+            </div>
+            <div class="p-4 rounded-xl bg-slate-50 dark:bg-slate-800 border border-slate-200/80 dark:border-slate-700 text-center">
+              <span class="w-8 h-8 mx-auto rounded-full bg-purple-100 dark:bg-purple-900/60 text-purple-700 dark:text-purple-300 flex items-center justify-center font-bold text-sm mb-2">A</span>
+              <h5 class="font-bold text-xs text-slate-900 dark:text-white uppercase tracking-wider">Achievable</h5>
+              <p class="text-[11px] text-slate-500 dark:text-slate-400 mt-1">Grounded in realistic resource scope</p>
+            </div>
+            <div class="p-4 rounded-xl bg-slate-50 dark:bg-slate-800 border border-slate-200/80 dark:border-slate-700 text-center">
+              <span class="w-8 h-8 mx-auto rounded-full bg-purple-100 dark:bg-purple-900/60 text-purple-700 dark:text-purple-300 flex items-center justify-center font-bold text-sm mb-2">R</span>
+              <h5 class="font-bold text-xs text-slate-900 dark:text-white uppercase tracking-wider">Relevant</h5>
+              <p class="text-[11px] text-slate-500 dark:text-slate-400 mt-1">Aligned with core purpose & values</p>
+            </div>
+            <div class="p-4 rounded-xl bg-slate-50 dark:bg-slate-800 border border-slate-200/80 dark:border-slate-700 text-center">
+              <span class="w-8 h-8 mx-auto rounded-full bg-purple-100 dark:bg-purple-900/60 text-purple-700 dark:text-purple-300 flex items-center justify-center font-bold text-sm mb-2">T</span>
+              <h5 class="font-bold text-xs text-slate-900 dark:text-white uppercase tracking-wider">Time-bound</h5>
+              <p class="text-[11px] text-slate-500 dark:text-slate-400 mt-1">Strict milestones and deadlines</p>
+            </div>
+          </div>
+
+          <!-- Personal SMART Commitment -->
+          <div class="p-4 sm:p-5 rounded-xl bg-gradient-to-r from-purple-500/10 via-brand-500/10 to-transparent border border-purple-200 dark:border-purple-900/50">
+            <h4 class="font-bold text-slate-900 dark:text-white text-sm flex items-center gap-2 mb-2">
+              <i data-lucide="check-check" class="w-4 h-4 text-purple-600"></i>
+              Personal Goal Application for Week 2 & Beyond
+            </h4>
+            <p class="text-xs sm:text-sm text-slate-600 dark:text-slate-300 leading-relaxed">
+              Applying SMART principles to my finance curriculum and technical journey: dedicating focused 45-minute daily practice slots to deepen HTML/CSS fundamentals, completing CMA revision milestones every alternate weekend, and applying Design Thinking to evaluate financial management case studies.
+            </p>
+          </div>
+        </div>
+
+      </div>
+    </article>
+
+
+    <!-- ========================================== -->
+    <!-- SYNTHESIS & WEEKLY REFLECTIONS             -->
+    <!-- ========================================== -->
+    <article id="reflection" class="scroll-mt-20">
+      
+      <!-- Section Header -->
+      <div class="flex items-center gap-3 mb-4">
+        <span class="px-3 py-1 rounded-md text-xs font-mono font-bold bg-slate-200 text-slate-800 dark:bg-slate-800 dark:text-slate-300">
+          SYNTHESIS
+        </span>
+        <div class="h-px flex-grow bg-slate-200 dark:bg-slate-800"></div>
+        <span class="text-xs text-slate-400 font-mono">Retrospective</span>
+      </div>
+
+      <h2 class="font-heading text-2xl sm:text-3xl font-bold text-slate-900 dark:text-white mb-6 tracking-tight">
+        Key Takeaways & The Path Forward
+      </h2>
+
+      <!-- 4 Pillars Grid with 3D Tilt -->
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-8">
+        
+        <div class="card-3d p-5 rounded-2xl bg-slate-900 border border-slate-800 shadow-lg">
+          <div class="card-3d-glare"></div>
+          <div class="w-9 h-9 rounded-xl bg-emerald-950 text-emerald-300 flex items-center justify-center mb-3">
+            <i data-lucide="compass" class="w-5 h-5"></i>
+          </div>
+          <h3 class="font-bold text-base text-white mb-2">1. The Power of Empathy & Mindset</h3>
+          <p class="text-xs sm:text-sm text-slate-300 leading-relaxed">
+            Problems in product design or financial systems cannot be resolved with obsolete perspectives. Iterative prototyping and listening to user reality unlock solutions that are truly desirable, feasible, and viable.
+          </p>
+        </div>
+
+        <div class="card-3d p-5 rounded-2xl bg-slate-900 border border-slate-800 shadow-lg">
+          <div class="card-3d-glare"></div>
+          <div class="w-9 h-9 rounded-xl bg-amber-950 text-amber-300 flex items-center justify-center mb-3">
+            <i data-lucide="layers" class="w-5 h-5"></i>
+          </div>
+          <h3 class="font-bold text-base text-white mb-2">2. Systems Over Silos</h3>
+          <p class="text-xs sm:text-sm text-slate-300 leading-relaxed">
+            Our seed sector research demonstrated that technical excellence alone is insufficient without supply chain coordination, transparency, and digital traceability to bridge the last mile to the farmer.
+          </p>
+        </div>
+
+        <div class="card-3d p-5 rounded-2xl bg-slate-900 border border-slate-200 dark:border-slate-800 shadow-lg">
+          <div class="card-3d-glare"></div>
+          <div class="w-9 h-9 rounded-xl bg-accent-950 text-accent-300 flex items-center justify-center mb-3">
+            <i data-lucide="code-2" class="w-5 h-5"></i>
+          </div>
+          <h3 class="font-bold text-base text-white mb-2">3. Overcoming Technical Fear</h3>
+          <p class="text-xs sm:text-sm text-slate-300 leading-relaxed">
+            Stepping out of my commerce comfort zone into Antigravity IDE proved that trial, error, and curiosity outrank prior technical familiarity. Building something with your own code builds enduring confidence.
+          </p>
+        </div>
+
+        <div class="card-3d p-5 rounded-2xl bg-slate-900 border border-slate-800 shadow-lg">
+          <div class="card-3d-glare"></div>
+          <div class="w-9 h-9 rounded-xl bg-purple-950 text-purple-300 flex items-center justify-center mb-3">
+            <i data-lucide="shield" class="w-5 h-5"></i>
+          </div>
+          <h3 class="font-bold text-base text-white mb-2">4. Mental Resilience as an Asset</h3>
+          <p class="text-xs sm:text-sm text-slate-300 leading-relaxed">
+            From our alumni conversations, the greatest superpower in professional life is not the absence of failure, but the deliberate speed and grace with which you rebound and recalibrate with SMART execution.
+          </p>
+        </div>
+
+      </div>
+
+
+
+    </article>
+
+  </main>
+
+  <!-- Footer -->
+  <footer class="mt-16 border-t border-slate-200 dark:border-slate-800 bg-white/50 dark:bg-slate-900/50 py-8 no-print">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-slate-500 dark:text-slate-400">
+      <p>© 2026 Pranetha S.C. · Week 1 Learning Retrospective. Built with Antigravity IDE.</p>
+      <a href="#top" class="flex items-center gap-1.5 hover:text-brand-600 dark:hover:text-brand-400 transition-colors">
+        <span>Back to Top</span>
+        <i data-lucide="arrow-up" class="w-3.5 h-3.5"></i>
+      </a>
+    </div>
+  </footer>
+
+  <!-- Lightbox Modal for High-Res Inspection -->
+  <div id="lightbox" class="fixed inset-0 z-50 bg-slate-950/90 backdrop-blur-md hidden opacity-0 transition-opacity duration-200 flex flex-col items-center justify-center p-4 sm:p-6 no-print" onclick="closeLightbox(event)">
+    <div class="relative max-w-5xl w-full max-h-[90vh] flex flex-col items-center" onclick="event.stopPropagation()">
+      
+      <!-- Top controls -->
+      <div class="w-full flex items-center justify-between pb-3 text-white">
+        <p id="lightbox-caption" class="text-xs sm:text-sm font-medium text-slate-200 truncate pr-4"></p>
+        <div class="flex items-center gap-2">
+          <a id="lightbox-download" href="#" download class="p-1.5 rounded-lg bg-slate-800/80 hover:bg-slate-700 text-slate-300 hover:text-white transition-colors" title="Open / Download image">
+            <i data-lucide="download" class="w-4 h-4"></i>
+          </a>
+          <button onclick="closeLightbox()" class="p-1.5 rounded-lg bg-slate-800/80 hover:bg-slate-700 text-slate-300 hover:text-white transition-colors" title="Close (Esc)">
+            <i data-lucide="x" class="w-5 h-5"></i>
+          </button>
+        </div>
+      </div>
+
+      <!-- Image container -->
+      <div class="w-full overflow-auto max-h-[75vh] flex items-center justify-center rounded-xl bg-slate-900/50 border border-slate-800">
+        <img id="lightbox-img" src="" alt="Expanded View" class="max-w-full max-h-[75vh] object-contain select-none" />
+      </div>
+
+      <!-- Hint -->
+      <p class="text-[11px] text-slate-400 mt-2 font-mono">Press ESC or click outside to close</p>
+    </div>
+  </div>
+
+  <!-- Scripts: Theme, Progress Bar, Icons, Lightbox -->
+  <script>
+    // Initialize Lucide Icons
+    lucide.createIcons();
+
+    // Force Dark Theme
+    document.documentElement.classList.add('dark');
+    localStorage.setItem('theme', 'dark');
+
+    const themeToggleBtn = document.getElementById('theme-toggle');
+    if (themeToggleBtn) {
+      themeToggleBtn.style.display = 'none'; // Keep dark theme locked as requested
+    }
+
+    // Mobile Menu Toggle
+    const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+    const mobileMenu = document.getElementById('mobile-menu');
+    mobileMenuBtn.addEventListener('click', () => {
+      mobileMenu.classList.toggle('hidden');
+    });
+
+    // Close mobile menu when clicking a link
+    mobileMenu.querySelectorAll('a').forEach(link => {
+      link.addEventListener('click', () => {
+        mobileMenu.classList.add('hidden');
+      });
+    });
+
+    // Scroll Progress Bar
+    window.addEventListener('scroll', () => {
+      const winScroll = document.documentElement.scrollTop || document.body.scrollTop;
+      const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+      const scrolled = (winScroll / height) * 100;
+      document.getElementById('progress-bar').style.width = scrolled + '%';
+    });
+
+    // Lightbox Modal Functions
+    const lightbox = document.getElementById('lightbox');
+    const lightboxImg = document.getElementById('lightbox-img');
+    const lightboxCaption = document.getElementById('lightbox-caption');
+    const lightboxDownload = document.getElementById('lightbox-download');
+
+    function openLightbox(src, caption) {
+      lightboxImg.src = src;
+      lightboxCaption.textContent = caption || '';
+      lightboxDownload.href = src;
+      lightbox.classList.remove('hidden');
+      setTimeout(() => {
+        lightbox.classList.remove('opacity-0');
+      }, 10);
+      document.body.style.overflow = 'hidden';
+    }
+
+    function closeLightbox(e) {
+      lightbox.classList.add('opacity-0');
+      setTimeout(() => {
+        lightbox.classList.add('hidden');
+        lightboxImg.src = '';
+      }, 200);
+      document.body.style.overflow = '';
+    }
+
+    // Keyboard navigation (Escape key closes lightbox)
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && !lightbox.classList.contains('hidden')) {
+        closeLightbox();
+      }
+    });
+
+    // ==========================================
+    // 3D CARD TILT PHYSICS ENGINE (Vanilla JS)
+    // ==========================================
+    const cards3d = document.querySelectorAll('.card-3d');
+    cards3d.forEach(card => {
+      card.addEventListener('mousemove', (e) => {
+        const rect = card.getBoundingClientRect();
+        const x = e.clientX - rect.left;
+        const y = e.clientY - rect.top;
+        const centerX = rect.width / 2;
+        const centerY = rect.height / 2;
+        
+        // Calculate tilt angles (-8deg to +8deg)
+        const rotateX = ((y - centerY) / centerY) * -8;
+        const rotateY = ((x - centerX) / centerX) * 8;
+        
+        card.style.transform = `perspective(1000px) rotateX(${rotateX.toFixed(2)}deg) rotateY(${rotateY.toFixed(2)}deg) scale3d(1.015, 1.015, 1.015) translateZ(10px)`;
+        card.style.setProperty('--gx', `${((x / rect.width) * 100).toFixed(1)}%`);
+        card.style.setProperty('--gy', `${((y / rect.height) * 100).toFixed(1)}%`);
+      });
+
+      card.addEventListener('mouseleave', () => {
+        card.style.transform = 'perspective(1000px) rotateX(0deg) rotateY(0deg) scale3d(1, 1, 1) translateZ(0px)';
+      });
+    });
+
+    // ==========================================
+    // THREE.JS 3D HERO WEBGL ANIMATION
+    // ==========================================
+    (function init3DHero() {
+      const canvas = document.getElementById('hero-3d-canvas');
+      if (!canvas || typeof THREE === 'undefined') return;
+
+      const scene = new THREE.Scene();
+      const parent = canvas.parentElement;
+      const width = parent.clientWidth || window.innerWidth;
+      const height = parent.clientHeight || 500;
+
+      const camera = new THREE.PerspectiveCamera(55, width / height, 0.1, 1000);
+      camera.position.z = 22;
+
+      const renderer = new THREE.WebGLRenderer({ canvas: canvas, alpha: true, antialias: true });
+      renderer.setSize(width, height);
+      renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+
+      // 1. Central 3D Geometric Wireframe (Emerald Icosahedron)
+      const outerGeo = new THREE.IcosahedronGeometry(7.5, 1);
+      const outerMat = new THREE.MeshBasicMaterial({
+        color: 0x10b981,
+        wireframe: true,
+        transparent: true,
+        opacity: 0.32
+      });
+      const outerMesh = new THREE.Mesh(outerGeo, outerMat);
+      scene.add(outerMesh);
+
+      // 2. Inner Glowing Core (Cyan / Teal Octahedron)
+      const innerGeo = new THREE.OctahedronGeometry(4.2, 0);
+      const innerMat = new THREE.MeshBasicMaterial({
+        color: 0x06b6d4,
+        wireframe: true,
+        transparent: true,
+        opacity: 0.48
+      });
+      const innerMesh = new THREE.Mesh(innerGeo, innerMat);
+      scene.add(innerMesh);
+
+      // 3. Floating 3D Star / Particle Constellation (260 Nodes)
+      const particleCount = 260;
+      const positions = new Float32Array(particleCount * 3);
+      const colors = new Float32Array(particleCount * 3);
+
+      const colorPalette = [
+        new THREE.Color(0x10b981), // Emerald
+        new THREE.Color(0x06b6d4), // Cyan
+        new THREE.Color(0x8b5cf6), // Violet
+        new THREE.Color(0x38bdf8)  // Sky
+      ];
+
+      for (let i = 0; i < particleCount; i++) {
+        const radius = 9 + Math.random() * 14;
+        const theta = Math.random() * Math.PI * 2;
+        const phi = Math.acos((Math.random() * 2) - 1);
+
+        positions[i * 3] = radius * Math.sin(phi) * Math.cos(theta);
+        positions[i * 3 + 1] = radius * Math.sin(phi) * Math.sin(theta);
+        positions[i * 3 + 2] = radius * Math.cos(phi);
+
+        const chosenColor = colorPalette[Math.floor(Math.random() * colorPalette.length)];
+        colors[i * 3] = chosenColor.r;
+        colors[i * 3 + 1] = chosenColor.g;
+        colors[i * 3 + 2] = chosenColor.b;
+      }
+
+      const particleGeo = new THREE.BufferGeometry();
+      particleGeo.setAttribute('position', new THREE.BufferAttribute(positions, 3));
+      particleGeo.setAttribute('color', new THREE.BufferAttribute(colors, 3));
+
+      const particleMat = new THREE.PointsMaterial({
+        size: 0.35,
+        vertexColors: true,
+        transparent: true,
+        opacity: 0.85
+      });
+      const particleSystem = new THREE.Points(particleGeo, particleMat);
+      scene.add(particleSystem);
+
+      // Mouse Parallax Dynamics
+      let mouseX = 0;
+      let mouseY = 0;
+      let targetX = 0;
+      let targetY = 0;
+
+      window.addEventListener('mousemove', (e) => {
+        mouseX = (e.clientX / window.innerWidth - 0.5) * 2;
+        mouseY = (e.clientY / window.innerHeight - 0.5) * 2;
+      });
+
+      // Responsive Resize
+      window.addEventListener('resize', () => {
+        if (!canvas || !canvas.parentElement) return;
+        const w = canvas.parentElement.clientWidth || window.innerWidth;
+        const h = canvas.parentElement.clientHeight || 500;
+        camera.aspect = w / h;
+        camera.updateProjectionMatrix();
+        renderer.setSize(w, h);
+      });
+
+      // 60FPS Render Loop
+      let clock = new THREE.Clock();
+      function animate() {
+        requestAnimationFrame(animate);
+        const elapsedTime = clock.getElapsedTime();
+
+        // Constant gentle rotation
+        outerMesh.rotation.y = elapsedTime * 0.12;
+        outerMesh.rotation.x = elapsedTime * 0.08;
+        innerMesh.rotation.y = -elapsedTime * 0.18;
+        innerMesh.rotation.z = elapsedTime * 0.1;
+        particleSystem.rotation.y = elapsedTime * 0.05;
+
+        // Smooth mouse parallax (LERP)
+        targetX += (mouseX * 0.4 - targetX) * 0.05;
+        targetY += (-mouseY * 0.4 - targetY) * 0.05;
+
+        outerMesh.position.x = targetX * 3;
+        outerMesh.position.y = targetY * 2;
+        innerMesh.position.x = targetX * 3;
+        innerMesh.position.y = targetY * 2;
+        particleSystem.position.x = targetX * 1.5;
+        particleSystem.position.y = targetY * 1.5;
+
+        renderer.render(scene, camera);
+      }
+      animate();
+    })();
+
+    // ==========================================
+    // DAY 2: ANIMATED AGRITECH SEED CANVAS
+    // ==========================================
+    (function initAgritechCanvas() {
+      const canvas = document.getElementById('agritech-canvas');
+      if (!canvas) return;
+      const ctx = canvas.getContext('2d');
+      let width, height;
+      let particles = [];
+
+      function resize() {
+        if (!canvas.parentElement) return;
+        width = canvas.width = canvas.parentElement.clientWidth;
+        height = canvas.height = canvas.parentElement.clientHeight;
+      }
+      resize();
+      window.addEventListener('resize', resize);
+
+      for (let i = 0; i < 45; i++) {
+        particles.push({
+          x: Math.random() * (width || 600),
+          y: Math.random() * (height || 800),
+          vx: (Math.random() - 0.5) * 0.4,
+          vy: -0.3 - Math.random() * 0.5,
+          radius: 1.5 + Math.random() * 2.5,
+          alpha: 0.2 + Math.random() * 0.6,
+          hue: 140 + Math.random() * 30 // Emerald to green
+        });
+      }
+
+      function draw() {
+        ctx.clearRect(0, 0, width, height);
+
+        for (let i = 0; i < particles.length; i++) {
+          let p = particles[i];
+          p.x += p.vx;
+          p.y += p.vy;
+
+          if (p.y < 0) p.y = height;
+          if (p.x < 0) p.x = width;
+          if (p.x > width) p.x = 0;
+
+          ctx.beginPath();
+          ctx.arc(p.x, p.y, p.radius, 0, Math.PI * 2);
+          ctx.fillStyle = `hsla(${p.hue}, 80%, 55%, ${p.alpha})`;
+          ctx.shadowBlur = 8;
+          ctx.shadowColor = `hsla(${p.hue}, 80%, 55%, 0.8)`;
+          ctx.fill();
+        }
+
+        requestAnimationFrame(draw);
+      }
+      draw();
+    })();
+  </script>
+
+</body>
+</html>
