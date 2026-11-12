@@ -1,0 +1,1697 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>From Intuition to Algorithms: Week 2 Innovation Blog</title>
+  <style>
+    :root {
+      --bg-page: #060913;
+      --bg-card: rgba(15, 23, 42, 0.75);
+      --bg-card-hover: rgba(22, 33, 58, 0.85);
+      --bg-alt: rgba(30, 41, 69, 0.5);
+      --border: rgba(255, 255, 255, 0.09);
+      --border-glow: rgba(99, 102, 241, 0.35);
+      --primary: #6366f1;
+      --primary-glow: rgba(99, 102, 241, 0.5);
+      --cyan: #06b6d4;
+      --cyan-glow: rgba(6, 182, 212, 0.45);
+      --emerald: #10b981;
+      --amber: #f59e0b;
+      --rose: #f43f5e;
+      --text-main: #f8fafc;
+      --text-muted: #94a3b8;
+      --text-subtle: #64748b;
+      --radius-sm: 8px;
+      --radius-md: 14px;
+      --radius-lg: 22px;
+      --shadow-3d: 0 20px 40px -10px rgba(0, 0, 0, 0.7), 0 0 25px rgba(99, 102, 241, 0.15);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+      line-height: 1.75;
+      color: var(--text-main);
+      background-color: var(--bg-page);
+      background-image: 
+        radial-gradient(at 10% 10%, rgba(99, 102, 241, 0.15) 0px, transparent 50%),
+        radial-gradient(at 90% 20%, rgba(6, 182, 212, 0.12) 0px, transparent 50%),
+        radial-gradient(at 50% 80%, rgba(244, 63, 94, 0.1) 0px, transparent 50%),
+        radial-gradient(circle at 50% 50%, #060913 0%, #030509 100%);
+      background-attachment: fixed;
+      overflow-x: hidden;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* Reading Progress Bar */
+    #reading-progress {
+      position: fixed;
+      top: 0;
+      left: 0;
+      height: 4px;
+      background: linear-gradient(90deg, #6366f1, #06b6d4, #f43f5e, #10b981);
+      width: 0%;
+      z-index: 1000;
+      box-shadow: 0 0 12px var(--cyan);
+      transition: width 0.1s ease-out;
+    }
+
+    /* Ambient 3D Glowing Mesh Background Orbs */
+    .ambient-glow {
+      position: fixed;
+      width: 500px;
+      height: 500px;
+      border-radius: 50%;
+      filter: blur(120px);
+      pointer-events: none;
+      z-index: 0;
+      opacity: 0.35;
+      animation: floatAmbient 18s infinite alternate ease-in-out;
+    }
+    .glow-1 { top: -100px; left: -100px; background: #4f46e5; }
+    .glow-2 { top: 40%; right: -150px; background: #06b6d4; animation-delay: -6s; }
+    .glow-3 { bottom: -100px; left: 30%; background: #ec4899; animation-delay: -12s; }
+
+    @keyframes floatAmbient {
+      0% { transform: translate3d(0, 0, 0) scale(1); }
+      50% { transform: translate3d(60px, 80px, 0) scale(1.15); }
+      100% { transform: translate3d(-40px, 120px, 0) scale(0.95); }
+    }
+
+    /* Header Nav */
+    header.site-header {
+      position: sticky;
+      top: 0;
+      background: rgba(6, 9, 19, 0.82);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border-bottom: 1px solid var(--border);
+      z-index: 900;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
+    }
+
+    .header-container {
+      max-width: 1060px;
+      margin: 0 auto;
+      padding: 0.85rem 1.5rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      font-weight: 700;
+      font-size: 1.15rem;
+      color: var(--text-main);
+      text-decoration: none;
+    }
+
+    .brand-badge {
+      background: linear-gradient(135deg, #6366f1, #06b6d4);
+      color: white;
+      padding: 0.25rem 0.65rem;
+      border-radius: 6px;
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      box-shadow: 0 0 10px rgba(99, 102, 241, 0.5);
+    }
+
+    .nav-actions {
+      display: flex;
+      align-items: center;
+      gap: 1.25rem;
+    }
+
+    .badge-3d-live {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      background: rgba(16, 185, 129, 0.15);
+      border: 1px solid rgba(16, 185, 129, 0.35);
+      color: #34d399;
+      font-size: 0.75rem;
+      padding: 0.2rem 0.6rem;
+      border-radius: 9999px;
+      font-weight: 600;
+    }
+
+    .pulse-dot {
+      width: 6px;
+      height: 6px;
+      background: #34d399;
+      border-radius: 50%;
+      box-shadow: 0 0 8px #34d399;
+      animation: pulse 2s infinite;
+    }
+
+    @keyframes pulse {
+      0%, 100% { opacity: 1; transform: scale(1); }
+      50% { opacity: 0.4; transform: scale(0.85); }
+    }
+
+    /* Container */
+    .container {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 2.5rem 1.5rem 6rem;
+      position: relative;
+      z-index: 10;
+    }
+
+    /* Hero Banner with 3D Canvas */
+    .hero {
+      text-align: center;
+      padding: 3.5rem 1.5rem 3rem;
+      margin-bottom: 2.5rem;
+      position: relative;
+      border-radius: var(--radius-lg);
+      background: radial-gradient(circle at 50% 20%, rgba(99, 102, 241, 0.15), rgba(6, 9, 19, 0.7) 70%);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      box-shadow: 0 20px 50px rgba(0, 0, 0, 0.6);
+      overflow: hidden;
+      perspective: 1200px;
+    }
+
+    #hero-3d-canvas {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+      z-index: 1;
+      opacity: 0.85;
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 2;
+    }
+
+    .hero-tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      background: rgba(99, 102, 241, 0.2);
+      border: 1px solid rgba(99, 102, 241, 0.4);
+      color: #a5b4fc;
+      padding: 0.4rem 1.1rem;
+      border-radius: 9999px;
+      font-size: 0.85rem;
+      font-weight: 600;
+      margin-bottom: 1.5rem;
+      box-shadow: 0 0 15px rgba(99, 102, 241, 0.3);
+      transform: translateZ(20px);
+      animation: floatBadge 4s ease-in-out infinite;
+    }
+
+    @keyframes floatBadge {
+      0%, 100% { transform: translateY(0px); }
+      50% { transform: translateY(-6px); }
+    }
+
+    .hero h1 {
+      font-size: 2.85rem;
+      line-height: 1.22;
+      font-weight: 800;
+      letter-spacing: -0.02em;
+      margin-bottom: 1.35rem;
+      background: linear-gradient(135deg, #ffffff 40%, #a5b4fc 70%, #06b6d4 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      text-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+    }
+
+    .hero p.lead {
+      font-size: 1.22rem;
+      color: #94a3b8;
+      max-width: 730px;
+      margin: 0 auto;
+      line-height: 1.7;
+      text-shadow: 0 2px 10px rgba(0, 0, 0, 0.8);
+    }
+
+    /* 3D Day Navigation Pill Bar */
+    .day-nav {
+      display: flex;
+      justify-content: center;
+      gap: 0.85rem;
+      margin: 2.5rem 0 3.5rem;
+      flex-wrap: wrap;
+      position: sticky;
+      top: 4.8rem;
+      z-index: 800;
+      background: rgba(10, 15, 29, 0.85);
+      backdrop-filter: blur(20px);
+      padding: 0.75rem 1rem;
+      border-radius: 9999px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5), inset 0 1px 0 rgba(255, 255, 255, 0.1);
+      border: 1px solid var(--border);
+    }
+
+    .day-pill {
+      text-decoration: none;
+      color: var(--text-muted);
+      font-size: 0.875rem;
+      font-weight: 600;
+      padding: 0.55rem 1.15rem;
+      border-radius: 9999px;
+      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      display: flex;
+      align-items: center;
+      gap: 0.45rem;
+      border: 1px solid transparent;
+      transform-style: preserve-3d;
+    }
+
+    .day-pill:hover, .day-pill.active {
+      background: linear-gradient(135deg, #4f46e5, #06b6d4);
+      color: white;
+      box-shadow: 0 4px 15px rgba(6, 182, 212, 0.45);
+      border-color: rgba(255, 255, 255, 0.2);
+      transform: translateY(-2px) scale(1.04);
+    }
+
+    /* Content Cards with 3D Tilt Effect */
+    .day-section {
+      background: var(--bg-card);
+      backdrop-filter: blur(20px);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      padding: 2.75rem;
+      margin-bottom: 3.5rem;
+      box-shadow: var(--shadow-3d);
+      position: relative;
+      overflow: hidden;
+      transform-style: preserve-3d;
+      transition: transform 0.25s ease-out, box-shadow 0.25s ease-out, border-color 0.25s ease-out;
+    }
+
+    .day-section:hover {
+      border-color: rgba(99, 102, 241, 0.35);
+      box-shadow: 0 25px 50px -10px rgba(0, 0, 0, 0.8), 0 0 35px rgba(99, 102, 241, 0.22);
+    }
+
+    /* Top Corner Specular Reflection */
+    .day-section::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.05), transparent);
+      transform: skewX(-25deg);
+      pointer-events: none;
+      transition: left 0.75s ease;
+    }
+
+    .day-section:hover::before {
+      left: 150%;
+    }
+
+    .day-badge {
+      display: inline-block;
+      font-size: 0.75rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: #38bdf8;
+      background: rgba(6, 182, 212, 0.15);
+      border: 1px solid rgba(6, 182, 212, 0.3);
+      padding: 0.3rem 0.85rem;
+      border-radius: 8px;
+      margin-bottom: 0.85rem;
+      box-shadow: 0 0 10px rgba(6, 182, 212, 0.2);
+    }
+
+    .day-section h2 {
+      font-size: 2rem;
+      font-weight: 800;
+      letter-spacing: -0.01em;
+      margin-bottom: 1.35rem;
+      color: #ffffff;
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+    }
+
+    .day-section h3 {
+      font-size: 1.4rem;
+      font-weight: 700;
+      margin: 2.2rem 0 1.1rem;
+      color: #e2e8f0;
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+    }
+
+    .day-section p {
+      font-size: 1.05rem;
+      margin-bottom: 1.4rem;
+      color: #cbd5e1;
+      line-height: 1.85;
+    }
+
+    /* Highlight Callout Boxes */
+    .callout-box {
+      background: rgba(15, 23, 42, 0.6);
+      border-left: 4px solid var(--primary);
+      border-radius: 0 var(--radius-md) var(--radius-md) 0;
+      padding: 1.4rem 1.6rem;
+      margin: 1.75rem 0;
+      box-shadow: inset 0 0 20px rgba(0, 0, 0, 0.4);
+      border-top: 1px solid rgba(255, 255, 255, 0.05);
+      border-right: 1px solid rgba(255, 255, 255, 0.05);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    }
+
+    .callout-box.emerald {
+      border-left-color: var(--emerald);
+      background: rgba(16, 185, 129, 0.08);
+    }
+
+    .callout-box.amber {
+      border-left-color: var(--amber);
+      background: rgba(245, 158, 11, 0.08);
+    }
+
+    .callout-box.cyan {
+      border-left-color: var(--cyan);
+      background: rgba(6, 182, 212, 0.08);
+    }
+
+    .callout-title {
+      font-weight: 700;
+      font-size: 0.95rem;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      margin-bottom: 0.5rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    /* 3D FLIP CARDS FOR 5S METHODOLOGY */
+    .five-s-container {
+      margin: 2.25rem 0;
+    }
+
+    .flip-instruction {
+      font-size: 0.82rem;
+      color: var(--cyan);
+      text-align: right;
+      margin-bottom: 0.75rem;
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+      gap: 0.4rem;
+    }
+
+    .five-s-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 1.35rem;
+      perspective: 1200px;
+    }
+
+    .flip-card-3d {
+      background-color: transparent;
+      height: 250px;
+      perspective: 1000px;
+      cursor: pointer;
+    }
+
+    .flip-card-inner {
+      position: relative;
+      width: 100%;
+      height: 100%;
+      text-align: left;
+      transition: transform 0.7s cubic-bezier(0.4, 0, 0.2, 1);
+      transform-style: preserve-3d;
+      border-radius: var(--radius-md);
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
+    }
+
+    .flip-card-3d:hover .flip-card-inner,
+    .flip-card-3d.flipped .flip-card-inner {
+      transform: rotateY(180deg);
+    }
+
+    .flip-card-front, .flip-card-back {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      -webkit-backface-visibility: hidden;
+      backface-visibility: hidden;
+      border-radius: var(--radius-md);
+      padding: 1.35rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      border: 1px solid var(--border);
+    }
+
+    .flip-card-front {
+      background: linear-gradient(145deg, rgba(30, 41, 69, 0.65), rgba(15, 23, 42, 0.85));
+    }
+
+    .flip-card-front::after {
+      content: "Hover / Tap to Flip ↻";
+      font-size: 0.75rem;
+      color: var(--text-subtle);
+      text-align: right;
+      margin-top: auto;
+    }
+
+    .flip-card-back {
+      background: linear-gradient(145deg, #1e1b4b, #0f172a);
+      border-color: rgba(99, 102, 241, 0.4);
+      transform: rotateY(180deg);
+      box-shadow: inset 0 0 25px rgba(99, 102, 241, 0.25);
+    }
+
+    .card-num-3d {
+      font-size: 2.2rem;
+      font-weight: 900;
+      color: var(--cyan);
+      opacity: 0.4;
+      line-height: 1;
+      position: absolute;
+      top: 0.85rem;
+      right: 1.1rem;
+    }
+
+    .five-s-name {
+      font-size: 1.25rem;
+      font-weight: 800;
+      color: #ffffff;
+      margin-bottom: 0.2rem;
+    }
+
+    .five-s-japanese {
+      font-size: 0.8rem;
+      font-weight: 700;
+      color: var(--cyan);
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      margin-bottom: 0.6rem;
+    }
+
+    .five-s-desc {
+      font-size: 0.92rem !important;
+      color: #94a3b8 !important;
+      line-height: 1.5 !important;
+      margin-bottom: 0 !important;
+    }
+
+    .back-title {
+      font-size: 0.95rem;
+      font-weight: 700;
+      color: #a5b4fc;
+      margin-bottom: 0.5rem;
+    }
+
+    .back-list {
+      list-style: none;
+      font-size: 0.85rem;
+      color: #cbd5e1;
+      line-height: 1.55;
+    }
+
+    .back-list li {
+      margin-bottom: 0.4rem;
+      display: flex;
+      align-items: flex-start;
+      gap: 0.4rem;
+    }
+
+    /* 3D Photo Showcases */
+    .photo-showcase-3d {
+      margin: 2.25rem 0;
+      border-radius: var(--radius-md);
+      overflow: hidden;
+      border: 1px solid var(--border);
+      background: rgba(15, 23, 42, 0.8);
+      box-shadow: 0 15px 35px rgba(0, 0, 0, 0.6);
+      transform-style: preserve-3d;
+      transition: transform 0.35s ease, box-shadow 0.35s ease;
+    }
+
+    .photo-showcase-3d:hover {
+      transform: translateY(-5px) scale(1.01);
+      box-shadow: 0 25px 45px rgba(0, 0, 0, 0.8), 0 0 25px rgba(6, 182, 212, 0.25);
+    }
+
+    .photo-showcase-3d img {
+      width: 100%;
+      height: auto;
+      display: block;
+      object-fit: cover;
+      max-height: 520px;
+      cursor: zoom-in;
+      transition: transform 0.4s ease;
+    }
+
+    .photo-showcase-3d img:hover {
+      transform: scale(1.02);
+    }
+
+    .photo-caption {
+      padding: 0.95rem 1.35rem;
+      font-size: 0.88rem;
+      color: #94a3b8;
+      background: rgba(10, 15, 29, 0.95);
+      border-top: 1px solid var(--border);
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    /* 3D Photo Gallery Grid */
+    .photo-gallery-3d {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 1.35rem;
+      margin: 2.25rem 0;
+      perspective: 1000px;
+    }
+
+    .gallery-item-3d {
+      border-radius: var(--radius-md);
+      overflow: hidden;
+      border: 1px solid var(--border);
+      background: rgba(15, 23, 42, 0.7);
+      display: flex;
+      flex-direction: column;
+      transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.3s ease;
+      transform-style: preserve-3d;
+    }
+
+    .gallery-item-3d:hover {
+      transform: translateY(-6px) rotateX(3deg);
+      box-shadow: 0 20px 35px rgba(0, 0, 0, 0.7), 0 0 20px rgba(99, 102, 241, 0.3);
+      border-color: rgba(99, 102, 241, 0.4);
+    }
+
+    .gallery-item-3d img {
+      width: 100%;
+      height: 220px;
+      object-fit: cover;
+      display: block;
+      cursor: zoom-in;
+      transition: transform 0.35s ease;
+    }
+
+    .gallery-item-3d img:hover {
+      transform: scale(1.05);
+    }
+
+    .gallery-item-3d .caption {
+      padding: 0.85rem 1.15rem;
+      font-size: 0.82rem;
+      color: #94a3b8;
+      line-height: 1.45;
+      border-top: 1px solid var(--border);
+      flex-grow: 1;
+      background: rgba(8, 12, 22, 0.8);
+    }
+
+    /* 3D Interactive Recipe Stepper */
+    .recipe-stepper-3d {
+      background: rgba(10, 15, 29, 0.75);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: var(--radius-md);
+      padding: 1.5rem;
+      margin: 2rem 0;
+      box-shadow: inset 0 0 30px rgba(0, 0, 0, 0.5);
+    }
+
+    .stepper-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 1.25rem;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+      padding-bottom: 0.75rem;
+    }
+
+    .stepper-title {
+      font-size: 1rem;
+      font-weight: 700;
+      color: #38bdf8;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .stepper-controls {
+      display: flex;
+      gap: 0.5rem;
+    }
+
+    .step-btn {
+      background: rgba(99, 102, 241, 0.2);
+      border: 1px solid rgba(99, 102, 241, 0.4);
+      color: #a5b4fc;
+      padding: 0.35rem 0.8rem;
+      border-radius: 6px;
+      font-size: 0.8rem;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+
+    .step-btn:hover {
+      background: var(--primary);
+      color: white;
+      box-shadow: 0 0 10px var(--primary-glow);
+    }
+
+    .step-card-active {
+      background: linear-gradient(135deg, rgba(30, 41, 69, 0.9), rgba(15, 23, 42, 0.9));
+      border: 1px solid rgba(6, 182, 212, 0.4);
+      border-radius: var(--radius-sm);
+      padding: 1.25rem;
+      display: flex;
+      align-items: center;
+      gap: 1.25rem;
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.6), 0 0 20px rgba(6, 182, 212, 0.2);
+      transform: translateZ(15px);
+    }
+
+    .step-badge-num {
+      width: 48px;
+      height: 48px;
+      border-radius: 12px;
+      background: linear-gradient(135deg, #6366f1, #06b6d4);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.4rem;
+      font-weight: 900;
+      color: white;
+      flex-shrink: 0;
+      box-shadow: 0 0 15px rgba(6, 182, 212, 0.5);
+    }
+
+    .step-content-title {
+      font-size: 1.05rem;
+      font-weight: 700;
+      color: #ffffff;
+      margin-bottom: 0.25rem;
+    }
+
+    .step-content-param {
+      font-size: 0.85rem;
+      color: #38bdf8;
+      font-family: monospace;
+    }
+
+    /* Algorithm Code Block */
+    .code-container {
+      background: #060913;
+      color: #e2e8f0;
+      border-radius: var(--radius-md);
+      margin: 1.75rem 0;
+      overflow: hidden;
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      box-shadow: 0 15px 35px rgba(0, 0, 0, 0.6);
+    }
+
+    .code-header {
+      background: #0d1322;
+      padding: 0.75rem 1.25rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-family: monospace;
+      font-size: 0.85rem;
+      color: #94a3b8;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+    }
+
+    .code-dots {
+      display: flex;
+      gap: 6px;
+    }
+
+    .code-dot {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+    }
+
+    .dot-red { background: #ef4444; }
+    .dot-yellow { background: #f59e0b; }
+    .dot-green { background: #10b981; }
+
+    .code-body {
+      padding: 1.35rem;
+      font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, Courier, monospace;
+      font-size: 0.92rem;
+      line-height: 1.7;
+      overflow-x: auto;
+    }
+
+    .code-step {
+      display: flex;
+      margin-bottom: 0.35rem;
+    }
+
+    .step-num {
+      width: 2.2rem;
+      color: #475569;
+      user-select: none;
+      flex-shrink: 0;
+    }
+
+    .step-text { color: #f1f5f9; }
+    .step-keyword { color: #38bdf8; font-weight: 600; }
+    .step-param { color: #f472b6; }
+    .step-comment { color: #64748b; font-style: italic; }
+
+    /* 3D Interactive Pipeline for Day 4 App */
+    .app-pipeline-3d {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1rem;
+      margin: 2rem 0;
+      perspective: 1000px;
+    }
+
+    @media (max-width: 768px) {
+      .app-pipeline-3d {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .pipeline-step-3d {
+      background: linear-gradient(145deg, rgba(30, 41, 69, 0.7), rgba(15, 23, 42, 0.85));
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: var(--radius-md);
+      padding: 1.25rem;
+      text-align: center;
+      position: relative;
+      transition: transform 0.3s ease, border-color 0.3s;
+      transform-style: preserve-3d;
+    }
+
+    .pipeline-step-3d:hover {
+      transform: translateY(-8px) scale(1.03);
+      border-color: var(--cyan);
+      box-shadow: 0 15px 30px rgba(0, 0, 0, 0.7), 0 0 20px rgba(6, 182, 212, 0.3);
+    }
+
+    .pipeline-icon-3d {
+      font-size: 2.2rem;
+      margin-bottom: 0.5rem;
+      display: inline-block;
+      animation: floatBadge 3s ease-in-out infinite;
+    }
+
+    .pipeline-title {
+      font-size: 0.95rem;
+      font-weight: 700;
+      color: #ffffff;
+      margin-bottom: 0.35rem;
+    }
+
+    .pipeline-desc {
+      font-size: 0.8rem !important;
+      color: #94a3b8 !important;
+      line-height: 1.4 !important;
+      margin-bottom: 0 !important;
+    }
+
+    /* Design Matrix Cards */
+    .matrix-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.25rem;
+      margin: 2.25rem 0;
+      perspective: 1000px;
+    }
+
+    @media (max-width: 768px) {
+      .matrix-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .matrix-card {
+      background: linear-gradient(145deg, rgba(30, 41, 69, 0.5), rgba(15, 23, 42, 0.75));
+      border-radius: var(--radius-md);
+      padding: 1.6rem;
+      border: 1px solid var(--border);
+      text-align: center;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      transform-style: preserve-3d;
+    }
+
+    .matrix-card:hover {
+      transform: translateY(-6px) rotateY(4deg);
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.7), 0 0 25px rgba(99, 102, 241, 0.3);
+      border-color: rgba(99, 102, 241, 0.4);
+    }
+
+    .matrix-icon {
+      font-size: 2.2rem;
+      margin-bottom: 0.75rem;
+    }
+
+    .matrix-title {
+      font-size: 1.15rem;
+      font-weight: 700;
+      color: #ffffff;
+      margin-bottom: 0.5rem;
+    }
+
+    .matrix-desc {
+      font-size: 0.88rem !important;
+      color: #94a3b8 !important;
+      line-height: 1.55 !important;
+      margin: 0 !important;
+    }
+
+    /* Lightbox Modal */
+    .lightbox {
+      display: none;
+      position: fixed;
+      z-index: 2000;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.92);
+      backdrop-filter: blur(12px);
+      align-items: center;
+      justify-content: center;
+      padding: 2rem;
+      cursor: zoom-out;
+    }
+
+    .lightbox.active {
+      display: flex;
+    }
+
+    .lightbox img {
+      max-width: 90vw;
+      max-height: 85vh;
+      border-radius: var(--radius-md);
+      box-shadow: 0 25px 60px rgba(0, 0, 0, 0.9), 0 0 40px rgba(6, 182, 212, 0.4);
+      object-fit: contain;
+      transform: scale(0.95);
+      animation: zoomIn 0.3s ease-out forwards;
+    }
+
+    @keyframes zoomIn {
+      to { transform: scale(1); }
+    }
+
+    /* Footer */
+    footer.site-footer {
+      border-top: 1px solid var(--border);
+      background: rgba(6, 9, 19, 0.9);
+      padding: 3.5rem 1.5rem;
+      text-align: center;
+      color: var(--text-muted);
+      font-size: 0.9rem;
+      position: relative;
+      z-index: 10;
+    }
+
+    .footer-quote {
+      font-style: italic;
+      font-size: 1.1rem;
+      color: #e2e8f0;
+      max-width: 620px;
+      margin: 0 auto 1.5rem;
+      line-height: 1.65;
+    }
+
+    /* Mobile Responsive adjustments */
+    @media (max-width: 768px) {
+      .hero h1 { font-size: 2.1rem; }
+      .day-section { padding: 1.75rem; }
+      .photo-gallery-3d { grid-template-columns: 1fr; }
+      .day-nav { display: none; }
+    }
+  </style>
+</head>
+<body>
+  <!-- Reading Progress Bar -->
+  <div id="reading-progress"></div>
+
+  <!-- Ambient 3D Glowing Mesh Background Orbs -->
+  <div class="ambient-glow glow-1"></div>
+  <div class="ambient-glow glow-2"></div>
+  <div class="ambient-glow glow-3"></div>
+
+  <!-- Header -->
+  <header class="site-header">
+    <div class="header-container">
+      <a href="#" class="brand">
+        <span class="brand-badge">Innovation Journal</span>
+        <span>Week 2 Chronicles</span>
+      </a>
+      <div class="nav-actions">
+        <div class="badge-3d-live">
+          <span class="pulse-dot"></span>
+          <span>3D Interactive Mode</span>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Container -->
+  <div class="container">
+
+    <!-- Hero Banner with 3D Canvas Scene -->
+    <section class="hero" id="hero-banner">
+      <canvas id="hero-3d-canvas"></canvas>
+      <div class="hero-content">
+        <div class="hero-tag">
+          <span>🚀</span> Societal Innovation • Lean 5S • Algorithmic Logic
+        </div>
+        <h1>From Intuition to Algorithms: Deconstructing Problems & Building Solutions</h1>
+        <p class="lead">
+          A deep, multidimensional reflection on societal problem identification, Lean 5S engineering in physical labs, computational thinking from recipes to code, and creative mobile development.
+        </p>
+      </div>
+    </section>
+
+    <!-- 3D Navigation Pill Bar -->
+    <nav class="day-nav">
+      <a href="#day-1" class="day-pill">💡 Day 1: Ideas & 5S</a>
+      <a href="#day-2" class="day-pill">⚡ Day 2: Algorithms</a>
+      <a href="#day-3" class="day-pill">🎨 Day 3: Scratch</a>
+      <a href="#day-4" class="day-pill">📱 Day 4: MIT App</a>
+      <a href="#reflection" class="day-pill">🌟 Retrospective</a>
+    </nav>
+
+    <!-- DAY 1 SECTION -->
+    <article id="day-1" class="day-section tilt-card-3d">
+      <span class="day-badge">Day 1 • Ideation & Lean Operations</span>
+      <h2>💡 Societal Problem Discovery & The 5S Revolution</h2>
+
+      <p>
+        The week launched with a high-energy, thought-provoking challenge: uncover genuine unmet gaps in society where no adequate solution currently exists. Instead of brainstorming solutions first, we immersed ourselves in problem spaces, systematically examining them through the dual lenses of <strong>technical feasibility</strong> and <strong>economic viability</strong>. Every team presented their curated ideas to the entire cohort.
+      </p>
+
+      <!-- The Idea Spotlight -->
+      <div class="callout-box emerald">
+        <div class="callout-title" style="color: #34d399;">
+          🎯 The Proposed Concept: Tailored Transit Nutrition
+        </div>
+        <p>
+          <strong>The Problem:</strong> When families travel, accessing nutritious, age-appropriate food for <em>toddlers, infants, and senior citizens</em> is an enormous hurdle. While everyday food apps cater to households, travelers stuck at transit stations, railway junctions, and tourist destinations face rigid fast-food menus that conflict with medical restrictions or delicate digestions.
+        </p>
+        <p style="margin-top: 0.75rem;">
+          <strong>The Solution:</strong> A network of specialized <strong>Transit Food Points</strong> at key transit hubs and heritage tourist centers. Travelers pre-order customized, medically safe, and infant-friendly meals through an app ahead of arrival. The logistics sync with transport timing, delivering steaming, tailored food the moment they alight—eradicating agonizing wait times and dietary stress.
+        </p>
+      </div>
+
+      <!-- Author Presentation Image -->
+      <div class="photo-showcase-3d">
+        <img src="./images/image_1.png" alt="Pitching the travel nutrition idea in front of the cohort whiteboard" loading="lazy">
+        <div class="photo-caption">
+          <span>🎤</span> <strong>Cohort Pitch:</strong> Pitching our societal problem discovery and travel nutrition solution to mentors and peers.
+        </div>
+      </div>
+
+      <h3>⚙️ Operational Excellence: The 5S Methodology</h3>
+      <p>
+        In the afternoon, our focus pivoted from societal ideation to operational discipline: <strong>5S</strong>, the foundational Lean system pioneered by Toyota to cultivate safe, uncluttered, and peak-efficiency workspaces.
+      </p>
+
+      <!-- 3D Flip Cards for 5S -->
+      <div class="five-s-container">
+        <div class="flip-instruction">
+          <span>🔄</span> <em>Click or hover over any card to flip and inspect detailed Lean protocols</em>
+        </div>
+
+        <div class="five-s-grid">
+          <!-- Card 1 -->
+          <div class="flip-card-3d">
+            <div class="flip-card-inner">
+              <div class="flip-card-front">
+                <div>
+                  <span class="card-num-3d">01</span>
+                  <div class="five-s-name">Sort</div>
+                  <div class="five-s-japanese">Seiri (整理)</div>
+                  <p class="five-s-desc">Ruthlessly separate essential tools from unneeded clutter. Discard items that lack immediate value.</p>
+                </div>
+              </div>
+              <div class="flip-card-back">
+                <div class="back-title">🔍 Red-Tag Protocol:</div>
+                <ul class="back-list">
+                  <li>• Apply Red Tags to questionable items.</li>
+                  <li>• Quarantine items unused in 30 days.</li>
+                  <li>• Reclaim 40%+ wasted floor & desk space.</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+
+          <!-- Card 2 -->
+          <div class="flip-card-3d">
+            <div class="flip-card-inner">
+              <div class="flip-card-front">
+                <div>
+                  <span class="card-num-3d">02</span>
+                  <div class="five-s-name">Set in Order</div>
+                  <div class="five-s-japanese">Seiton (整頓)</div>
+                  <p class="five-s-desc">A place for everything, and everything in its place. Arrange tools for rapid retrieval and return.</p>
+                </div>
+              </div>
+              <div class="flip-card-back">
+                <div class="back-title">⚡ 30-Second Rule:</div>
+                <ul class="back-list">
+                  <li>• Shadow boards & visual tape boundaries.</li>
+                  <li>• Color-coded component dividers.</li>
+                  <li>• Any item retrievable in under 30 seconds.</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+
+          <!-- Card 3 -->
+          <div class="flip-card-3d">
+            <div class="flip-card-inner">
+              <div class="flip-card-front">
+                <div>
+                  <span class="card-num-3d">03</span>
+                  <div class="five-s-name">Shine</div>
+                  <div class="five-s-japanese">Seiso (清掃)</div>
+                  <p class="five-s-desc">Cleanliness as continuous inspection. Cleaning exposes loose connections and equipment wear.</p>
+                </div>
+              </div>
+              <div class="flip-card-back">
+                <div class="back-title">🧼 Cleaning as Inspection:</div>
+                <ul class="back-list">
+                  <li>• Daily 5-minute cleaning checkpoints.</li>
+                  <li>• Detect wire fraying & oil leaks early.</li>
+                  <li>• Prevents unexpected equipment breakdown.</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+
+          <!-- Card 4 -->
+          <div class="flip-card-3d">
+            <div class="flip-card-inner">
+              <div class="flip-card-front">
+                <div>
+                  <span class="card-num-3d">04</span>
+                  <div class="five-s-name">Standardize</div>
+                  <div class="five-s-japanese">Seiketsu (清潔)</div>
+                  <p class="five-s-desc">Institutionalize visual controls, color codes, and standardized checklists across shifts.</p>
+                </div>
+              </div>
+              <div class="flip-card-back">
+                <div class="back-title">📋 SOP Integration:</div>
+                <ul class="back-list">
+                  <li>• Visual checklists posted at cubicles.</li>
+                  <li>• Consistent labelling schemes.</li>
+                  <li>• Transparent operational accountability.</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+
+          <!-- Card 5 -->
+          <div class="flip-card-3d">
+            <div class="flip-card-inner">
+              <div class="flip-card-front">
+                <div>
+                  <span class="card-num-3d">05</span>
+                  <div class="five-s-name">Sustain</div>
+                  <div class="five-s-japanese">Shitsuke (躾)</div>
+                  <p class="five-s-desc">Cultivate discipline, team accountability, and daily habits so excellence becomes second nature.</p>
+                </div>
+              </div>
+              <div class="flip-card-back">
+                <div class="back-title">🎯 Culture of Habit:</div>
+                <ul class="back-list">
+                  <li>• Weekly peer audits and scorecards.</li>
+                  <li>• Continuous micro-improvements (Kaizen).</li>
+                  <li>• Pride of ownership in the workspace.</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Practical 5S Implementation Gallery -->
+      <h3>🛠️ Putting 5S into Action: Lab & Cubicle Reorganization</h3>
+      <p>
+        Theory translated into immediate physical practice. We were assigned cluttered hardware workstations overflowing with tangled thermocouple sensors, loose blue relays, analog joysticks, microcontrollers, and BNC probes. Applying Seiri and Seiton, we categorized, labeled, and compartmentalized hundreds of hardware components into partitioned organizer bins.
+      </p>
+
+      <div class="photo-gallery-3d">
+        <div class="gallery-item-3d">
+          <img src="./images/image_4.png" alt="Unsorted electronic components pile before 5S" loading="lazy">
+          <div class="caption">
+            <strong>Stage 1 (Before):</strong> The unsorted hardware pile—loose relays, joystick modules, wiring, and probes creating cognitive friction.
+          </div>
+        </div>
+
+        <div class="gallery-item-3d">
+          <img src="./images/image_3.png" alt="Sorting hardware components into bins" loading="lazy">
+          <div class="caption">
+            <strong>Stage 2 (In Action):</strong> Hands-on sorting (Seiri & Seiton) in the innovation lab, assigning modular dividers to each component.
+          </div>
+        </div>
+
+        <div class="gallery-item-3d">
+          <img src="./images/image_2.png" alt="Finished organized component bin drawer system" loading="lazy">
+          <div class="caption">
+            <strong>Stage 3 (After):</strong> The organized modular storage matrix—instant visibility, precise labeling, and zero wasted retrieval time.
+          </div>
+        </div>
+      </div>
+
+      <div class="callout-box cyan">
+        <div class="callout-title" style="color: #38bdf8;">💡 Operational Insight</div>
+        <p>
+          5S is far more than physical housekeeping; it is a mental operating system. Removing friction from your physical desk or your digital codebase radically amplifies focus, speed, and creative bandwidth.
+        </p>
+      </div>
+    </article>
+
+    <!-- DAY 2 SECTION -->
+    <article id="day-2" class="day-section tilt-card-3d">
+      <span class="day-badge">Day 2 • Algorithmic Logic</span>
+      <h2>⚡ Computational Thinking: Translating Instinct into Logic</h2>
+
+      <p>
+        Humans act on tacit knowledge and intuition; computers require absolute, unambiguous precision. Day 2 unraveled what an <em>algorithm</em> truly is: an unbroken, deterministic chain of atomic instructions executed to achieve a defined outcome.
+      </p>
+
+      <!-- Podi Dosa Case Study -->
+      <h3>🍳 The "Podi Dosa" Algorithm Challenge</h3>
+      <p>
+        Our icebreaker sounded deceptive: <em>Write an algorithm to make a Podi Dosa.</em> We quickly learned that "sprinkle some podi" is an instruction that paralyzes a machine. How much podi? At what milliliter volume of oil? Which hand rotates the burner valve, and by how many degrees?
+      </p>
+
+      <!-- 3D Interactive Recipe Stepper Simulator -->
+      <div class="recipe-stepper-3d">
+        <div class="stepper-header">
+          <div class="stepper-title">
+            <span>⚡</span> Interactive Algorithm Stepper
+          </div>
+          <div class="stepper-controls">
+            <button class="step-btn" id="prev-step">◀ Prev</button>
+            <button class="step-btn" id="next-step">Next Step ▶</button>
+          </div>
+        </div>
+        <div id="step-display" class="step-card-active">
+          <div class="step-badge-num" id="step-num-display">1</div>
+          <div>
+            <div class="step-content-title" id="step-title-display">Start System</div>
+            <div class="step-content-param" id="step-param-display">turn_left(); acquire_gas_supply()</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="photo-showcase-3d">
+        <img src="./images/image_5.png" alt="Podi Dosa step-by-step algorithm sheet" loading="lazy">
+        <div class="photo-caption">
+          <span>📜</span> <strong>Algorithm Blueprint:</strong> Dissecting culinary craft into 13 verifiable, deterministic execution steps.
+        </div>
+      </div>
+
+      <!-- Algorithmic Code Container -->
+      <div class="code-container">
+        <div class="code-header">
+          <div class="code-dots">
+            <span class="code-dot dot-red"></span>
+            <span class="code-dot dot-yellow"></span>
+            <span class="code-dot dot-green"></span>
+          </div>
+          <div>podi_dosa_pipeline.py — Algorithmic Logic</div>
+        </div>
+        <div class="code-body">
+          <div class="code-step"><span class="step-num">01</span><span class="step-text"><span class="step-keyword">def</span> execute_podi_dosa():</span></div>
+          <div class="code-step"><span class="step-num">02</span><span class="step-text">&nbsp;&nbsp;<span class="step-keyword">START</span>; turn_left(<span class="step-param">"gas_supply"</span>)</span></div>
+          <div class="code-step"><span class="step-num">03</span><span class="step-text">&nbsp;&nbsp;left_hand.turn_knob(<span class="step-param">direction="clockwise"</span>, <span class="step-param">angle=90</span>)</span></div>
+          <div class="code-step"><span class="step-num">04</span><span class="step-text">&nbsp;&nbsp;right_hand.ignite_burner(<span class="step-param">latency=0</span>) <span class="step-comment"># immediate spark</span></span></div>
+          <div class="code-step"><span class="step-num">05</span><span class="step-text">&nbsp;&nbsp;place_tava(surface=<span class="step-param">"facing_burner"</span>)</span></div>
+          <div class="code-step"><span class="step-num">06</span><span class="step-text">&nbsp;&nbsp;wait(<span class="step-param">duration_mins=2</span>) <span class="step-comment"># preheat pan</span></span></div>
+          <div class="code-step"><span class="step-num">07</span><span class="step-text">&nbsp;&nbsp;ladle.pour_and_spread(<span class="step-param">motion="outward_spiral"</span>)</span></div>
+          <div class="code-step"><span class="step-num">08</span><span class="step-text">&nbsp;&nbsp;drizzle(<span class="step-param">liquid="oil"</span>, <span class="step-param">quantity="5ml"</span>)</span></div>
+          <div class="code-step"><span class="step-num">09</span><span class="step-text">&nbsp;&nbsp;sprinkle(<span class="step-param">ingredient="idli_podi"</span>, <span class="step-param">mass="15g"</span>)</span></div>
+          <div class="code-step"><span class="step-num">10</span><span class="step-text">&nbsp;&nbsp;cook_until(color=<span class="step-param">"golden_brown"</span>, <span class="step-param">timeout="3mins"</span>)</span></div>
+          <div class="code-step"><span class="step-num">11</span><span class="step-text">&nbsp;&nbsp;fold_dosa(); lift_and_transfer(target=<span class="step-param">"serving_plate"</span>)</span></div>
+          <div class="code-step"><span class="step-num">12</span><span class="step-text">&nbsp;&nbsp;<span class="step-keyword">return</span> <span class="step-param">"Delicious Crispy Podi Dosa Ready!"</span></span></div>
+        </div>
+      </div>
+
+      <!-- Think Like a Coder -->
+      <h3>🧠 "Think Like a Coder": Conquering Flowcharts & Loops</h3>
+      <p>
+        Next, we tackled the acclaimed <em>"Think Like a Coder"</em> series, translating video puzzle dilemmas into mathematical control flow. Coming from a non-programming background, encountering <strong>For Loops</strong>, <strong>While Loops</strong>, and nested conditional gates felt intimidating at first.
+      </p>
+
+      <div class="photo-gallery-3d">
+        <div class="gallery-item-3d">
+          <img src="./images/image_6.png" alt="Loop control structures and door opening logic flowchart" loading="lazy">
+          <div class="caption">
+            <strong>Flow Series 1:</strong> Exploring Iteration Gates (For, While, Until) with variable counter increments (<code>N = N + 1</code>) to trigger security access.
+          </div>
+        </div>
+
+        <div class="gallery-item-3d">
+          <img src="./images/image_7.png" alt="Decision tree flowchart with eye check and color validation" loading="lazy">
+          <div class="caption">
+            <strong>Flow Series 2:</strong> Complex Decision Architecture: Multi-tier conditional validation (<code>Check eyes</code> → <code>Is red Red?</code> → <code>Report vs Trial</code>).
+          </div>
+        </div>
+      </div>
+
+      <div class="callout-box amber">
+        <div class="callout-title" style="color: #f59e0b;">⚡ Breakthrough Moment</div>
+        <p>
+          Coding is not about cryptic syntax; it is about <em>structural resilience</em>. Once you map the decision flow visually, the fear evaporates and logic takes command.
+        </p>
+      </div>
+    </article>
+
+    <!-- DAY 3 SECTION -->
+    <article id="day-3" class="day-section tilt-card-3d">
+      <span class="day-badge">Day 3 • Visual Programming</span>
+      <h2>🎨 Creative Computing: Playful Storytelling on Scratch</h2>
+
+      <p>
+        On Day 3, abstract algorithmic theory transformed into colorful, interactive reality through <strong>MIT Scratch</strong>. Scratch’s drag-and-drop block interface bridged the gap between computational logic and creative expression.
+      </p>
+
+      <h3>🐾 The "JUST RANDOM" Pet Meme Project</h3>
+      <p>
+        Rather than building a standard math calculator, I chose to infuse humor and personality. Using beloved photos of my pets, custom sound triggers, rimshot punchlines, and dynamic backdrop switches, I created an interactive meme story called <strong>"JUST RANDOM"</strong>.
+      </p>
+
+      <div class="photo-showcase-3d">
+        <img src="./images/image_9.png" alt="Just Random colorful doodle art cover" loading="lazy">
+        <div class="photo-caption">
+          <span>🎉</span> <strong>Cover Art & Aesthetic:</strong> The vibrant, hand-drawn pop visual created for the "JUST RANDOM" Scratch experience.
+        </div>
+      </div>
+
+      <!-- Scratch Block Logic -->
+      <h3>🧩 Under the Hood: Event-Driven Block Logic</h3>
+      <p>
+        Beneath the fun exterior ran real event-driven programming: listening for green-flag lifecycle events, scheduling temporal delays, executing backdrop crossfades, and orchestrating synchronized comedic sound clips (<code>universfield-funny-rimshot</code>).
+      </p>
+
+      <div class="photo-showcase-3d">
+        <img src="./images/image_8.png" alt="Scratch block script for Just Random project" loading="lazy">
+        <div class="photo-caption">
+          <span>💻</span> <strong>Scratch Workspace:</strong> Connecting event listeners, timed delays, background switching routines, and rimshot audio triggers.
+        </div>
+      </div>
+
+      <div class="callout-box emerald">
+        <div class="callout-title" style="color: #34d399;">✨ Key Discovery</div>
+        <p>
+          Coding isn't just an analytical discipline—it is a creative canvas. Scratch proved that when learning is fun, complex concepts like asynchronous timing and event queues become intuitive.
+        </p>
+      </div>
+    </article>
+
+    <!-- DAY 4 SECTION -->
+    <article id="day-4" class="day-section tilt-card-3d">
+      <span class="day-badge">Day 4 • Mobile Solutions</span>
+      <h2>📱 MIT App Development: Solving Campus Canteen Congestion</h2>
+
+      <p>
+        Day 4 brought our journey full circle: synthesizing problem identification, algorithmic design, and software implementation to create a mobile app prototype on <strong>MIT App Inventor</strong>.
+      </p>
+
+      <!-- 3D App Workflow Pipeline -->
+      <h3>🚀 The Canteen Queue-Buster 3D Pipeline</h3>
+      <div class="app-pipeline-3d">
+        <div class="pipeline-step-3d">
+          <div class="pipeline-icon-3d">📱</div>
+          <div class="pipeline-title">1. Pre-Slot Booking</div>
+          <p class="pipeline-desc">Students select menu items 45 mins prior to lunch break.</p>
+        </div>
+
+        <div class="pipeline-step-3d">
+          <div class="pipeline-icon-3d">🍳</div>
+          <div class="pipeline-title">2. Kitchen Balancing</div>
+          <p class="pipeline-desc">Chefs receive staggered queues to prepare trays evenly.</p>
+        </div>
+
+        <div class="pipeline-step-3d">
+          <div class="pipeline-icon-3d">🔔</div>
+          <div class="pipeline-title">3. Push Dispatch</div>
+          <p class="pipeline-desc">Automated alert with dynamic QR token when food is packed.</p>
+        </div>
+
+        <div class="pipeline-step-3d">
+          <div class="pipeline-icon-3d">⚡</div>
+          <div class="pipeline-title">4. 30-Sec Pickup</div>
+          <p class="pipeline-desc">Quick QR scan at dedicated express shelf—zero lines!</p>
+        </div>
+      </div>
+
+      <!-- Triple Lens Matrix -->
+      <h3>🔍 The Innovation Triad: Feasibility, Viability & Desirability</h3>
+      <p>
+        Every impactful product sits at the intersection of three fundamental criteria. We evaluated our campus challenges through this framework:
+      </p>
+
+      <div class="matrix-grid">
+        <div class="matrix-card">
+          <div class="matrix-icon">💡</div>
+          <div class="matrix-title">Desirability</div>
+          <p class="matrix-desc">Do real people genuinely crave this? Solving the excruciating lunch rush is universally wanted across students and staff.</p>
+        </div>
+
+        <div class="matrix-card">
+          <div class="matrix-icon">⚙️</div>
+          <div class="matrix-title">Feasibility</div>
+          <p class="matrix-desc">Can we build it with existing technology? Mobile ordering, local database queues, and push notifications are fully achievable.</p>
+        </div>
+
+        <div class="matrix-card">
+          <div class="matrix-icon">📈</div>
+          <div class="matrix-title">Viability</div>
+          <p class="matrix-desc">Is it operationally sustainable? Increases canteen turnover, reduces food wastage, and optimizes kitchen preparation pacing.</p>
+        </div>
+      </div>
+    </article>
+
+    <!-- RETROSPECTIVE SECTION -->
+    <article id="reflection" class="day-section tilt-card-3d" style="border-top: 4px solid var(--primary);">
+      <span class="day-badge" style="background: rgba(99, 102, 241, 0.2); color: #a5b4fc;">Synthesis</span>
+      <h2>🌟 Weekly Retrospective: The Mindset Shift</h2>
+
+      <p>
+        Looking back at Week 2, the growth curve has been extraordinary. What started as simple curiosity has matured into a structured way of seeing the world. Here are the core pillars carrying forward:
+      </p>
+
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 1.35rem; margin: 2.25rem 0;">
+        <div style="background: rgba(15, 23, 42, 0.7); padding: 1.6rem; border-radius: var(--radius-md); border: 1px solid var(--border); box-shadow: 0 10px 25px rgba(0,0,0,0.5);">
+          <div style="font-size: 1.8rem; margin-bottom: 0.6rem;">🧠</div>
+          <strong style="color: #ffffff; font-size: 1.05rem;">Computational Deconstruction</strong>
+          <p style="font-size: 0.9rem; color: #94a3b8; margin-top: 0.4rem; line-height: 1.6;">
+            No problem is insurmountable when broken into granular, sequential operations. If a step fails, you debug the condition, not your confidence.
+          </p>
+        </div>
+
+        <div style="background: rgba(15, 23, 42, 0.7); padding: 1.6rem; border-radius: var(--radius-md); border: 1px solid var(--border); box-shadow: 0 10px 25px rgba(0,0,0,0.5);">
+          <div style="font-size: 1.8rem; margin-bottom: 0.6rem;">📐</div>
+          <strong style="color: #ffffff; font-size: 1.05rem;">Lean Efficiency (5S) Everywhere</strong>
+          <p style="font-size: 0.9rem; color: #94a3b8; margin-top: 0.4rem; line-height: 1.6;">
+            Whether arranging physical sensor drawers or organizing code repositories, clean visual architecture unlocks cognitive clarity and eliminates wasted motion.
+          </p>
+        </div>
+
+        <div style="background: rgba(15, 23, 42, 0.7); padding: 1.6rem; border-radius: var(--radius-md); border: 1px solid var(--border); box-shadow: 0 10px 25px rgba(0,0,0,0.5);">
+          <div style="font-size: 1.8rem; margin-bottom: 0.6rem;">🤝</div>
+          <strong style="color: #ffffff; font-size: 1.05rem;">Human-Centered Innovation</strong>
+          <p style="font-size: 0.9rem; color: #94a3b8; margin-top: 0.4rem; line-height: 1.6;">
+            Technology without empathy is futile. Whether feeding infants on trains or clearing canteen queues, innovation begins with genuine compassion for human inconvenience.
+          </p>
+        </div>
+      </div>
+    </article>
+
+  </div>
+
+  <!-- Lightbox Modal -->
+  <div class="lightbox" id="image-modal">
+    <img id="lightbox-img" src="" alt="Zoomed view">
+  </div>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <p class="footer-quote">
+      "Creativity is thinking up new things. Innovation is doing new things. And engineering is making those things work systematically."
+    </p>
+    <p>© 2026 Innovation Bootcamp • Week 2 Journey</p>
+    <p style="margin-top: 0.5rem; font-size: 0.8rem; color: var(--text-subtle);">Crafted with passion, logic, and 3D visual computing.</p>
+  </footer>
+
+  <!-- 3D Scripts: Canvas Scene, Interactive Tilt Physics, and Recipe Stepper -->
+  <script>
+    // 1. Reading Progress Bar
+    window.addEventListener('scroll', () => {
+      const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+      const scrolled = (window.scrollY / docHeight) * 100;
+      document.getElementById('reading-progress').style.width = scrolled + '%';
+    });
+
+    // 2. HERO 3D INTERACTIVE CANVAS (Rotating 3D Polyhedral Core & Star Constellation)
+    const canvas = document.getElementById('hero-3d-canvas');
+    const ctx = canvas.getContext('2d');
+    let width, height;
+    let mouse = { x: 0, y: 0, targetX: 0, targetY: 0 };
+
+    function resizeCanvas() {
+      const rect = document.getElementById('hero-banner').getBoundingClientRect();
+      width = canvas.width = rect.width;
+      height = canvas.height = rect.height;
+    }
+    window.addEventListener('resize', resizeCanvas);
+    resizeCanvas();
+
+    document.getElementById('hero-banner').addEventListener('mousemove', (e) => {
+      const rect = canvas.getBoundingClientRect();
+      mouse.targetX = (e.clientX - rect.left - width / 2) * 0.003;
+      mouse.targetY = (e.clientY - rect.top - height / 2) * 0.003;
+    });
+
+    // 3D Particles
+    const particles = [];
+    const NUM_PARTICLES = 70;
+    for (let i = 0; i < NUM_PARTICLES; i++) {
+      particles.push({
+        x: (Math.random() - 0.5) * 500,
+        y: (Math.random() - 0.5) * 350,
+        z: (Math.random() - 0.5) * 500,
+        size: Math.random() * 2 + 1,
+        color: i % 2 === 0 ? '#38bdf8' : '#818cf8'
+      });
+    }
+
+    // 3D Icosahedron Vertices
+    const phi = (1 + Math.sqrt(5)) / 2;
+    const baseVertices = [
+      [-1,  phi, 0], [ 1,  phi, 0], [-1, -phi, 0], [ 1, -phi, 0],
+      [ 0, -1,  phi], [ 0,  1,  phi], [ 0, -1, -phi], [ 0,  1, -phi],
+      [ phi, 0, -1], [ phi, 0,  1], [-phi, 0, -1], [-phi, 0,  1]
+    ];
+    const scalePoly = 65;
+    const vertices = baseVertices.map(v => ({ x: v[0] * scalePoly, y: v[1] * scalePoly, z: v[2] * scalePoly }));
+
+    // Edges of Icosahedron
+    const edges = [
+      [0,11],[0,5],[0,1],[0,7],[0,10],[1,5],[1,9],[1,8],[1,7],[2,11],[2,10],[2,4],[2,6],[2,3],[3,9],[3,4],[3,8],[3,6],[4,5],[4,9],[4,11],[5,9],[5,11],[6,7],[6,8],[6,10],[7,8],[7,10],[8,9],[10,11]
+    ];
+
+    let rotX = 0, rotY = 0, rotZ = 0;
+
+    function render3D() {
+      ctx.clearRect(0, 0, width, height);
+
+      // Smooth mouse tracking
+      mouse.x += (mouse.targetX - mouse.x) * 0.05;
+      mouse.y += (mouse.targetY - mouse.y) * 0.05;
+
+      rotX += 0.006 + mouse.y * 0.2;
+      rotY += 0.008 + mouse.x * 0.2;
+      rotZ += 0.002;
+
+      const fov = 350;
+      const cx = width / 2;
+      const cy = height / 2;
+
+      // Project & Render 3D Particles
+      particles.forEach(p => {
+        // Rotate around Y and X
+        let cosY = Math.cos(rotY * 0.3), sinY = Math.sin(rotY * 0.3);
+        let x1 = p.x * cosY + p.z * sinY;
+        let z1 = -p.x * sinY + p.z * cosY;
+
+        let cosX = Math.cos(rotX * 0.3), sinX = Math.sin(rotX * 0.3);
+        let y1 = p.y * cosX - z1 * sinX;
+        let z2 = p.y * sinX + z1 * cosX + 400;
+
+        if (z2 > 10) {
+          const factor = fov / z2;
+          const px = x1 * factor + cx;
+          const py = y1 * factor + cy;
+          const alpha = Math.max(0.1, Math.min(0.8, (z2 - 100) / 400));
+
+          ctx.fillStyle = p.color;
+          ctx.globalAlpha = alpha;
+          ctx.beginPath();
+          ctx.arc(px, py, p.size * factor * 0.8, 0, Math.PI * 2);
+          ctx.fill();
+        }
+      });
+
+      // Project & Render 3D Geometric Icosahedron
+      const projected = vertices.map(v => {
+        // 3D Rotations
+        let cosY = Math.cos(rotY), sinY = Math.sin(rotY);
+        let x1 = v.x * cosY + v.z * sinY;
+        let z1 = -v.x * sinY + v.z * cosY;
+
+        let cosX = Math.cos(rotX), sinX = Math.sin(rotX);
+        let y1 = v.y * cosX - z1 * sinX;
+        let z2 = v.y * sinX + z1 * cosX + 320;
+
+        const factor = fov / z2;
+        return {
+          x: x1 * factor + cx,
+          y: y1 * factor + cy,
+          z: z2
+        };
+      });
+
+      // Draw 3D Edges with Neon Glow
+      ctx.lineWidth = 1.4;
+      edges.forEach(([i, j]) => {
+        const p1 = projected[i];
+        const p2 = projected[j];
+        const avgZ = (p1.z + p2.z) / 2;
+        const alpha = Math.max(0.15, Math.min(0.85, 1 - (avgZ - 200) / 300));
+
+        ctx.strokeStyle = '#06b6d4';
+        ctx.globalAlpha = alpha * 0.65;
+        ctx.beginPath();
+        ctx.moveTo(p1.x, p1.y);
+        ctx.lineTo(p2.x, p2.y);
+        ctx.stroke();
+      });
+
+      // Draw Vertices
+      projected.forEach(p => {
+        ctx.fillStyle = '#6366f1';
+        ctx.globalAlpha = 0.9;
+        ctx.beginPath();
+        ctx.arc(p.x, p.y, 3, 0, Math.PI * 2);
+        ctx.fill();
+      });
+
+      ctx.globalAlpha = 1.0;
+      requestAnimationFrame(render3D);
+    }
+    render3D();
+
+    // 3. 3D CARD PARALLAX TILT PHYSICS
+    const tiltCards = document.querySelectorAll('.tilt-card-3d, .gallery-item-3d, .matrix-card, .photo-showcase-3d');
+    tiltCards.forEach(card => {
+      card.addEventListener('mousemove', (e) => {
+        const rect = card.getBoundingClientRect();
+        const x = e.clientX - rect.left;
+        const y = e.clientY - rect.top;
+        const centerX = rect.width / 2;
+        const centerY = rect.height / 2;
+        const rotateX = ((y - centerY) / centerY) * -6;
+        const rotateY = ((x - centerX) / centerX) * 6;
+
+        card.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) translateZ(8px)`;
+      });
+
+      card.addEventListener('mouseleave', () => {
+        card.style.transform = 'perspective(1000px) rotateX(0deg) rotateY(0deg) translateZ(0px)';
+      });
+    });
+
+    // 4. CLICK TO FLIP FOR 5S 3D CARDS (Mobile / Click Support)
+    document.querySelectorAll('.flip-card-3d').forEach(card => {
+      card.addEventListener('click', () => {
+        card.classList.toggle('flipped');
+      });
+    });
+
+    // 5. INTERACTIVE 3D RECIPE STEPPER
+    const recipeSteps = [
+      { num: 1, title: "Start System & Gas Supply", param: "turn_left(); acquire_gas_supply()" },
+      { num: 2, title: "Valve 90° Clockwise Rotation", param: "left_hand.turn_knob(direction='clockwise', angle=90)" },
+      { num: 3, title: "Instant Burner Ignition", param: "right_hand.ignite_burner(latency=0)" },
+      { num: 4, title: "Pan Placement & 2-Min Preheat", param: "place_tava(facing='burner'); wait(120s)" },
+      { num: 5, title: "Ladle Pour & Outward Spiral", param: "ladle.pour_and_spread(motion='circular_spiral')" },
+      { num: 6, title: "Precision 5ml Oil Drizzle", param: "drizzle(liquid='oil', quantity='5ml')" },
+      { num: 7, title: "Even 15g Podi Dusting", param: "sprinkle(ingredient='idli_podi', mass='15g')" },
+      { num: 8, title: "Golden Brown Thermal Crisp", param: "cook_until(color='golden_brown', timeout='180s')" },
+      { num: 9, title: "Fold & Transfer to Plate", param: "fold_dosa(); transfer_to_plate(ready=True)" }
+    ];
+
+    let currentStepIdx = 0;
+    const stepNumDisplay = document.getElementById('step-num-display');
+    const stepTitleDisplay = document.getElementById('step-title-display');
+    const stepParamDisplay = document.getElementById('step-param-display');
+
+    function updateStep() {
+      const step = recipeSteps[currentStepIdx];
+      stepNumDisplay.textContent = step.num;
+      stepTitleDisplay.textContent = step.title;
+      stepParamDisplay.textContent = step.param;
+      const displayCard = document.getElementById('step-display');
+      displayCard.style.transform = 'translateZ(25px) scale(1.02)';
+      setTimeout(() => {
+        displayCard.style.transform = 'translateZ(15px) scale(1)';
+      }, 200);
+    }
+
+    document.getElementById('next-step').addEventListener('click', () => {
+      currentStepIdx = (currentStepIdx + 1) % recipeSteps.length;
+      updateStep();
+    });
+
+    document.getElementById('prev-step').addEventListener('click', () => {
+      currentStepIdx = (currentStepIdx - 1 + recipeSteps.length) % recipeSteps.length;
+      updateStep();
+    });
+
+    // 6. LIGHTBOX FOR IMAGES
+    const lightbox = document.getElementById('image-modal');
+    const lightboxImg = document.getElementById('lightbox-img');
+    document.querySelectorAll('.day-section img').forEach(img => {
+      img.addEventListener('click', () => {
+        lightboxImg.src = img.src;
+        lightbox.classList.add('active');
+      });
+    });
+    lightbox.addEventListener('click', () => {
+      lightbox.classList.remove('active');
+    });
+
+    // 7. ACTIVE PILL HIGHLIGHT ON SCROLL
+    const sections = document.querySelectorAll('.day-section');
+    const pills = document.querySelectorAll('.day-pill');
+    window.addEventListener('scroll', () => {
+      let currentId = '';
+      sections.forEach(sec => {
+        const top = sec.offsetTop - 140;
+        if (window.scrollY >= top) {
+          currentId = sec.getAttribute('id');
+        }
+      });
+      pills.forEach(pill => {
+        pill.classList.remove('active');
+        if (pill.getAttribute('href') === '#' + currentId) {
+          pill.classList.add('active');
+        }
+      });
+    });
+  </script>
+</body>
+</html>
